@@ -1,0 +1,22 @@
+streamlit==1.39.0
+pillow
+numpy
+pandas
+opencv-python-headless
+ultralytics==8.2.103
+tflite-runtime
+python-multipart
+
+# Utilities
+matplotlib
+seaborn
+requests
+
+# For animated GIF support (optional)
+imageio
+
+# JSON + CSV handlers
+python-json-logger
+
+# If using lottie animations
+streamlit-lottie
