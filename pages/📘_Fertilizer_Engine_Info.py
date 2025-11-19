@@ -1,15 +1,13 @@
 import streamlit as st
 from utils.language import get_text
 from utils.theme import load_theme
-
-# Load global theme
-load_theme()
-
 st.set_page_config(
     page_title="Fertilizer Engine Info",
     page_icon="📘",
     layout="wide"
 )
+# Load global theme
+load_theme()
 
 # ---------------------------
 # Language System

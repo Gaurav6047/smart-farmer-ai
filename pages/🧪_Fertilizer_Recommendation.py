@@ -11,8 +11,6 @@ from engine.auto_crop import AutoCropEngine
 from utils.language import get_text
 from utils.theme import load_theme
 
-# Load theme
-load_theme()
 
 # Initialize engines
 recommender = FertilizerRecommender()
@@ -26,6 +24,8 @@ st.set_page_config(
     page_icon="🧪",
     layout="wide"
 )
+# Load theme
+load_theme()
 
 # ---------------------------------------
 # LANGUAGE

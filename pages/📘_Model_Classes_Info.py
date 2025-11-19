@@ -87,11 +87,8 @@ with tab1:
     else:
         st.success(f"✔ Total Classes: {len(plant_df)}")
 
-        st.dataframe(
-            plant_df[["class_index", "class"]],
-            width="stretch",
-            hide_index=True
-        )
+        st.dataframe(plant_df[["class_index","class"]], hide_index=True)
+
 
     st.info(
         "Upload a clear leaf image with good lighting"
