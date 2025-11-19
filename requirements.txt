@@ -11,3 +11,4 @@ requests
 imageio
 python-json-logger
 streamlit-lottie
+scikit-learn==1.3.0
