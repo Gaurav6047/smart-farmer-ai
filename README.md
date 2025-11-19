@@ -1,131 +1,197 @@
-# 🌱 Smart Farmer AI
+# 🌱 **Smart Farmer AI**
 
-### **AI-Powered Plant Disease, Pest Detection, Fruit Classification & Intelligent Fertilizer Recommendations**
+### AI-Powered Crop Recommendation, Plant Disease Detection, Pest Detection, Fruit Classification & Scientific Fertilizer Engine
 
-**Smart Farmer AI** is an end-to-end agricultural intelligence system designed for real-world farmers.
-It brings together multiple AI models — **Plant Disease Classifier, Pest Detector, Fruit Classifier, Image Router**, and a **Rule-Based Fertilizer + INM Engine** — all inside one clean, mobile-first Streamlit UI.
+<p align="center">
+  <img src="assets/banner.png" width="90%" />
+</p>
 
-The goal is simple:
-**Help farmers take a photo → get instant diagnosis → get treatment → get fertilizer plan.**
+<p align="center">
+  <b>Streamlit • TFLite • YOLOv8 • RandomForest • Scientific STCR Engine</b>
+</p>
 
 ---
 
-## 🚀 Key Features
+# ⭐ **Badges**
 
-### 🌿 Plant Disease Detection
+<p align="center">
+  <img src="https://img.shields.io/badge/Streamlit-App-brightgreen?style=for-the-badge">
+  <img src="https://img.shields.io/badge/TFLite-Models-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/YOLOv8-Pest Detection-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Fertilizer-STCR Engine-red?style=for-the-badge">
+  <img src="https://img.shields.io/badge/ML-RandomForest-yellow?style=for-the-badge">
+</p>
 
-* 38-class **PlantVillage** TFLite model
-* Optimized for mobile (fast 224×224 classifier)
-* High accuracy with extremely small footprint
+---
 
-### 🐛 Pest Detection (YOLOv8)
+# 📌 **Overview**
+
+**Smart Farmer AI** is a full-stack agricultural intelligence system designed for real-world farmers.
+It integrates **multiple AI models**, scientific agriculture datasets, and a rule-based fertilizer engine — all inside one beautiful, mobile-optimized Streamlit UI.
+
+✔ Photo → Disease/Pest/Fruit detection
+✔ Soil data → Best Crop → Full Fertilizer Plan
+✔ Works offline
+✔ Lightweight + Fast
+✔ Multilingual (English + Hindi)
+
+---
+
+# 🧠 **Features**
+
+---
+
+## 🌿 **Plant Disease Detection**
+
+* 38-class **PlantVillage TFLite** model
+* CPU-optimized (5–20 ms inference)
+* High accuracy + mobile-friendly
+* Full confidence score + alerts
+
+---
+
+## 🐛 **Pest Detection (YOLOv8)**
 
 * Custom-trained YOLOv8 model
-* Real-time insect detection
-* Bounding boxes + confidence scores
-* Works on images & live camera
-
-### 🍎 Fruit & Vegetable Classification
-
-* 36-class TFLite Fruit & Veg model
-* < 5 ms inference on CPU
-* Ideal for mobile devices & low-power boards
-
-### 🔀 Auto Image Routing (Router Model)
-
-A custom lightweight CNN automatically decides whether the image is of a:
-
-* Leaf
-* Pest
-* Fruit/Vegetable
-* Or irrelevant background
-
-Based on this, the user is automatically routed to the correct page.
-
-### 🧪 Fertilizer Recommendation Engine (NEW)
-
-A complete rule-based engine built from:
-
-* STCR equations
-* Soil fertility rating rules
-* Micronutrient critical limits
-* ACZ-specific INM packages
-* Organic substitution rules (FYM, compost, oilcake)
-* Environmental & soil constraints (acidic/alkali/P-rich soils)
-
-Outputs:
-✔ Recommended N, P₂O₅, K₂O (kg/ha)
-✔ Micronutrient doses (Zn, Fe, S, Mn, B)
-✔ Organic fertilizer equivalents
-✔ Soil correction measures
-✔ And expected economic benefits
-
-### 📘 Model Classes Information
-
-* Dynamic loading of class names from CSV/JSON
-* Clean UI for browsing all categories
-
-### ⚠️ Wrong Prediction Troubleshooting
-
-Helps farmers click better photos
-(focus, lighting, angle, zoom, leaf clarity)
+* Real-time detection
+* Bounding boxes + confidence
+* Works for Indian farm pests
 
 ---
 
-## 🌐 Tech Stack Overview
+## 🍎 **Fruit & Vegetable Classification**
 
-| Component         | Technology                              |
-| ----------------- | --------------------------------------- |
-| Web UI            | Streamlit                               |
-| Disease Model     | TensorFlow Lite                         |
-| Fruit Model       | TFLite                                  |
-| Pest Model        | YOLOv8                                  |
-| Router Model      | TFLite (64×64 CNN)                      |
-| Fertilizer Engine | Python rule-based + scientific datasets |
-| Data              | CSV/JSON/YAML                           |
-| Deployment        | Streamlit Cloud                         |
+* 36-class TFLite classifier
+* Preprocessed for low-power devices
+* High accuracy on common fruits/vegetables
 
 ---
 
-## 📁 Project Structure
+## 🔀 **Auto Image Router**
+
+Automatically routes image to:
+
+* Plant Disease Page
+* Pest Detection Page
+* Fruit Classification Page
+* Or Background Warning
+
+Powered by **64×64 tiny CNN** — fast and lightweight.
+
+---
+
+## 🌾 **Crop Recommendation System (ML Model)**
+
+A machine learning system trained using:
+
+* N, P, K
+* pH
+* Rainfall
+* Temperature
+* Soil Type
+* Region Data
+
+Model Used: **RandomForestClassifier**
+
+✔ Predicts best crop
+✔ Provides confidence score
+✔ Uses scaler for normalization
+✔ Works offline
+✔ Hindi + English support
+
+Files:
+
+```
+models/crop_rf_final.pkl
+models/scaler.pkl
+```
+
+---
+
+## 🧪 **Scientific Fertilizer Recommendation Engine**
+
+A professional-grade fertilizer engine built using:
+
+* **STCR equations**
+* **Indian soil fertility thresholds**
+* **Micronutrient critical levels**
+* **Organic nutrient substitution logic**
+* **Legume rotation credits**
+* **pH + EC correction rules**
+* **Commercial NPK-to-bags conversion**
+
+Outputs include:
+
+✔ N, P₂O₅, K₂O (kg/ha)
+✔ Organic credits deduction
+✔ Urea, DAP, MOP bags
+✔ Micronutrient recommendations
+✔ Soil correction alerts
+✔ Agronomic notes
+✔ Full calculation breakdown
+
+Uses the following datasets:
+
+```
+models/soil_fertility.json
+models/standard_npk.csv
+models/stcr_equations.json
+models/organic_rules.json
+```
+
+---
+# 📁 **Project Structure**
 
 ```
 smart-farmer/
 │── main.py
+│── router.py
+│── requirements.txt
+│
 │── pages/
-│   ├── plant_disease.py
-│   ├── pest_detection.py
-│   ├── fruit_classifier.py
-│   ├── fertilizer_engine.py
+│   ├── 🌿_Plant_Disease.py
+│   ├── 🐛_Pest_Detection.py
+│   ├── 🍎_Fruit_Classification.py
+│   ├── 🔀_Auto_Routing.py
+│   ├── 📊_Crop_Recommendation.py
+│   ├── 🧪_Fertilizer_Recommendation.py
+│   └── 📘_Fertilizer_Engine_Info.py
+│
+│── engine/
+│   ├── recommender.py
+│   ├── stcr.py
+│   ├── organic_rules.py
+│   ├── brand_converter.py
+│   ├── thresholds.py
+│   ├── loader.py
+│   └── auto_crop.py
+│
 │── models/
 │   ├── plant_disease.tflite
 │   ├── fruit_model.tflite
+│   ├── pest_model.pt
 │   ├── router_model.tflite
-│   └── pest_model.pt
+│   ├── soil_fertility.json
+│   ├── standard_npk.csv
+│   ├── stcr_equations.json
+│   ├── organic_rules.json
+│   ├── crop_rf_final.pkl
+│   └── scaler.pkl
+│
 │── utils/
-│   ├── image_preprocessing.py
-│   ├── fertilizer_rules.py
-│   └── classes_loader.py
-│── assets/
-│── datasets/
-│── requirements.txt
-└── README.md
+│   ├── theme.py
+│   ├── language.py
+│   ├── result_box.py
+│   ├── preprocess.py
+│   ├── postprocess.py
+│   └── model_loader.py
+│
+└── assets/
 ```
 
 ---
 
-## 🧠 Models Included
-
-| Model                  | Purpose                               |
-| ---------------------- | ------------------------------------- |
-| `plant_disease.tflite` | 38-class PlantVillage classifier      |
-| `pest_model.pt`        | YOLOv8 insect detector                |
-| `fruit_model.tflite`   | 36-class fruit & vegetable classifier |
-| `router_model.tflite`  | Auto image routing CNN                |
-
----
-
-## 📦 Installation
+# ⚙️ Installation
 
 ```bash
 pip install -r requirements.txt
@@ -134,40 +200,39 @@ streamlit run main.py
 
 ---
 
-## 🚀 Deployment on Streamlit Cloud
+# ☁️ Deploy on Streamlit Cloud
 
-1. Push project to GitHub
-2. Visit [https://share.streamlit.io](https://share.streamlit.io)
-3. Connect your repo
-4. Select `main.py`
-5. Deploy instantly — done 🎉
-
----
-
-## 📱 Mobile-Optimized UI
-
-* Fully responsive
-* Camera input support
-* Premium green theme
-* Smooth animations
-* Touch-friendly controls
+1. Upload to GitHub
+2. Go to [https://share.streamlit.io](https://share.streamlit.io)
+3. Select `main.py`
+4. Deploy → Done 🎉
 
 ---
 
-## 🔮 Future Roadmap
+# 📱 Mobile-Optimized
 
-* Soil Nutrient Classification (image + text input)
-* NPK-Based Crop Recommendation ML Model
-* Yield Prediction Module (Regression + Rules)
-* Offline Android App (Kivy/Flutter)
-* Voice-based Farmer Assistant (Hindi + English)
-* Weather-aware fertilizer scheduling
+✔ Touch-friendly
+✔ Responsive grid
+✔ Camera input
+✔ Smooth animations
+✔ Dark/Light friendly
+
+---
+
+# 🔮 Future Enhancements
+
+* AI Voice Assistant (Hindi + English)
+* Offline Android App
+* Weather-aware crop planning
+* Yield prediction model
+* Auto fertilizer schedule based on NDVI
 
 ---
 
-## 🧑‍💻 Author
+# ✨ Author
 
-**Gaurav – Machine Learning Engineer**
-Smart AI tools for next-gen agriculture 🌱
+**Gaurav — Machine Learning Engineer**
+Building practical & intelligent AI for agriculture 🌱
 
 ---
+
