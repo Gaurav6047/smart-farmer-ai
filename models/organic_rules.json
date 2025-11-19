@@ -1,0 +1,160 @@
+{
+  "organic_inputs": {
+    "meta": {
+      "description": "Organic nutrient sources for IPNS (Integrated Plant Nutrient System).",
+      "usage_formula": "nutrient_kg = (applied_kg * percent) / 100"
+    },
+
+    "manure": [
+      {
+        "name": "Farm Yard Manure (FYM)",
+        "N_percent": 0.50,
+        "P2O5_percent": 0.25,
+        "K2O_percent": 0.50,
+        "cn_ratio": "20-30:1",
+        "note": "Variable composition; improves soil structure."
+      },
+      {
+        "name": "Vermicompost",
+        "N_percent": 1.50,
+        "P2O5_percent": 1.00,
+        "K2O_percent": 1.00,
+        "cn_ratio": "15:1",
+        "note": "Fast nutrient release."
+      },
+      {
+        "name": "Poultry Manure",
+        "N_percent": 3.03,
+        "P2O5_percent": 2.63,
+        "K2O_percent": 1.40,
+        "cn_ratio": "10:1",
+        "note": "Very high nutrient load—avoid fresh application."
+      },
+      {
+        "name": "Goat/Sheep Manure",
+        "N_percent": 0.65,
+        "P2O5_percent": 0.50,
+        "K2O_percent": 0.03
+      },
+      {
+        "name": "City Compost",
+        "N_percent": 1.50,
+        "P2O5_percent": 0.50,
+        "K2O_percent": 1.00,
+        "note": "Monitor heavy metals."
+      },
+      {
+        "name": "Press Mud",
+        "N_percent": 1.20,
+        "P2O5_percent": 2.00,
+        "K2O_percent": 2.00,
+        "note": "Useful for acidic soils (contains calcium)."
+      },
+      {
+        "name": "Biogas Slurry",
+        "N_percent": 1.50,
+        "P2O5_percent": 1.00,
+        "K2O_percent": 1.00
+      }
+    ],
+
+    "oilseed_cakes": [
+      {
+        "name": "Neem Cake",
+        "N_percent": 5.2,
+        "P2O5_percent": 1.0,
+        "K2O_percent": 1.4,
+        "property": "Nitrification inhibitor"
+      },
+      {
+        "name": "Castor Cake",
+        "N_percent": 4.3,
+        "P2O5_percent": 1.8,
+        "K2O_percent": 1.3
+      },
+      {
+        "name": "Groundnut Cake",
+        "N_percent": 7.3,
+        "P2O5_percent": 1.5,
+        "K2O_percent": 1.3
+      },
+      {
+        "name": "Mustard Cake",
+        "N_percent": 5.2,
+        "P2O5_percent": 1.8,
+        "K2O_percent": 1.2
+      },
+      {
+        "name": "Karanj Cake",
+        "N_percent": 3.9,
+        "P2O5_percent": 0.9,
+        "K2O_percent": 1.2
+      },
+      {
+        "name": "Cotton Seed Cake",
+        "N_percent": 6.4,
+        "P2O5_percent": 2.9,
+        "K2O_percent": 2.2
+      },
+      {
+        "name": "Safflower Cake",
+        "N_percent": 7.9,
+        "P2O5_percent": 2.2,
+        "K2O_percent": 1.9
+      }
+    ]
+  },
+
+  "special_rules": {
+    "pH": {
+      "acidic_critical": {
+        "condition": "pH < 5.5",
+        "recommend": "Apply Lime 2–4 q/ha"
+      },
+      "alkaline_critical": {
+        "condition": "pH >= 8.5",
+        "recommend": "Apply Gypsum 10–15 t/ha"
+      }
+    },
+
+    "EC": {
+      "saline": {
+        "condition": "EC > 2.0",
+        "yield_adjustment": -0.30
+      }
+    },
+
+    "rotation": {
+      "legume_credit": {
+        "condition": "previous == 'Legume'",
+        "N_minus": 25
+      }
+    },
+
+    "micronutrients": {
+      "Zn": {
+        "trigger": "< 0.6",
+        "apply": "ZnSO4 @ 25 kg/ha"
+      },
+      "B": {
+        "trigger": "< 0.50",
+        "apply": "Borax 10–15 kg/ha"
+      }
+    },
+
+    "soil_type_rules": {
+      "sandy": {
+        "condition": "Soil_Texture == 'Sandy'",
+        "N_split": "3–4 splits"
+      }
+    },
+
+    "fertigation": {
+      "drip": {
+        "condition": "Irrigation == 'Drip'",
+        "reduce_factor": 0.80,
+        "split_doses": "10–12 splits"
+      }
+    }
+  }
+}

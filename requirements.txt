@@ -2,21 +2,29 @@ streamlit==1.39.0
 pillow
 numpy
 pandas
-opencv-python-headless
+opencv-python-headless==4.8.1.78
 ultralytics==8.2.103
-tflite-runtime
-python-multipart
+
+# Tensorflow CPU (works on Streamlit Cloud)
+tensorflow==2.15.0
+
+# ML Models
+scikit-learn
+joblib
 
 # Utilities
 matplotlib
-seaborn
 requests
 
-# For animated GIF support (optional)
-imageio
-
-# JSON + CSV handlers
+# JSON logs
 python-json-logger
 
-# If using lottie animations
+# lottie support
 streamlit-lottie
+
+# FastAPI + Uvicorn (optional, for local API)
+fastapi
+uvicorn
+
+# File upload support
+python-multipart

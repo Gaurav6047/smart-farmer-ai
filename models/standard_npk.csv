@@ -1,0 +1,34 @@
+Category,Crop,Condition_Variety,N_kg_ha,P_kg_ha,K_kg_ha,Agronomic_Notes,Reference_ID
+Cereals,Rice,Irrigated (Transplanted),120,60,60,"Split N: 50% basal, 25% tillering, 25% PI. Hybrids may need 150+ N.",59
+Cereals,Rice,Rainfed / Upland,60,30,30,"Lower dose due to low moisture & yield potential.",59
+Cereals,Wheat,Irrigated (Timely Sown),120,60,40,"Late sown reduces N to 90:60:40.",59
+Cereals,Wheat,Irrigated (Late Sown),90,60,40,"Shorter season → reduce N.",59
+Cereals,Wheat,Rainfed,60,30,20,"Residue moisture conservation requires low inputs.",59
+Cereals,Maize,Irrigated (Hybrids),150,60,40,"Heavy feeder; Zn deficiency common.",59
+Cereals,Sorghum,Irrigated,80,40,40,"Dual purpose varieties need balanced N:K.",59
+Cereals,Sorghum,Rainfed (Deep Soil),60,30,30,"Deep soil supports extraction.",59
+Cereals,Pearl Millet,Irrigated,80,40,40,"High N response; ranges up to 100.",59
+Cereals,Pearl Millet,Rainfed,60,30,20,"K response low in arid K-rich soils.",59
+Cereals,Finger Millet,Irrigated (Ragi),60,30,30,"Azospirillum biofertilizer recommended.",59
+Cereals,Barley,Irrigated (Malt),60,30,20,"High N increases protein (bad for malt).",59
+Pulses,Chickpea,General,20,50,20,"Needs S (20 kg), Zn, B, Mo.",65
+Pulses,Pigeonpea,General,25,50,30,"Needs Zn, S, Mo.",65
+Pulses,Green Gram,General,20,40,20,"High S requirement.",65
+Pulses,Black Gram,General,20,40,20,"S essential.",65
+Pulses,Lentil,General,20,40,20,"Zn often limiting in rice fallows.",65
+Pulses,Soybean,General,30,80,40,"High P+S; Zn critical in Vertisols.",65
+Oilseeds,Groundnut,General,25,50,50,"400 kg gypsum essential; B important.",70
+Oilseeds,Mustard,General,80,40,40,"Needs 20–40 kg S mandatory.",70
+Oilseeds,Sunflower,General,80,90,50,"High Boron demand; B deficiency sensitive.",70
+Oilseeds,Castor,General,120,50,40,"Split N required (long duration crop).",70
+Oilseeds,Sesame,General,40,40,20,"Avoid waterlogging; balanced NPK.",70
+Commercial,Sugarcane,General,275,100,150,"Huge K demand; N split into 3–4.",75
+Commercial,Cotton,Bt Cotton,150,60,60,"MgSO4 needed for reddening deficiency.",75
+Vegetables,Potato,General,180,100,120,"Use SOP (chloride-free K).",75
+Vegetables,Tomato,General,200,150,150,"Hybrids under drip need 200:250:250.",75
+Vegetables,Brinjal,General,200,100,100,"Long duration → regular top dressing.",75
+Vegetables,Chilli,General,150,75,75,"Too much N causes flower drop.",75
+Vegetables,Onion,General,125,75,100,"S improves pungency & storage.",75
+Vegetables,Okra,General,120,60,60,"Frequent picking needs steady nutrients.",75
+Vegetables,Cabbage,General,150,125,100,"Mo deficiency (whiptail) common in acid soils.",75
+Vegetables,Cauliflower,General,150,100,100,"High B + Mo demand; browning due to B deficiency.",75
