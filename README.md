@@ -121,17 +121,6 @@ The system provides decision support, not guaranteed yield predictions
 
 These limitations are acknowledged as part of responsible deployment.
 
-Academic Evaluation Requirements
-To make the project defensible for examination or publication, the following must be documented:
-
-Classification reports and confusion matrices for all models
-
-mAP, precision, and recall for the pest detection system
-
-At least three real or simulated farmer case studies
-
-Documentation of training datasets, splits, and evaluation strategy
-
 Author
 Gaurav
 Machine Learning Engineer (India)
