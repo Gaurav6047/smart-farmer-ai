@@ -1,0 +1,198 @@
+{
+  "stcr_equations": {
+    "meta": {
+      "description": "Soil Test Crop Response (Targeted Yield) Equations for N, P2O5, K2O",
+      "source": "ICAR-AICRP STCR Database",
+      "variables": {
+        "T": "Target Yield (q/ha or t/ha)",
+        "SN": "Available Nitrogen (kg/ha)",
+        "SP": "Available Phosphorus (kg/ha)",
+        "SK": "Available Potassium (kg/ha)"
+      }
+    },
+
+    "crops": {
+
+      "rice_alluvial": {
+        "crop_name": "Rice",
+        "region": "Indo-Gangetic Plains (Alluvial Soils)",
+        "unit": "q/ha",
+        "equations": {
+          "N": "4.25*T - 0.50*SN",
+          "P2O5": "2.10*T - 2.30*SP",
+          "K2O": "3.20*T - 0.40*SK"
+        },
+        "ref": "93"
+      },
+
+      "rice_south": {
+        "crop_name": "Rice",
+        "region": "Tamil Nadu / Puducherry (Inceptisol - ADT-45)",
+        "unit": "q/ha",
+        "equations": {
+          "N": "3.13*T - 0.42*SN",
+          "P2O5": "1.70*T - 2.20*SP",
+          "K2O": "1.70*T - 0.22*SK"
+        },
+        "ref": "93"
+      },
+
+      "wheat_alluvial": {
+        "crop_name": "Wheat",
+        "region": "Delhi / Haryana (Alluvial)",
+        "unit": "q/ha",
+        "equations": {
+          "N": "4.86*T - 0.47*SN",
+          "P2O5": "2.92*T - 4.37*SP",
+          "K2O": "2.20*T - 0.26*SK"
+        },
+        "ref": "93"
+      },
+
+      "maize_inceptisol": {
+        "crop_name": "Maize",
+        "region": "Karnataka (Inceptisol)",
+        "unit": "q/ha",
+        "equations": {
+          "N": "3.60*T - 0.56*SN",
+          "P2O5": "0.71*T - 0.97*SP",
+          "K2O": "0.64*T - 0.06*SK"
+        },
+        "ref": "93"
+      },
+
+      "sorghum_vertisol": {
+        "crop_name": "Sorghum",
+        "region": "Maharashtra (Vertisol - Black Soil)",
+        "unit": "q/ha",
+        "equations": {
+          "N": "5.60*T - 0.60*SN",
+          "P2O5": "2.80*T - 2.20*SP",
+          "K2O": "3.10*T - 0.35*SK"
+        },
+        "ref": "93"
+      },
+
+      "pearl_millet_aridisol": {
+        "crop_name": "Pearl Millet",
+        "region": "Rajasthan (Aridisol - Sandy)",
+        "unit": "q/ha",
+        "equations": {
+          "N": "4.60*T - 0.32*SN",
+          "P2O5": "2.30*T - 2.10*SP",
+          "K2O": "1.80*T - 0.15*SK"
+        },
+        "ref": "93"
+      },
+
+      "groundnut_alfisol": {
+        "crop_name": "Groundnut",
+        "region": "Andhra Pradesh (Alfisol)",
+        "unit": "q/ha",
+        "equations": {
+          "N": "3.13*T - 0.42*SN",
+          "P2O5": "1.70*T - 2.20*SP",
+          "K2O": "5.28*T - 0.06*SK"
+        },
+        "ref": "93"
+      },
+
+      "soybean_vertisol": {
+        "crop_name": "Soybean",
+        "region": "Madhya Pradesh (Vertisol)",
+        "unit": "q/ha",
+        "equations": {
+          "N": "5.27*T - 0.25*SN",
+          "P2O5": "4.13*T - 0.38*SP",
+          "K2O": "2.87*T - 0.15*SK"
+        },
+        "ref": "93"
+      },
+
+      "cotton_bt": {
+        "crop_name": "Cotton (Bt)",
+        "region": "Tamil Nadu (Vertic Ustropept)",
+        "unit": "q/ha",
+        "equations": {
+          "N": "8.51*T - 0.47*SN",
+          "P2O5": "4.41*T - 2.25*SP",
+          "K2O": "6.59*T - 0.18*SK"
+        },
+        "ref": "93"
+      },
+
+      "sugarcane_coastal": {
+        "crop_name": "Sugarcane",
+        "region": "Coastal AP/TN (Clay Loam)",
+        "unit": "t/ha",
+        "equations": {
+          "N": "4.17*T - 1.09*SN",
+          "P2O5": "1.01*T - 2.56*SP",
+          "K2O": "3.44*T - 0.84*SK"
+        },
+        "ref": "93"
+      },
+
+      "tomato_hybrid": {
+        "crop_name": "Tomato (Hybrid)",
+        "region": "Odisha (Inceptisol)",
+        "unit": "q/ha",
+        "equations": {
+          "N": "1.32*T - 0.45*SN",
+          "P2O5": "0.72*T - 1.72*SP",
+          "K2O": "0.92*T - 0.96*SK"
+        },
+        "ref": "93"
+      },
+
+      "potato_inceptisol": {
+        "crop_name": "Potato",
+        "region": "Central India (Inceptisol)",
+        "unit": "q/ha",
+        "equations": {
+          "N": "1.44*T - 0.50*SN",
+          "P2O5": "0.39*T - 2.28*SP",
+          "K2O": "0.53*T - 0.19*SK"
+        },
+        "ref": "93"
+      },
+
+      "onion_inceptisol": {
+        "crop_name": "Onion",
+        "region": "Tamil Nadu (Inceptisol)",
+        "unit": "q/ha",
+        "equations": {
+          "N": "0.98*T - 0.37*SN",
+          "P2O5": "0.58*T - 1.43*SP",
+          "K2O": "0.67*T - 0.25*SK"
+        },
+        "ref": "93"
+      },
+
+      "brinjal_hybrid": {
+        "crop_name": "Brinjal (Hybrid)",
+        "region": "General",
+        "unit": "q/ha",
+        "equations": {
+          "N": "0.75*T - 0.93*SN",
+          "P2O5": "0.34*T - 2.97*SP",
+          "K2O": "0.55*T - 0.68*SK"
+        },
+        "ref": "93"
+      },
+
+      "pumpkin_acidic": {
+        "crop_name": "Pumpkin",
+        "region": "North-East (Acidic Soil)",
+        "unit": "q/ha",
+        "equations": {
+          "N": "4.94*T - 1.25*SN",
+          "P2O5": "2.67*T - 2.71*SP",
+          "K2O": "2.02*T - 0.55*SK"
+        },
+        "ref": "93"
+      }
+
+    }
+  }
+}

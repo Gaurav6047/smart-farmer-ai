@@ -1,3 +1,17 @@
+---
+title: "Smart Farmer AI"
+emoji: "🚜"
+colorFrom: "green"
+colorTo: "yellow"
+sdk: "gradio"
+sdk_version: "4.31.4"
+app_file: "main.py"
+pinned: false
+---
+
+# Smart Farmer AI
+
+
 # 🌱 **Smart Farmer AI**
 
 ### AI-Powered Crop Recommendation, Plant Disease Detection, Pest Detection, Fruit Classification & Scientific Fertilizer Engine

@@ -1,0 +1,15 @@
+# Python cache
+__pycache__/
+
+# VS Code editor settings
+.vscode/
+
+# Streamlit local config & secrets
+.streamlit/
+
+# Jupyter temp files
+.ipynb_checkpoints/
+
+# OS junk
+.DS_Store
+Thumbs.db

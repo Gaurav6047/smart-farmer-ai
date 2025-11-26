@@ -1,151 +1,202 @@
+import streamlit as st
 import pandas as pd
-import json
+from engines.fertilizer_engine import FertilizerEngine
+from utils.language import get_text
+from utils.theme import load_theme
+from utils.sidebar import render_sidebar
+
+# ----------------------------------------------------
+# PAGE INIT
+# ----------------------------------------------------
+st.set_page_config(page_title="SmartFert", layout="wide")
+load_theme()
+render_sidebar()
+
+# Language
+if "lang" not in st.session_state:
+    st.session_state["lang"] = "English"
+
+lang = st.session_state["lang"]
+T = get_text(lang)
+tr = lambda k: T.get(k, k)
+
+# expose language to engine (for advisory translation)
 import os
-import re
+os.LANG_FERT = lang
 
-class FertilizerEngine:
-    def __init__(self):
-        # Paths relative to the main.py execution
-        self.base_path = "models"
-        self.rdf_df = self.load_csv("standard_npk.csv")
-        self.stcr_data = self.load_json("stcr_equations.json")
-        self.fertility_data = self.load_json("soil_fertility.json")
-        self.rules_data = self.load_json("organic_rules.json")
+# Fertilizer engine instance
+FE = FertilizerEngine()
 
-    def load_csv(self, filename):
-        try:
-            return pd.read_csv(os.path.join(self.base_path, filename))
-        except:
-            return pd.DataFrame()
+# ----------------------------------------------------
+# HEADER
+# ----------------------------------------------------
+st.markdown(f"""
+<div class="header-box">
+    <h2 style="color:white;margin:0">{tr("fert_title")}</h2>
+</div>
+""", unsafe_allow_html=True)
 
-    def load_json(self, filename):
-        try:
-            with open(os.path.join(self.base_path, filename), 'r', encoding='utf-8') as f:
-                return json.load(f)
-        except:
-            return {}
+st.write(tr("fert_sub"))
 
-    # --- HELPER: Determine Low/Medium/High ---
-    def get_soil_status(self, nutrient, value):
-        """Determines soil status based on soil_fertility.json"""
-        try:
-            # Mapping nutrient names to json keys
-            key_map = {'N': 'nitrogen', 'P': 'phosphorus_alkaline', 'K': 'potassium', 'OC': 'organic_carbon'}
-            key = key_map.get(nutrient)
-            
-            if not key: return "Medium"
+# ----------------------------------------------------
+# TABS
+# ----------------------------------------------------
+npk_tab, stcr_tab = st.tabs([tr("npk_tab"), tr("stcr_tab")])
 
-            thresholds = self.fertility_data['soil_fertility_thresholds']['macronutrients'].get(key, {}).get('thresholds')
-            if nutrient == 'OC':
-                thresholds = self.fertility_data['soil_fertility_thresholds']['organic_carbon']['thresholds']
+# ====================================================
+# ---------------------- NPK MODE --------------------
+# ====================================================
+with npk_tab:
+    st.subheader(tr("npk_header"))
 
-            if not thresholds: return "Medium"
+    # --- State + Crop + Season ---
+    if FE.rdf_df.empty:
+        st.error(tr("npk_no_states"))
+    else:
+        states = sorted(FE.rdf_df["State"].dropna().unique())
+        sel_state = st.selectbox(tr("select_state"), states)
 
-            # Logic
-            low_max = thresholds['low'].get('max', 0)
-            high_min = thresholds['high'].get('min', 9999)
+        crops = sorted(FE.rdf_df[FE.rdf_df["State"] == sel_state]["Crop"].unique())
+        sel_crop = st.selectbox(tr("select_crop"), crops)
 
-            if value < low_max: return "Low"
-            elif value > high_min: return "High"
-            else: return "Medium"
-        except:
-            return "Medium"
+        seasons = sorted(FE.rdf_df[FE.rdf_df["State"] == sel_state]["Season"].unique())
+        sel_season = st.selectbox(tr("select_season"), seasons)
 
-    # --- MODE 1: STCR (Targeted Yield) ---
-    def calculate_stcr(self, equation_key, target_yield, sn, sp, sk):
-        eq_data = self.stcr_data.get('stcr_equations', {}).get('crops', {}).get(equation_key, {})
-        
-        if not eq_data:
-            return None, "Equation not found for selected region."
+    # --- Soil Test Inputs ---
+    st.markdown(f"### {tr('soil_test_details')}")
 
-        equations = eq_data.get('equations', {})
-        
-        # Secure Equation Solver
-        def solve(eq_str, T, SN, SP, SK):
-            if not eq_str: return 0
-            # Replace variables
-            safe_str = eq_str.replace('T', str(T)).replace('SN', str(SN)).replace('SP', str(SP)).replace('SK', str(SK))
-            # Remove anything that isn't a number or operator for security
-            if not re.match(r'^[\d\.\+\-\*\/\s\(\)]+$', safe_str):
-                return 0
-            try:
-                val = eval(safe_str)
-                return max(0, val) # Negative dose not possible
-            except:
-                return 0
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        sn = st.number_input(tr("soil_sn"), min_value=0.0, value=0.0)
+        oc = st.number_input(tr("soil_oc"), min_value=0.0, value=0.5)
+        zn = st.number_input(tr("soil_zn"), min_value=0.0, value=0.0)
+    with col2:
+        sp = st.number_input(tr("soil_sp"), min_value=0.0, value=0.0)
+        ec = st.number_input(tr("soil_ec"), min_value=0.0, value=0.0)
+        fe = st.number_input(tr("soil_fe"), min_value=0.0, value=0.0)
+    with col3:
+        sk = st.number_input(tr("soil_sk"), min_value=0.0, value=0.0)
+        ph = st.number_input(tr("soil_ph"), min_value=0.0, value=7.0)
+        s_val = st.number_input(tr("soil_s"), min_value=0.0, value=0.0)
 
-        n_rec = solve(equations.get('N', '0'), target_yield, sn, sp, sk)
-        p_rec = solve(equations.get('P2O5', '0'), target_yield, sn, sp, sk)
-        k_rec = solve(equations.get('K2O', '0'), target_yield, sn, sp, sk)
+    # Micro dict
+    micro = {
+        "Zinc": zn,
+        "Iron": fe,
+        "Sulphur": s_val
+    }
 
-        return {
-            "N": round(n_rec, 2),
-            "P": round(p_rec, 2),
-            "K": round(k_rec, 2),
-            "Source": f"STCR Equation ({eq_data.get('region', 'Unknown')})",
-            "Unit": eq_data.get('unit', 'q/ha')
-        }, None
+    # Organic Inputs
+    st.markdown(f"### {tr('organic_inputs')}")
+    oc_col, qty_col = st.columns(2)
+    with oc_col:
+        organic_src = st.selectbox(tr("organic_type"), ["None", "FYM", "Vermi", "Sheep Manure"])
+    with qty_col:
+        organic_qty = st.number_input(tr("organic_qty"), min_value=0.0, value=0.0)
 
-    # --- MODE 2: RDF (General Recommendation) ---
-    def calculate_rdf(self, crop_name, sn, sp, sk):
-        if self.rdf_df.empty:
-            return None, "Standard NPK Data missing."
-            
-        row = self.rdf_df[self.rdf_df['Crop'] == crop_name]
-        if row.empty:
-            return None, "Selected crop not found in database."
-        
-        row = row.iloc[0]
-        base_n, base_p, base_k = row['N_kg_ha'], row['P_kg_ha'], row['K_kg_ha']
+    # Output settings
+    st.markdown(f"### {tr('output_settings')}")
+    rounding = st.selectbox(
+        tr("rounding_mode"),
+        [tr("round_exact"), tr("round_field"), tr("round_bag")]
+    )
 
-        # Determine Status
-        n_status = self.get_soil_status('N', sn)
-        p_status = self.get_soil_status('P', sp)
-        k_status = self.get_soil_status('K', sk)
+    if st.button(tr("btn_generate")):
 
-        # Adjustment Logic (Low = +25%, High = -25%)
-        def adjust(val, status):
-            if status == "Low": return val * 1.25
-            elif status == "High": return val * 0.75
-            return val
+        # ----------------- RDF Calculation -----------------
+        rdf_res, err = FE.calculate_rdf(sel_crop, sn, sp, sk)
 
-        return {
-            "N": round(adjust(base_n, n_status), 2),
-            "P": round(adjust(base_p, p_status), 2),
-            "K": round(adjust(base_k, k_status), 2),
-            "Source": "General RDF (Soil Adjusted)",
-            "Status": f"N:{n_status}, P:{p_status}, K:{k_status}"
-        }, None
+        if err:
+            st.error(f"{tr('error_prefix')}: {err}")
+        else:
+            st.success(tr("success_generated"))
 
-    # --- CHECK SPECIAL RULES (pH, Micro) ---
-    def check_rules(self, ph, ec, micro_values):
-        alerts = []
-        rules = self.rules_data.get('special_rules', {})
+            # ----------------- Display Final Nutrients -----------------
+            st.markdown(f"## {tr('final_nutrients')}")
 
-        # pH Logic
-        ph_rules = rules.get('pH_rules', {})
-        if ph < 5.5:
-            alerts.append(("🔴 Acidic Soil Alert", ph_rules.get('acidic_critical', {}).get('recommendation', 'Apply Lime')))
-        elif ph > 8.5:
-            alerts.append(("🔴 Alkaline Soil Alert", ph_rules.get('alkaline_critical', {}).get('recommendation', 'Apply Gypsum')))
+            N_final = rdf_res["N"]
+            P_final = rdf_res["P"]
+            K_final = rdf_res["K"]
 
-        # EC Logic
-        if ec > 2.0:
-            alerts.append(("⚠️ High Salinity", "Reduce yield target, improve drainage."))
+            st.write(f"**{tr('n_val')}:** {N_final} kg")
+            st.write(f"**{tr('p_val')}:** {P_final} kg")
+            st.write(f"**{tr('k_val')}:** {K_final} kg")
 
-        # Micronutrient Logic
-        micro_rules = rules.get('micronutrient_rules', {})
-        for nutrient, val in micro_values.items():
-            key = nutrient.lower()
-            if key in micro_rules:
-                trigger_str = micro_rules[key].get('trigger', '0').split('<')[-1].replace('ppm','').strip()
-                try:
-                    limit = float(trigger_str)
-                    if val < limit:
-                        prod = micro_rules[key].get('product', 'Fertilizer')
-                        dose = micro_rules[key].get('dose_soil', 'Check generic dose')
-                        alerts.append((f"🟠 Low {nutrient}", f"Apply {prod} @ {dose}"))
-                except:
-                    pass
-        
-        return alerts
+            # ----------------- Organic Credit -----------------
+            st.markdown(f"### {tr('organic_credit')}")
+            if organic_src != "None" and organic_qty > 0:
+                st.info(f"{tr('manure_saved')} {organic_qty} kg")
+            else:
+                st.warning(tr("no_organic_credit"))
+
+            # ----------------- Micronutrients -----------------
+            st.markdown(f"## {tr('micronutrients')}")
+
+            alerts = FE.check_rules(ph, ec, micro)
+
+            # Micro display
+            if zn < 0.5:
+                st.write("Zinc: ZnSO4_kg: 25kg")
+            if fe < 0.5:
+                st.write("Iron: FeSO4_kg: 20kg")
+            if s_val < 10:
+                st.write("Boron: Borax_kg: 5kg")
+                st.write("Sulphur: Gypsum_kg: 40kg")
+
+            # ----------------- Advisories -----------------
+            st.markdown(f"## {tr('expert_advisories')}")
+
+            if not alerts:
+                st.info(tr("no_micro_detected"))
+            else:
+                for head, msg in alerts:
+                    st.markdown(f"• **{head}** — {msg}")
+
+# ====================================================
+# ---------------------- STCR MODE -------------------
+# ====================================================
+with stcr_tab:
+    st.subheader(tr("stcr_header"))
+
+    if not FE.stcr_data:
+        st.error(tr("stcr_no_states"))
+    else:
+
+        st.write(tr("stcr_mandatory"))
+
+        # soil inputs
+        colA, colB, colC = st.columns(3)
+        with colA:
+            sn2 = st.number_input(tr("soil_sn"), min_value=0.0, value=0.0, key="sn2")
+        with colB:
+            sp2 = st.number_input(tr("soil_sp"), min_value=0.0, value=0.0, key="sp2")
+        with colC:
+            sk2 = st.number_input(tr("soil_sk"), min_value=0.0, value=0.0, key="sk2")
+
+        target = st.number_input(tr("target_yield"), min_value=0.0, value=100.0)
+
+        # equation_key dropdown
+        crop_keys = sorted(FE.stcr_data.get("stcr_equations", {}).get("crops", {}).keys())
+        equation_key = st.selectbox(tr("select_crop"), crop_keys)
+
+        if st.button(tr("btn_stcr_calc")):
+
+            if target <= 0:
+                st.error(tr("err_target_zero"))
+            elif sn2 == 0 and sp2 == 0 and sk2 == 0:
+                st.error(tr("err_stcr_empty"))
+            else:
+                res, err = FE.calculate_stcr(equation_key, target, sn2, sp2, sk2)
+
+                if err:
+                    st.error(err)
+                else:
+                    st.success(tr("success_calculated"))
+
+                    st.markdown(f"### {tr('target_dose')}")
+                    st.write(f"**{tr('n_val')}:** {res['N']} kg")
+                    st.write(f"**{tr('p_val')}:** {res['P']} kg")
+                    st.write(f"**{tr('k_val')}:** {res['K']} kg")
+
+                    st.markdown(f"### {tr('expert_advisories')}")
+                    st.write(tr("adv_stcr_mode"))
