@@ -1,114 +1,143 @@
 # Smart Farmer AI
 
-Smart Farmer AI is a multi-module agricultural decision support system designed to demonstrate how Machine Learning, Deep Learning, and scientific agronomy models can be combined into a single practical application for real farming conditions.
+Smart Farmer AI is an integrated, modular agricultural decision-support system that combines image-based diagnostics (disease, pest, and produce classification) with data-driven crop recommendation and scientifically grounded agronomy engines for fertilizer and irrigation planning. The system is designed for CPU execution and is exposed through a unified Streamlit interface to support complete end-to-end operation.
 
-The project focuses on **decision assistance**, not just prediction. It integrates image-based diagnosis, soil-based crop planning, scientific fertilizer calculation, and irrigation scheduling into one unified workflow.
+This document describes the project purpose, architectural design, core components, execution workflow, known limitations, and the minimum requirements for academic evaluation.
 
-This system is developed as a **serious academic and applied AI project**, suitable for:
+---
+
+## Purpose and Scope
+
+Smart Farmer AI is intended as a **decision-assistance system**, not an automated control platform. It generates explainable advisories based on multiple data sources and machine learning models so that users can understand the reasoning behind each recommendation.
+
+The project demonstrates:
+
+- Practical integration of multiple ML and deep learning models into a single application  
+- Transparent agronomic calculations using scientific formulations (STCR, soil fertility thresholds, organic credits)  
+- Irrigation scheduling based on FAO-56 principles with a short-term machine learning forecast  
+
+It is suitable for:
 - Final year engineering / MCA / BCA projects  
 - Precision agriculture research demonstrations  
-- ML + Computer Vision integration showcases  
+- Applied AI and computer vision integration studies  
 
 ---
 
-## Project Objective
+## High-Level System Architecture (Conceptual)
 
-The primary objective of Smart Farmer AI is to assist farmers (or agriculture researchers) in making **data-driven decisions** related to:
+User interaction is divided into three main processing pipelines:
 
-- Crop selection based on soil and climate  
-- Disease and pest identification using images  
-- Fertilizer planning using scientific equations  
-- Irrigation scheduling using FAO-56 methodology  
+### 1. Image Analysis Pipeline  
+User images are automatically routed to the correct vision model. Depending on image type, the system performs:
+- Plant disease classification  
+- Pest detection using object detection  
+- Fruit and vegetable classification  
 
-Instead of using a single AI model, this project demonstrates how **multiple independent AI systems can work together as one intelligent pipeline**.
+Outputs include the predicted label, confidence score, and visual overlays for detected objects.
 
----
+### 2. Crop Recommendation Pipeline  
+Numerical soil and environmental inputs are scaled and passed to a trained Random Forest model. The system predicts the most suitable crop along with a confidence score. This module runs completely offline once the trained model files are available.
 
-## Key Capabilities
+### 3. Agronomy Engines  
+Two independent but coordinated engines operate:
 
-### Plant Disease Detection  
-A deep learning model based on TensorFlow Lite is used to classify plant leaf diseases. The model is optimized for CPU inference and supports multiple crop disease classes. The output includes both the predicted label and confidence score.
-
-### Pest Detection  
-A YOLO-based object detection model is used to detect agricultural pests from images. It provides bounding boxes and confidence values, making it suitable for real-time pest monitoring scenarios.
-
-### Fruit and Vegetable Classification  
-A lightweight classification model identifies different fruits and vegetables from images. This module demonstrates practical computer vision deployment for agricultural produce recognition.
-
-### Automatic Image Routing  
-A small CNN-based router automatically decides whether an uploaded image belongs to disease detection, pest detection, or fruit classification. This removes the need for manual user selection and improves workflow automation.
+- **Fertilizer engine**: Uses STCR equations, organic nutrient adjustments, micronutrient rules, soil correction logic, and fertilizer bag conversion. It outputs a complete nutrient prescription and agronomic advisory.  
+- **Irrigation engine**: Implements FAO-56 ET₀ and ETc computation, soil water balance, pump-based irrigation duration, and a 3-day XGBoost-based irrigation forecast.
 
 ---
 
-## Crop Recommendation System
+## Major Software Components
 
-This module is built using a supervised machine learning approach.  
-It predicts the most suitable crop using multiple soil and environmental parameters:
+### Application Entry and Interface
+- `app.py` serves as the main Streamlit entry point and controls global UI, routing, and language handling.
 
-- Nitrogen (N)  
-- Phosphorus (P)  
-- Potassium (K)  
-- Soil pH  
-- Rainfall  
-- Temperature  
-- Soil type / region  
+### Vision Modules
+- Automatic image router for model selection  
+- TFLite-based plant disease classifier  
+- YOLO-based pest detection module  
+- TFLite-based fruit and vegetable classifier  
 
-The model uses a Random Forest classifier and works entirely offline once deployed. The result is presented in both English and Hindi.
+### Crop Recommendation Module
+- Soil parameter input form  
+- Feature scaling and Random Forest inference  
+- Multilingual output of predicted crop  
 
----
-
-## Fertilizer Recommendation Engine (STCR Based)
-
-This is one of the most technically significant parts of the project.
-
-The fertilizer engine is not a simple lookup system. It is built using:
-
-- Targeted yield based STCR equations  
-- Indian soil fertility threshold values  
-- Organic nutrient adjustment rules  
-- Micronutrient deficiency logic  
-- Soil pH and EC correction rules  
+### Fertilizer Recommendation Engine
+- STCR-based nutrient computation  
+- Organic nutrient credit adjustments  
+- Micronutrient deficiency detection  
+- Soil correction warnings (pH, EC)  
 - Commercial fertilizer bag conversion  
+- Structured final advisory generation  
 
-The engine calculates:
-- Required N, P₂O₅, K₂O (kg/ha)  
-- Organic nutrient deductions  
-- Urea, DAP, and MOP bag quantities  
-- Zinc, Boron and other deficiency alerts  
-- Agronomic advisory notes  
-
-All calculations are shown step-by-step, making the model transparent and explainable.
-
----
-
-## Irrigation Scheduling System (FAO-56)
-
-The irrigation module is based on the FAO-56 methodology. It includes:
-
-- Reference evapotranspiration (ET₀)  
-- Crop coefficient (Kc) based crop evapotranspiration (ETc)  
+### Irrigation Engine
+- FAO-56 ET₀ and ETc computation  
 - Daily soil water balance  
-- Rainfall adjustments  
-- Irrigation duration based on pump horsepower  
-- A short-term 3-day irrigation forecast using XGBoost  
-
-This module simulates how irrigation planning is performed in scientific agronomy.
+- Rainfall correction  
+- Pump horsepower-based irrigation duration  
+- Short-term ML-based irrigation forecasting  
 
 ---
 
-## System Characteristics
+## Inputs and Outputs (Summary)
 
-- Fully offline after setup  
-- CPU-only deployment  
-- Multilingual output (English and Hindi)  
-- Suitable for low-resource environments  
-- Modular architecture  
-- Designed for clarity, not black-box prediction  
+### Crop Recommendation
+- **Input:** N, P, K, pH, temperature, humidity, rainfall  
+- **Output:** Recommended crop with confidence score  
+
+### Fertilizer Engine
+- **Input:** Location, crop, season, soil values, organic input, target yield (optional)  
+- **Output:** Nutrient gaps, fertilizer bags (urea, DAP, MOP), micronutrient alerts, and advisory notes  
+
+### Irrigation Engine
+- **Input:** Geographic location, crop stage, soil type, pump horsepower, field area  
+- **Output:** Daily ETc, water requirement, irrigation duration, and short-term irrigation forecast  
+
+### Vision Modules
+- **Input:** Uploaded image or camera frame  
+- **Output:** Class label, confidence score, and visualization  
 
 ---
 
-## Installation and Local Execution
+## Reproducibility and Local Execution
+
+A virtual environment is recommended.
 
 ```bash
+python -m venv venv
+venv\Scripts\activate
 pip install -r requirements.txt
 streamlit run app.py
+If large model files are tracked using Git LFS, Git LFS must be installed and initialized before cloning.
+
+Practical Limitations
+Camera-based live inference works only in local environments
+
+Vision model accuracy depends on lighting conditions and image quality
+
+Soil health values are assumed to be laboratory-tested inputs
+
+The system provides decision support, not guaranteed yield predictions
+
+These limitations are acknowledged as part of responsible deployment.
+
+Academic Evaluation Requirements
+To make the project defensible for examination or publication, the following must be documented:
+
+Classification reports and confusion matrices for all models
+
+mAP, precision, and recall for the pest detection system
+
+At least three real or simulated farmer case studies
+
+Documentation of training datasets, splits, and evaluation strategy
+
+Author
+Gaurav
+Machine Learning Engineer (India)
+
+This project is developed to demonstrate how artificial intelligence can be applied at multiple levels of agricultural decision-making.
+
+License
+MIT License
+Free for educational and research use.
