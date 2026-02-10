@@ -13,7 +13,7 @@ opencv-python-headless==4.8.1.78
 pillow==10.0.1
 imageio==2.31.1
 
-# YOLO
+# YOLO – safest stable
 ultralytics==8.0.196
 
 # Visualization
@@ -26,5 +26,6 @@ python-json-logger==2.0.7
 streamlit-lottie==0.0.5
 python-multipart==0.0.6
 
-# TensorFlow (Cloud compatible CPU)
+# 👉 CRITICAL FIX
 tensorflow-cpu==2.13.0
+protobuf==3.20.3
