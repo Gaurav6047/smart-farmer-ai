@@ -9,5 +9,7 @@ scikit-learn==1.2.2
 matplotlib
 seaborn
 streamlit-lottie
+
+# MAIN HERO
 tensorflow==2.9.0
 protobuf==3.20.3
