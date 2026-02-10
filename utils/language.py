@@ -42,6 +42,8 @@ EN_TEXT = {
     "background_msg": "This looks like background. Please take a clear photo.",
     "low_conf": "Low confidence — try a clearer image.",
 
+    
+
 
     # ----------------------------- CROP RECO ------------------------------
     "crop_recommendation": "Crop Recommendation",
@@ -137,7 +139,119 @@ EN_TEXT = {
     "target_dose": "Target Nutrient Dose (kg/ha)",
     "manure_supplied": "Supplied by Manure:",
     "agronomist_notes": "Agronomist Notes",
+    "btn_npk": " Generate NPK Recommendation",
+    "btn_stcr": " Calculate Precision Dose",
 
+    # --- ENGINE OUTPUT KEYS (ENGLISH) ---
+    "Low": "Low",
+    "Medium": "Medium",
+    "High": "High",
+    "Deficient": "Deficient",
+    "Sufficient": "Sufficient",
+    
+    # Static Templates (Note: Dynamic numbers will appear as is)
+    "Legume credit note: Nitrogen dose is already zero.": "Legume credit note: Nitrogen dose is already zero.",
+    "No chemical fertilizer required (Organic inputs & Soil fertility are sufficient).": "No chemical fertilizer required (Organic inputs & Soil fertility are sufficient).",
+
+
+    # --- NEW FERTILIZER UI KEYS ---
+    "npk_note": "ℹ Soil Test is optional for NPK mode.",
+    "add_soil_test": " Add Soil Test Report (Optional)",
+    "organic_title": " Organic Fertilizers (Optional)",
+    "select_organic": "Select Organic Inputs",
+    "soil_test_req": " Soil Test Data (Mandatory)",
+    "stcr_warn": " Soil Test Values (N, P, K) are REQUIRED for STCR.",
+    
+    # Result Page Headers
+    "final_dose_title": "Target Final Dose",
+    "nutrient_balance": "Nutrient Balance",
+    "required_bags": "Required Fertilizer Bags (50kg)",
+    "bag_urea": "Urea",
+    "bag_dap": "DAP",
+    "bag_mop": "MOP",
+
+    # Cost Estimator
+    "cost_title": "Estimated Cost Calculator",
+    "cost_note": "Default prices are approximate Govt rates. Edit them as per your local market.",
+    "price_urea": "Urea Price/Bag",
+    "price_dap": "DAP Price/Bag",
+    "price_mop": "MOP Price/Bag",
+    "total_cost": "Total Approx Cost",
+
+    # Schedule
+    "schedule_title": "Application Schedule",
+    "stage_basal": "1. Basal (At Sowing)",
+    "stage_veg": "2. Vegetative Stage (25-30 Days)",
+    "stage_flowering": "3. Flowering Stage",
+    "schedule_no_n": "No Nitrogen application recommended.",
+
+    # Soil Health & Debug
+    "soil_health_view": "View Soil Health Status",
+    "debug_view": "Debug / Calculation Trace (Technical)",
+
+    # Result & Graph
+    "final_dose_title": "Target Final Dose",
+    "nutrient_balance": "Nutrient Balance",
+    "required_bags": "Required Fertilizer Bags (50kg)",
+    "bag_urea": "Urea",
+    "bag_dap": "DAP",
+    "bag_mop": "MOP",
+
+    # Cost
+    "cost_title": "Estimated Cost Calculator",
+    "cost_note": "Default prices are approximate Govt rates. Edit them as per your local market.",
+    "price_urea": "Urea Price/Bag",
+    "price_dap": "DAP Price/Bag",
+    "price_mop": "MOP Price/Bag",
+    "total_cost": "Total Approx Cost",
+
+    # Schedule
+    "schedule_title": "Application Schedule",
+    "stage_basal": "1. Basal (At Sowing)",
+    "stage_veg": "2. Vegetative Stage (25-30 Days)",
+    "stage_flowering": "3. Flowering Stage",
+    "schedule_no_n": "No Nitrogen application recommended.",
+
+    # Soil Health
+    "soil_health_view": "View Soil Health Status",
+    "debug_view": "Debug / Calculation Trace (Technical)",
+    "no_specific_adv": "No specific advisories.",
+
+    # Status Values (From Engine)
+    "Low": "Low", "Medium": "Medium", "High": "High",
+    "Deficient": "Deficient", "Sufficient": "Sufficient",
+
+    # Result & Graph
+    "final_dose_title": "Target Final Dose",
+    "nutrient_balance": "Nutrient Balance",
+    "required_bags": "Required Fertilizer Bags (50kg)",
+    "bag_urea": "Urea",
+    "bag_dap": "DAP",
+    "bag_mop": "MOP",
+
+    # Cost
+    "cost_title": "Estimated Cost Calculator",
+    "cost_note": "Default prices are approximate Govt rates. Edit them as per your local market.",
+    "price_urea": "Urea Price/Bag",
+    "price_dap": "DAP Price/Bag",
+    "price_mop": "MOP Price/Bag",
+    "total_cost": "Total Approx Cost",
+
+    # Schedule
+    "schedule_title": "Application Schedule",
+    "stage_basal": "1. Basal (At Sowing)",
+    "stage_veg": "2. Vegetative Stage (25-30 Days)",
+    "stage_flowering": "3. Flowering Stage",
+    "schedule_no_n": "No Nitrogen application recommended.",
+
+    # Soil Health
+    "soil_health_view": "View Soil Health Status",
+    "debug_view": "Debug / Calculation Trace (Technical)",
+    "no_specific_adv": "No specific advisories.",
+
+    # Status Values (From Engine)
+    "Low": "Low", "Medium": "Medium", "High": "High",
+    "Deficient": "Deficient", "Sufficient": "Sufficient",
 
     # ----------------------------- ADVISORIES ------------------------------
     "adv_stcr_mode": "Used Target Yield Equation (STCR) for highest precision.",
@@ -159,6 +273,11 @@ EN_TEXT = {
 
     "advisory_title": "Expert Advisories",
 
+    "adv_low_k": "Low Potassium availability: Apply MOP in 2–3 split doses.",
+    # --- EN_TEXT (English Dictionary) में यह जोड़ें ---
+    "no_specific_adv": "No specific advisories.",
+    "sched_urea": "Urea",
+    "sched_full_pk": "Full P & K Dose",
 
     # ----------------------------- FRUIT MODEL ------------------------------
     "fruit_subtitle": "AI-based Fruit & Vegetable Recognition",
@@ -222,6 +341,109 @@ EN_TEXT = {
     "ex_soil_ok": "Soil still has enough moisture.",
     "ex_below_thresh": "Deficit is below threshold.",
 
+
+    # ----------------------------- IRRIGATION UI EXTRA -----------------------------
+    "irrigation_location": "Location Details",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "crop": "Crop",
+    "stage": "Crop Stage",
+
+    "irrigation_soil_area": "Soil & Area Details",
+    "soil_type": "Soil Type",
+    "area_value": "Land Area",
+    "area_unit": "Area Unit",
+    "pump_hp": "Pump Power (HP)",
+
+    "run_model": "Run Irrigation Model",
+    "processing": "Processing...",
+
+    "irrigation_plan": "Irrigation Plan",
+    "et0_today": "Today's ET₀",
+    "soil_deficit_mm": "Soil Deficit",
+    "pump_runtime": "Pump Runtime",
+    "units_hours": "Hours",
+    "action": "Action",
+
+    "status_start_pump": "Start Pump",
+    "status_no_water": "Do Not Water",
+    "status_sufficient": "Soil Moisture is Sufficient",
+    "status_needed_thresh": "Deficit crossed threshold",
+
+    "daily_table": "Daily Irrigation Table",
+
+    "forecast_title": "Forecast Advisory",
+    "no_trigger_next": "No irrigation required in coming days.",
+    "next_irrigation": "Next Predicted Irrigation Date",
+    "forecast_runtime": "Estimated Pump Time (Forecast)",
+    "forecast_unavailable": "Forecast Data Not Available",
+
+    "metadata_title": "Execution Metadata",
+    "runtime_note": "Pump runtime shown is for the FULL selected land area.",
+
+    # ----------------------------- IRRIGATION ENGINE ------------------------------
+    "smart_irrigation": "FAO-56 Smart Irrigation Engine",
+    "irrigation_subtitle": "Research-Grade Penman-Monteith Physics & ML Forecasting",
+    "irrigation_location": " Location & Crop",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "crop": "Crop Type",
+    "stage": "Growth Stage",
+    "irrigation_soil_area": " Soil & Hydraulics",
+    "soil_type": "Soil Type",
+    "area_value": "Field Area",
+    "area_unit": "Unit",
+    "pump_hp": "Pump Power",
+    "pump_cond": "Pump Condition",
+    "irr_method": "Irrigation Method",
+    "run_model": " Run Simulation",
+    "processing": "Running Physics Engine & ML Models...",
+    
+    # Status & Action
+    "status_start_pump": "START PUMP",
+    "status_no_water": "NO ACTION NEEDED",
+    "irrigation_plan": "Daily Irrigation Plan",
+    "et0_today": "ET0 (Today)",
+    "soil_deficit_mm": "Soil Deficit",
+    "pump_runtime": "Pump Runtime",
+    "action": "Action",
+    "units_hours": "Hours",
+    
+    # Explanation
+    "status_needed_thresh": "Critical Deficit Exceeded",
+    "status_sufficient": " Moisture levels are adequate. No irrigation required.",
+    "explanation": " Scientific Explanation",
+    "ex_etc_loss": "Crop Evapotranspiration (ETc) Loss:",
+    "ex_deficit_reached": "Accumulated Deficit:",
+    "ex_threshold": "Stress Threshold (RAW):",
+    "ex_soil_ok": "Soil moisture is within the safe zone (Deficit < RAW).",
+    "ex_below_thresh": "Current deficit is safe:",
+    
+    # Graphs & Forecast
+    "daily_table": " Daily Water Balance Ledger",
+    "graph_title": " Hydraulic & Phenological Trends",
+    "graph_etc": "Crop Water Demand (ETc)",
+    "graph_deficit": "Soil Water Deficit vs Stress Threshold",
+    "forecast_title": " 3-Day ML Forecast (XGBoost)",
+    "graph_forecast": "Forecasted Crop Water Demand (ETc)", 
+    "next_irrigation": "Predicted Next Irrigation",
+    "forecast_runtime": "Est. Pump Runtime",
+    "runtime_note": "*Estimate based on forecasted deficit accumulation.",
+    "no_trigger_next": "No irrigation stress predicted for the next 3 days.",
+    "forecast_unavailable": "Forecast data unavailable (insufficient historical data).",
+    "metadata_title": " Engine Metadata (JSON)",
+    "accuracy_metrics": "Forecast Accuracy",
+
+    # [NEW] Initial Conditions & Errors
+    "opt_init_cond": "Optional: Initial Conditions",
+    "init_deficit_lbl": "Initial Soil Deficit (mm)",
+    "init_deficit_hlp": "Leave 0 for auto-estimation or enter known deficit.",
+    "auto_est_chk": "Auto-estimate Initial Deficit (Last 3 Days)",
+    "err_inv_coords": "Invalid latitude or longitude.",
+    "err_engine_prefix": "Engine Error",
+    "lbl_threshold": "Threshold",
+    "lbl_forecast_table": "Forecast Log Table",
+    "msg_stress_trigger": "Deficit > RAW triggers irrigation to refill root zone.",
 
     # ----------------------------- MODEL INFO PAGE ------------------------------
     "model_info": "Model & Engine Information",
@@ -508,6 +730,55 @@ HI_TEXT = {
     "target_dose": "लक्ष्य पोषक खुराक (kg/ha)",
     "manure_supplied": "जैविक खाद द्वारा उपलब्ध:",
     "agronomist_notes": "कृषि विशेषज्ञ नोट्स",
+    "btn_npk": " NPK सिफारिश तैयार करें",
+    "btn_stcr": " सटीक खुराक गणना करें",
+
+    # --- ENGINE OUTPUT KEYS (HINDI) ---
+    "Low": "कम (Low)",
+    "Medium": "मध्यम (Medium)",
+    "High": "उच्च (High)",
+    "Deficient": "कमी (Deficient)",
+    "Sufficient": "पर्याप्त (Sufficient)",
+
+    # Static Templates Translations
+    "Legume credit note: Nitrogen dose is already zero.": "दलहनी फसल नोट: नाइट्रोजन की खुराक पहले से ही शून्य है, इसलिए क्रेडिट लागू नहीं हुआ।",
+    "No chemical fertilizer required (Organic inputs & Soil fertility are sufficient).": "किसी रासायनिक उर्वरक की आवश्यकता नहीं है (जैविक इनपुट और मिट्टी की उर्वरता पर्याप्त है)।",
+
+
+    # --- NEW FERTILIZER UI KEYS (HINDI) ---
+    "npk_note": "ℹ NPK मोड के लिए मिट्टी परीक्षण वैकल्पिक है।",
+    "add_soil_test": " मिट्टी परीक्षण रिपोर्ट जोड़ें (वैकल्पिक)",
+    "organic_title": " जैविक खाद (वैकल्पिक)",
+    "select_organic": "जैविक इनपुट चुनें",
+    "soil_test_req": " मिट्टी परीक्षण डेटा (अनिवार्य)",
+    "stcr_warn": " STCR के लिए मिट्टी के N, P, K मान अनिवार्य हैं।",
+
+    # Result Page Headers
+    "final_dose_title": "अंतिम लक्ष्य खुराक",
+    "nutrient_balance": "पोषक तत्व संतुलन",
+    "required_bags": "आवश्यक उर्वरक बैग (50 किग्रा)",
+    "bag_urea": "यूरिया",
+    "bag_dap": "डीएपी",
+    "bag_mop": "एमओपी",
+
+    # Cost Estimator
+    "cost_title": "अनुमानित लागत कैलकुलेटर",
+    "cost_note": "डिफ़ॉल्ट कीमतें सरकारी दरें हैं। अपने स्थानीय बाजार के अनुसार बदलें।",
+    "price_urea": "यूरिया मूल्य/बैग",
+    "price_dap": "डीएपी मूल्य/बैग",
+    "price_mop": "एमओपी मूल्य/बैग",
+    "total_cost": "कुल अनुमानित लागत",
+
+    # Schedule
+    "schedule_title": "खाद डालने का समय (शेड्यूल)",
+    "stage_basal": "1. बेसल (बुवाई के समय)",
+    "stage_veg": "2. वनस्पति अवस्था (25-30 दिन)",
+    "stage_flowering": "3. फूल आने की अवस्था",
+    "schedule_no_n": "नाइट्रोजन आवेदन की सिफारिश नहीं की गई है।",
+
+    # Soil Health & Debug
+    "soil_health_view": "मिट्टी स्वास्थ्य स्थिति देखें",
+    "debug_view": "डीबग / गणना विवरण (तकनीकी)",
 
 
     # --------------------- ADV ---------------------
@@ -527,10 +798,18 @@ HI_TEXT = {
     "adv_low_ph": "मिट्टी अम्लीय है: पोषक अवशोषण सुधारने हेतु चूना डालें।",
     "adv_high_ph": "मिट्टी क्षारीय है: जिप्सम डालना लाभदायक है।",
 
-    "adv_high_ec": "उच्च लवणता पाई गई: जल निकासी सुधारें ताकि नमक न जमे।",
+    "adv_high_ec": "उच्च लवणता पाई गई: जल निaकासी सुधारें ताकि नमक न जमे।",
 
     "advisory_title": "विशेषज्ञ सलाह",
+    "adv_low_k": "पोटाश की कमी है: MOP खाद 2–3 भागों में डालें।",
+    # --- HI_TEXT (Hindi Dictionary) में यह जोड़ें ---
+    
+    # Advisory Fallback
+    "no_specific_adv": "कोई विशेष सलाह नहीं।",
 
+    # Schedule Internal Text
+    "sched_urea": "यूरिया",
+    "sched_full_pk": "P और K की पूरी खुराक डालें",
 
     # --------------------- FRUIT MODEL ---------------------
     "fruit_subtitle": "एआई आधारित फल और सब्ज़ी पहचान",
@@ -594,6 +873,110 @@ HI_TEXT = {
     "ex_soil_ok": "मिट्टी में पर्याप्त नमी मौजूद है।",
     "ex_below_thresh": "घाटा अभी सीमा से कम है।",
 
+
+    # ----------------------------- IRRIGATION UI EXTRA -----------------------------
+    "irrigation_location": "स्थान विवरण",
+    "latitude": "अक्षांश",
+    "longitude": "देशांतर",
+    "crop": "फसल",
+    "stage": "फसल की अवस्था",
+
+    "irrigation_soil_area": "मिट्टी और क्षेत्र विवरण",
+    "soil_type": "मिट्टी का प्रकार",
+    "area_value": "भूमि क्षेत्र",
+    "area_unit": "क्षेत्र इकाई",
+    "pump_hp": "पंप शक्ति (HP)",
+
+    "run_model": "सिंचाई मॉडल चलाएं",
+    "processing": "प्रक्रिया जारी है...",
+
+    "irrigation_plan": "सिंचाई योजना",
+    "et0_today": "आज का ET₀",
+    "soil_deficit_mm": "मिट्टी का जल घाटा",
+    "pump_runtime": "पंप चलने का समय",
+    "units_hours": "घंटे",
+    "action": "कार्य",
+
+    "status_start_pump": "पंप चालू करें",
+    "status_no_water": "पानी देने की आवश्यकता नहीं",
+    "status_sufficient": "मिट्टी में पर्याप्त नमी है",
+    "status_needed_thresh": "घाटा सीमा से अधिक हो गया",
+
+    "daily_table": "दैनिक सिंचाई विवरण तालिका",
+
+    "forecast_title": "आने वाले दिनों का पूर्वानुमान",
+    "no_trigger_next": "आने वाले दिनों में सिंचाई की आवश्यकता नहीं है।",
+    "next_irrigation": "अगली अनुमानित सिंचाई तिथि",
+    "forecast_runtime": "अनुमानित पंप समय (पूर्वानुमान)",
+    "forecast_unavailable": "पूर्वानुमान डेटा उपलब्ध नहीं है",
+
+    "metadata_title": "इंजन मेटाडाटा",
+    "runtime_note": "यह पंप समय पूरे चयनित खेत क्षेत्र के लिए है।",
+
+    # ----------------------------- IRRIGATION ENGINE ------------------------------
+    # ----------------------------- IRRIGATION ENGINE (HINDI) ------------------------------
+    "smart_irrigation": "FAO-56 स्मार्ट सिंचाई इंजन",
+    "irrigation_subtitle": "अनुसंधान-ग्रेड पेनमैन-मोंटेथ भौतिकी और एमएल पूर्वानुमान",
+    "irrigation_location": " स्थान और फसल",
+    "latitude": "अक्षांश (Latitude)",
+    "longitude": "देशांतर (Longitude)",
+    "crop": "फसल का प्रकार",
+    "stage": "विकास का चरण",
+    "irrigation_soil_area": " मिट्टी और हाइड्रोलिक्स",
+    "soil_type": "मिट्टी का प्रकार",
+    "area_value": "क्षेत्रफल",
+    "area_unit": "इकाई",
+    "pump_hp": "पंप की शक्ति",
+    "pump_cond": "पंप की स्थिति",
+    "irr_method": "सिंचाई की विधि",
+    "run_model": " सिमुलेशन चलाएं",
+    "processing": "भौतिकी इंजन और एमएल मॉडल चल रहे हैं...",
+    
+    # Status & Action
+    "status_start_pump": "पंप चालू करें (START PUMP)",
+    "status_no_water": "कोई कार्रवाई आवश्यक नहीं (NO ACTION)",
+    "irrigation_plan": "दैनिक सिंचाई योजना",
+    "et0_today": "ET0 (आज)",
+    "soil_deficit_mm": "मिट्टी में पानी की कमी",
+    "pump_runtime": "पंप चलाने का समय",
+    "action": "कार्रवाई",
+    "units_hours": "घंटे",
+    
+    # Explanation
+    "status_needed_thresh": "महत्वपूर्ण जल स्तर की कमी (Critical Deficit)",
+    "status_sufficient": " नमी का स्तर पर्याप्त है। सिंचाई की आवश्यकता नहीं है।",
+    "explanation": " वैज्ञानिक स्पष्टीकरण",
+    "ex_etc_loss": "फसल वाष्पोत्सर्जन (ETc) हानि:",
+    "ex_deficit_reached": "जमा हुई कमी (Accumulated Deficit):",
+    "ex_threshold": "तनाव सीमा (RAW):",
+    "ex_soil_ok": "मिट्टी की नमी सुरक्षित क्षेत्र में है (Deficit < RAW)।",
+    "ex_below_thresh": "वर्तमान कमी सुरक्षित है:",
+    
+    # Graphs & Forecast
+    "daily_table": " दैनिक जल संतुलन खाता",
+    "graph_title": " हाइड्रोलिक और फेनोलॉजिकल रुझान",
+    "graph_etc": "फसल जल मांग (ETc)",
+    "graph_deficit": "मिट्टी के पानी की कमी बनाम तनाव सीमा",
+    "forecast_title": " 3-दिवसीय एमएल पूर्वानुमान (XGBoost)",
+    "graph_forecast": "अनुमानित फसल जल मांग (ETc)", 
+    "next_irrigation": " अनुमानित अगली सिंचाई",
+    "forecast_runtime": "अनुमानित पंप समय",
+    "runtime_note": "*अनुमानित कमी के संचय पर आधारित।",
+    "no_trigger_next": "अगले 3 दिनों के लिए किसी सिंचाई तनाव की भविष्यवाणी नहीं की गई है।",
+    "forecast_unavailable": "पूर्वानुमान डेटा अनुपलब्ध (अपर्याप्त ऐतिहासिक डेटा)।",
+    "metadata_title": " इंजन मेटाडेटा (JSON)",
+    "accuracy_metrics": "पूर्वानुमान सटीकता",
+
+    # [NEW] Initial Conditions & Errors
+    "opt_init_cond": "वैकल्पिक: प्रारंभिक स्थितियाँ",
+    "init_deficit_lbl": "प्रारंभिक मृदा जल घाटा (mm)",
+    "init_deficit_hlp": "स्वचालित अनुमान के लिए 0 छोड़ें या ज्ञात घाटा दर्ज करें।",
+    "auto_est_chk": "प्रारंभिक घाटे का स्वत: अनुमान लगाएं (पिछले 3 दिन)",
+    "err_inv_coords": "अमान्य अक्षांश या देशांतर।",
+    "err_engine_prefix": "इंजन त्रुटि",
+    "lbl_threshold": "सीमा",
+    "lbl_forecast_table": "पूर्वानुमान लॉग तालिका",
+    "msg_stress_trigger": "घाटा > RAW होने पर जड़ क्षेत्र भरने के लिए सिंचाई चालू होती है।",
 
     # --------------------- MODEL INFO ---------------------
     "model_info": "मॉडल और इंजन जानकारी",

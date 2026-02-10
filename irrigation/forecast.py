@@ -1,27 +1,32 @@
 """
-forecast.py — 3-Day FAO-ETc Forecast Model (Fully Corrected)
-------------------------------------------------------------
-
-Predicts next 3 days ETc using:
-    • 45-day historical weather (Open-Meteo Archive)
-    • Daily aggregated features
-    • XGBoostRegressor (deterministic)
-    • FAO-56 Kc (crop-stage specific)
+forecast.py — Atmospheric Demand Forecasting (ET0)
+--------------------------------------------------
+PHYSICS UPDATE:
+  - REMOVED direct ETc prediction (Scientifically invalid).
+  - IMPLEMENTED ET0 (Reference Evapotranspiration) forecasting.
+  - ML Model now predicts atmospheric demand solely based on weather.
+  - [PATCH 5] Added RMSE + MAE Validation for Research Compliance.
+  - [PATCH 6] Added Caching for Performance Optimization.
 """
 
 import requests
 import pandas as pd
 import numpy as np
+import streamlit as st
 from datetime import datetime, timedelta
 from xgboost import XGBRegressor
-from irrigation.helpers import kc_table
-
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 # ============================================================
-# 1) Fetch Historical Weather (past 45 days)
+# 1) HISTORICAL WEATHER FETCH (Training Data)
 # ============================================================
 
-def fetch_historical_weather(lat, lon, days=45):
+# Cache data fetch to avoid API spamming on re-runs
+@st.cache_data(ttl=3600) 
+def fetch_training_data(lat, lon, days=60):
+    """Fetches historical ET0 for model training (Open-Meteo Archive)."""
+    
     end_date = datetime.utcnow().date()
     start_date = end_date - timedelta(days=days)
 
@@ -35,147 +40,152 @@ def fetch_historical_weather(lat, lon, days=45):
     )
 
     try:
-        raw = requests.get(url, timeout=10).json()
-    except:
-        raise RuntimeError("Historical weather API failed.")
-
-    if "hourly" not in raw:
-        raise RuntimeError("Historical weather missing 'hourly'.")
+        raw = requests.get(url, timeout=20).json()
+        if "error" in raw:
+            raise RuntimeError(f"API Error: {raw.get('reason')}")
+    except Exception as e:
+        print(f"[Forecast] History fetch failed: {e}")
+        return None
 
     df = pd.DataFrame(raw["hourly"])
-    df["time"] = pd.to_datetime(df["time"], errors="coerce")
-    df.dropna(subset=["time"], inplace=True)
+    df["time"] = pd.to_datetime(df["time"])
     df["date"] = df["time"].dt.date
-
+    
+    # Validation: Remove partial days or NaNs
+    df = df.dropna()
     return df
 
-
 # ============================================================
-# 2) Prepare Daily Data (FAO-ETc Target)
+# 2) FEATURE ENGINEERING (Daily Aggregation)
 # ============================================================
 
-def prepare_training_data(df, kc_value):
-    daily = df.groupby("date", as_index=False).agg({
+def prepare_features(hourly_df):
+    """Aggregates hourly physics data into daily training features."""
+    
+    daily = hourly_df.groupby("date", as_index=False).agg({
         "temperature_2m": "mean",
         "relative_humidity_2m": "mean",
         "windspeed_10m": "mean",
         "shortwave_radiation": "sum",
-        "et0_fao_evapotranspiration": "sum",
-        "precipitation": "sum",
+        "et0_fao_evapotranspiration": "sum", # TARGET VARIABLE
+        "precipitation": "sum"
     })
 
     daily["doy"] = pd.to_datetime(daily["date"]).dt.dayofyear
-    daily["ETc"] = daily["et0_fao_evapotranspiration"] * kc_value
-
-    daily = daily.dropna()
-
-    if len(daily) < 10:
-        raise RuntimeError("Insufficient historical weather data.")
-
-    return daily
-
+    
+    # Physics Sanity Check: ET0 cannot be negative
+    daily = daily[daily["et0_fao_evapotranspiration"] >= 0]
+    
+    return daily.sort_values("date")
 
 # ============================================================
-# 3) Train ML Model (Deterministic XGBoost)
+# 3) ML MODEL (ET0 PREDICTOR)
 # ============================================================
 
-def train_ETc_model(daily):
-    features = [
-        "temperature_2m",
-        "relative_humidity_2m",
-        "windspeed_10m",
-        "shortwave_radiation",
-        "precipitation",
-        "doy",
-    ]
+# Cache the trained model! Retraining on every click is redundant.
+@st.cache_resource
+def train_et0_model(daily_df):
+    """
+    Trains XGBoost on atmospheric variables to predict ET0.
+    [PATCH 5] Computes and returns RMSE and MAE validation metrics.
+    """
+    
+    features = ["temperature_2m", "relative_humidity_2m", "windspeed_10m", 
+                "shortwave_radiation", "doy", "precipitation"]
+    target = "et0_fao_evapotranspiration"
 
-    X = daily[features]
-    y = daily["ETc"]
+    X = daily_df[features]
+    y = daily_df[target]
+
+    # --- Scientific Validation Split (Last 20% for temporal validation) ---
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=False)
 
     model = XGBRegressor(
-        n_estimators=250,
-        learning_rate=0.05,
-        max_depth=6,
-        subsample=0.85,
-        colsample_bytree=0.85,
+        n_estimators=200,
+        learning_rate=0.08,
+        max_depth=5,
         objective="reg:squarederror",
-        random_state=42,
-        n_jobs=1
+        n_jobs=-1,
+        random_state=42
     )
+    
+    # 1. Train on training set to compute metrics
+    model.fit(X_train, y_train)
+    preds = model.predict(X_test)
+    
+    rmse = np.sqrt(mean_squared_error(y_test, preds))
+    mae = mean_absolute_error(y_test, preds)
+    
+    metrics = {
+        "rmse_et0": float(rmse),
+        "mae_et0": float(mae)
+    }
 
+    # 2. Retrain on FULL dataset for production forecasting
     model.fit(X, y)
-    return model, features
-
+    
+    return model, features, metrics
 
 # ============================================================
-# 4) Fetch Next 3 Days (Forecast Weather)
+# 4) FORECAST GENERATION
 # ============================================================
 
-def fetch_future_weather(lat, lon):
+def predict_et0_next_3_days(lat, lon):
+    """
+    Orchestrates the forecast pipeline:
+    1. Fetch History -> 2. Train Model -> 3. Fetch Forecast Weather -> 4. Predict ET0
+    
+    Returns:
+        tuple: (forecast_dataframe, metrics_dictionary)
+    """
+    
+    # A. Get Training Data
+    hist_df = fetch_training_data(lat, lon)
+    if hist_df is None or len(hist_df) < 14:
+        print("[Forecast] Insufficient history for training.")
+        return None, None
+        
+    training_data = prepare_features(hist_df)
+    
+    # B. Train Model & Get Validation Metrics
+    # (Cached via decorators on the function itself)
+    model, feature_names, metrics = train_et0_model(training_data)
+    
+    # C. Get Future Atmospheric Conditions
     url = (
         f"https://api.open-meteo.com/v1/forecast?"
         f"latitude={lat}&longitude={lon}"
         "&hourly=temperature_2m,relative_humidity_2m,windspeed_10m,"
         "shortwave_radiation,precipitation"
-        "&timezone=auto"
+        "&timezone=auto&forecast_days=4"
     )
-
+    
     try:
-        raw = requests.get(url, timeout=10).json()
-    except:
-        raise RuntimeError("Future weather API failed.")
+        resp = requests.get(url, timeout=10).json()
+        future_hourly = pd.DataFrame(resp["hourly"])
+        future_hourly["time"] = pd.to_datetime(future_hourly["time"])
+        future_hourly["date"] = future_hourly["time"].dt.date
+    except Exception as e:
+        print(f"[Forecast] Future weather fetch failed: {e}")
+        return None, metrics
 
-    if "hourly" not in raw:
-        raise RuntimeError("Future weather missing 'hourly'.")
-
-    df = pd.DataFrame(raw["hourly"])
-    df["time"] = pd.to_datetime(df["time"], errors="coerce")
-    df.dropna(subset=["time"], inplace=True)
-    df["date"] = df["time"].dt.date
-
-    return df
-
-
-# ============================================================
-# 5) Predict Next 3 Days ETc
-# ============================================================
-
-def predict_next_3_days(lat, lon, crop, stage):
-
-    # Validate crop/stage
-    if crop not in kc_table:
-        raise ValueError(f"Unknown crop '{crop}'")
-    if stage not in kc_table[crop]:
-        raise ValueError(f"Invalid stage '{stage}'")
-
-    kc_value = kc_table[crop][stage]
-
-    # Historical → training
-    df_hist = fetch_historical_weather(lat, lon)
-    daily = prepare_training_data(df_hist, kc_value)
-    model, features = train_ETc_model(daily)
-
-    # Future weather
-    df_future = fetch_future_weather(lat, lon)
-
-    # Daily aggregation
-    pred = df_future.groupby("date", as_index=False).agg({
+    # D. Aggregate Future Data
+    future_daily = future_hourly.groupby("date", as_index=False).agg({
         "temperature_2m": "mean",
         "relative_humidity_2m": "mean",
         "windspeed_10m": "mean",
         "shortwave_radiation": "sum",
-        "precipitation": "sum",
+        "precipitation": "sum"
     })
+    
+    future_daily["doy"] = pd.to_datetime(future_daily["date"]).dt.dayofyear
+    future_daily = future_daily.head(3) # Strict 3-day window
 
-    pred["doy"] = pd.to_datetime(pred["date"]).dt.dayofyear
-
-    # Only next 3 days
-    pred = pred.head(3)
-
-    # Predict ETc — FIXED CLIP
-    y_hat = model.predict(pred[features])
-    y_hat = np.clip(y_hat, 0, None)   # THIS FIXES YOUR ERROR
-
-    pred["ETc_pred"] = y_hat.astype(float)
-
-    return pred
+    # E. Predict ET0
+    X_future = future_daily[feature_names]
+    et0_pred = model.predict(X_future)
+    
+    # Apply Physics Constraints (ET0 >= 0)
+    future_daily["et0_pred"] = np.maximum(et0_pred, 0.0)
+    
+    return future_daily[["date", "et0_pred", "precipitation"]], metrics

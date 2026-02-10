@@ -1,341 +1,374 @@
 import streamlit as st
+import pandas as pd # Graph ke liye
 
-# ENGINE IMPORTS
-from engine.data_loader import load_master_dataset
-from engine.final_router import generate_fertilizer_recommendation
-from engine.bag_rounder import apply_rounding
-from engine.fertilizer_convert import convert_to_fertilizers
-from engine.advisory_engine import generate_advisories
+# =====================================================================
+# 1. ENGINE & UTILS SETUP
+# =====================================================================
+try:
+    from data.smart_fertilizer_engine import SmartFertilizerEngine
+except ImportError:
+    st.error(" Critical Error: Could not import 'SmartFertilizerEngine'. Check folder structure.")
+    st.stop()
 
-# UTILS
 try:
     from utils.theme import load_theme
     from utils.sidebar import render_sidebar
     from utils.language import get_text
-except:
+except ImportError:
     def load_theme(): pass
     def render_sidebar(): pass
     def get_text(x): return {}
 
-# =====================================================================
-# INIT
-# =====================================================================
 load_theme()
 render_sidebar()
-# AFTER render_sidebar()
+
+# =====================================================================
+# 2. INITIALIZE ENGINE
+# =====================================================================
+@st.cache_resource
+def get_engine():
+    eng = SmartFertilizerEngine()
+    try:
+        eng.load_all_datasets()
+        return eng
+    except Exception as e:
+        st.error(f" Engine Data Loading Error: {e}")
+        return None
+
+engine = get_engine()
+if not engine: st.stop()
+
+# =====================================================================
+# 3. HELPER FUNCTIONS
+# =====================================================================
 lang = st.session_state.get("lang", "English")
 T = get_text(lang)
-tr = lambda k: T.get(k, k)
 
+def tr(key, default_text):
+    """
+    Robust translation helper.
+    """
+    if not T: return default_text
+    val = T.get(key)
+    return val if val else default_text
 
-# ============= UNIQUE KEY FIX =============
 def make_key(prefix, *parts):
     safe = "_".join(str(x).replace(" ", "_") for x in parts)
     return f"{prefix}_{safe}"
 
-# =====================================================================
-# LOAD DATA
-# =====================================================================
-@st.cache_resource
-def get_data():
-    return load_master_dataset()
+def render_optional_input(col, label, key, default=0.0, step=1.0, help_txt=None):
+    val = col.number_input(label, min_value=0.0, value=default, step=step, key=key, help=help_txt)
+    return val if val > 0 else None
 
-MASTER = get_data()
-DATA = MASTER["data"]
+# Formatter for Title Case (andhra_pradesh -> Andhra Pradesh)
+def format_name(name):
+    return name.replace("_", " ").title()
 
 # =====================================================================
-# DROPDOWN HELPERS
-# =====================================================================
-def get_seasons(state, crop):
-    if state not in DATA or crop not in DATA[state]:
-        return ["Any"]
-    lst = DATA[state][crop].get("npk", [])
-    s = {r.get("Season", "Any") for r in lst}
-    order = ["Kharif", "Rabi", "Zaid", "Perennial", "Any"]
-    return [x for x in order if x in s] or ["Any"]
-
-def get_soil_types(state, crop):
-    entry = DATA.get(state, {}).get(crop, {})
-    s = {r.get("Soil_Type") for r in entry.get("stcr", []) if r.get("Soil_Type")}
-    s |= {r.get("Soil_Type") for r in entry.get("npk", []) if r.get("Soil_Type")}
-    return sorted(s) or ["Standard"]
-
-# State → crop maps
-NPK_STATE_CROPS = {}
-STCR_STATE_CROPS = {}
-for state, crops in DATA.items():
-    for crop, entry in crops.items():
-        if entry.get("npk_available"):
-            NPK_STATE_CROPS.setdefault(state, []).append(crop)
-        if entry.get("stcr_available"):
-            STCR_STATE_CROPS.setdefault(state, []).append(crop)
-
-NPK_STATES = sorted(NPK_STATE_CROPS.keys())
-STCR_STATES = sorted(STCR_STATE_CROPS.keys())
-
-# Organic
-ORG = MASTER["organic_rules"]["organic_inputs"]
-ORG_OPTIONS = ["None"] + [x["name"] for x in ORG["manure"]] + [x["name"] for x in ORG["oilseed_cakes"]]
-
-# =====================================================================
-# HEADER
+# 4. HEADER UI
 # =====================================================================
 st.markdown(f"""
-<div class='header-box'>
-  <h2 style='color:white;margin:0'>{tr("fert_title")}</h2>
-  <p style='color:white;margin:0'>{tr("fert_sub")}</p>
+<div class='header-box' style='padding:20px; border-radius:10px; background-color:#2E7D32; color:white; margin-bottom:20px'>
+  <h2 style='margin:0; font-size: 24px;'> {tr("fert_title", "Smart Fertilizer Recommendation")}</h2>
+  <p style='margin:0; opacity:0.9; font-size: 16px;'>{tr("fert_sub", "ICAR-Grade Precision Nutrient Management")}</p>
 </div>
 """, unsafe_allow_html=True)
 
-tab_npk, tab_stcr = st.tabs([tr("npk_tab"), tr("stcr_tab")])
+tab_npk, tab_stcr = st.tabs([
+    tr("npk_tab", " NPK Recommendation"), 
+    tr("stcr_tab", " STCR Recommendation")
+])
 
 # =====================================================================
-# ============================ NPK MODE ================================
+# 5. SHARED RESULT DISPLAY FUNCTION (Fully Translated)
+# =====================================================================
+def display_results(result):
+    st.success(f" {tr('success_generated', 'Recommendation Generated Successfully')}")
+
+    # A. FINAL DOSE & GRAPH
+    dose = result["final_fertilizer_dose"]
+    
+    # Visual Layout: Metrics vs Graph
+    c1, c2 = st.columns([1, 1.5])
+    
+    with c1:
+        st.markdown(f"###  {tr('final_dose_title', 'Final Dose')}")
+        st.metric(tr("nitrogen", "Nitrogen (N)"), f"{dose.get('N', 0)} kg/ha")
+        st.metric(tr("phosphorus", "Phosphorus (P)"), f"{dose.get('P2O5', 0)} kg/ha")
+        st.metric(tr("potassium", "Potassium (K)"), f"{dose.get('K2O', 0)} kg/ha")
+    
+    with c2:
+        # Simple Bar Chart for Visual Comparison
+        chart_data = pd.DataFrame({
+            "Nutrient": ["N", "P", "K"],
+            "Kg/Ha": [dose.get('N', 0), dose.get('P2O5', 0), dose.get('K2O', 0)]
+        })
+        st.markdown(f"###  {tr('nutrient_balance', 'Nutrient Balance')}")
+        st.bar_chart(chart_data.set_index("Nutrient"), color="#4CAF50")
+
+    # B. BAG CALCULATION CARDS
+    bags = result["fertilizer_bags"]
+    st.markdown("---")
+    st.subheader(f" {tr('required_bags', 'Required Fertilizer Bags (50kg)')}")
+    
+    b1, b2, b3 = st.columns(3)
+    def bag_card(col, name, count, color):
+        col.markdown(f"""
+        <div style="background-color:{color}; padding:10px; border-radius:8px; text-align:center; border:1px solid #ddd;">
+            <h2 style="margin:0; color:#333;">{count}</h2>
+            <p style="margin:0; font-weight:bold; color:#555;">{name}</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    bag_card(b1, tr("bag_urea", "Urea"), bags.get('Urea_bags', 0), "#E3F2FD") # Blueish
+    bag_card(b2, tr("bag_dap", "DAP"), bags.get('DAP_bags', 0), "#FFF9C4")  # Yellowish
+    bag_card(b3, tr("bag_mop", "MOP"), bags.get('MOP_bags', 0), "#FFEBEE")  # Reddish
+
+    # C. COST ESTIMATOR (Authentic: Editable Prices)
+    st.markdown("---")
+    st.subheader(f" {tr('cost_title', 'Estimated Cost Calculator')}")
+    st.caption(tr("cost_note", "Default prices are approximate Govt rates. Edit them as per your local market."))
+    
+    ec1, ec2, ec3, ec4 = st.columns(4)
+    u_price = ec1.number_input(tr("price_urea", "Urea Price/Bag"), value=266.0, step=10.0)
+    d_price = ec2.number_input(tr("price_dap", "DAP Price/Bag"), value=1350.0, step=50.0)
+    m_price = ec3.number_input(tr("price_mop", "MOP Price/Bag"), value=1700.0, step=50.0)
+    
+    total_cost = (bags.get('Urea_bags', 0) * u_price) + \
+                 (bags.get('DAP_bags', 0) * d_price) + \
+                 (bags.get('MOP_bags', 0) * m_price)
+    
+    ec4.metric(tr("total_cost", "Total Approx Cost"), f"₹ {total_cost:,.0f}")
+
+   # D. AUTHENTIC SCHEDULE (Agronomy Logic - TRANSLATED)
+    st.markdown("---")
+    st.subheader(f" {tr('schedule_title', 'Application Schedule')}")
+    
+    n_val = dose.get('N', 0)
+    # Get translated labels
+    lbl_urea = tr("sched_urea", "Urea")
+    lbl_pk = tr("sched_full_pk", "Full P & K Dose")
+
+    if n_val > 0:
+        # LOGIC: N is split (50% Basal, 25% Veg, 25% Flower). P & K are 100% Basal.
+        s1, s2, s3 = st.columns(3)
+        with s1:
+            st.info(f"**{tr('stage_basal', '1. Basal (At Sowing)')}**\n- {lbl_urea}: {(n_val * 0.5):.1f} kg N\n- {lbl_pk}")
+        with s2:
+            st.info(f"**{tr('stage_veg', '2. Vegetative Stage')}**\n- {lbl_urea}: {(n_val * 0.25):.1f} kg N")
+        with s3:
+            st.info(f"**{tr('stage_flowering', '3. Flowering Stage')}**\n- {lbl_urea}: {(n_val * 0.25):.1f} kg N")
+    else:
+        st.info(tr("schedule_no_n", "No Nitrogen application recommended."))
+    # E. ADVISORIES & SOIL HEALTH
+
+    
+    # Soil Health Meter (Only if data exists)
+    if result.get("soil_fertility_status"):
+        with st.expander(f" {tr('soil_health_view', 'View Soil Health Status')}"):
+            status = result["soil_fertility_status"]
+            sc1, sc2, sc3 = st.columns(3)
+            def get_color(val): return "🔴" if val=="Low" else "🟢" if val=="High" else "🟡"
+            
+            # Using Translated Values from language.py
+            if "N_Status" in status: sc1.write(f"**N:** {get_color(status['N_Status'])} {tr(status['N_Status'], status['N_Status'])}")
+            if "P_Status" in status: sc2.write(f"**P:** {get_color(status['P_Status'])} {tr(status['P_Status'], status['P_Status'])}")
+            if "K_Status" in status: sc3.write(f"**K:** {get_color(status['K_Status'])} {tr(status['K_Status'], status['K_Status'])}")
+
+    # Text Advisories
+   # E. ADVISORIES (Smart Translation Logic)
+    st.markdown("---")
+    st.subheader(f" {tr('expert_advisories', 'Expert Advisories')}")
+
+    if result["advisory"]:
+        for adv in result["advisory"]:
+            final_text = adv  # Default English
+
+            # --- SMART TRANSLATION FOR DYNAMIC STRINGS ---
+            # यह चेक करता है कि अगर हिंदी है, तो इंग्लिश शब्दों को हिंदी से बदल दे
+            if lang == "Hindi":
+                if "High Salinity" in adv:
+                    final_text = adv.replace("High Salinity", "उच्च लवणता") \
+                                    .replace("Expect", "अनुमानित") \
+                                    .replace("yield reduction", "उपज में कमी") \
+                                    .replace("Salt tolerant varieties recommended", "लवण सहनशील किस्में अनुशंसित")
+                elif "Acidic Soil" in adv:
+                    final_text = adv.replace("Acidic Soil Detected", "अम्लीय मिट्टी पाई गई") \
+                                    .replace("Apply Lime", "चूना डालें")
+                elif "Alkaline Soil" in adv:
+                    final_text = adv.replace("Alkaline Soil Detected", "क्षारीय मिट्टी पाई गई") \
+                                    .replace("Apply Gypsum", "जिप्सम डालें")
+                elif "Legume Rotation" in adv:
+                    final_text = adv.replace("Legume Rotation Credit", "दलहनी फसल क्रेडिट") \
+                                    .replace("Reduced Nitrogen dose by", "नाइट्रोजन खुराक कम की गई:")
+                elif "Drip Fertigation" in adv:
+                    final_text = adv.replace("Drip Fertigation", "ड्रिप फर्टिगेशन") \
+                                    .replace("Nutrient dose reduced to", "पोषक तत्व खुराक घटकर") \
+                                    .replace("due to high efficiency", "उच्च दक्षता के कारण")
+                elif "Micronutrient Deficiency" in adv:
+                    final_text = adv.replace("Micronutrient Deficiency", "सूक्ष्म पोषक तत्व की कमी") \
+                                    .replace("Apply", "डालें")
+                else:
+                    # अगर कोई नंबर वाला मैसेज नहीं है, तो डिक्शनरी चेक करें
+                    final_text = tr(adv, adv)
+            
+            # --- DISPLAY WITH COLORS ---
+            if "Critical" in adv or "Salinity" in adv or "Acidic" in adv or "Alkaline" in adv:
+                st.error(f" {final_text}")
+            elif "Deficiency" in adv:
+                st.warning(f" {final_text}")
+            else:
+                st.info(f" {final_text}")
+    else:
+        st.write(tr("no_specific_adv", "No specific advisories."))
+
+    # F. HIDDEN DEBUG INFO
+    with st.expander(f" {tr('debug_view', 'Debug / Calculation Trace')}"):
+        st.json(result)
+
+# =====================================================================
+# 6. TAB 1: NPK MODE UI
 # =====================================================================
 with tab_npk:
+    st.subheader(tr("npk_header", "Regional Standard (NPK)"))
+    st.caption(tr("adv_npk_mode", "Based on government fixed standards for your region."))
 
-    st.subheader(tr("npk_header"))
-    if not NPK_STATES:
-        st.error(tr("npk_no_states"))
-    else:
-        col1, col2 = st.columns(2)
-
-        state = col1.selectbox(tr("select_state"), NPK_STATES, key="npk_state")
-        crop = col2.selectbox(tr("select_crop"),
-                              sorted(NPK_STATE_CROPS[state]),
-                              key=make_key("npk_crop", state))
-
-        seasons = get_seasons(state, crop)
-        season = st.selectbox(tr("select_season"),
-                              seasons,
-                              key=make_key("npk_season", state, crop))
-
-        st.info(tr("npk_enter_soil"))
-
-        # Soil Inputs
-        with st.expander(tr("soil_test_details"), True):
-            c1, c2, c3 = st.columns(3)
-
-            SN = c1.number_input(tr("soil_sn"), 0.0, key=make_key("npk", state, crop, "SN"))
-            SP = c2.number_input(tr("soil_sp"), 0.0, key=make_key("npk", state, crop, "SP"))
-            SK = c3.number_input(tr("soil_sk"), 0.0, key=make_key("npk", state, crop, "SK"))
-
-            pH = c1.number_input(tr("soil_ph"), 0.0, 14.0, 7.0, 0.1,
-                                 key=make_key("npk", state, crop, "pH"))
-            OC = c2.number_input(tr("soil_oc"), 0.0, step=0.01, key=make_key("npk", state, crop, "OC"))
-            EC = c3.number_input(tr("soil_ec"), 0.0, step=0.01, key=make_key("npk", state, crop, "EC"))
-
-            Zn = c1.number_input(tr("soil_zn"), 0.0, key=make_key("npk", state, crop, "Zn"))
-            Fe = c2.number_input(tr("soil_fe"), 0.0, key=make_key("npk", state, crop, "Fe"))
-            S  = c3.number_input(tr("soil_s"), 0.0, key=make_key("npk", state, crop, "S"))
-
-        soil = {"SN": SN, "SP": SP, "SK": SK,
-                "pH": pH, "OC": OC, "EC": EC,
-                "Zn": Zn, "Fe": Fe, "S": S}
-
-        # Organic
-        st.markdown(f"#### {tr('organic_inputs')}")
-        o1, o2 = st.columns([2, 1])
-        org_type = o1.selectbox(tr("organic_type"), ORG_OPTIONS,
-                                key=make_key("npk_org", state, crop))
-        org_qty  = o2.number_input(tr("organic_qty"), 0.0,
-                                   key=make_key("npk_org_qty", state, crop))
-
-        # Rounding
-        round_choices = [
-            ("exact", tr("round_exact")),
-            ("field", tr("round_field")),
-            ("bag", tr("round_bag"))
-        ]
-        round_label = st.selectbox(tr("rounding_mode"),
-                                   [x[1] for x in round_choices],
-                                   key=make_key("npk_round", state, crop))
-        round_mode = [x[0] for x in round_choices if x[1] == round_label][0]
-
-        # Button
-        if st.button(tr("btn_generate"), key=make_key("npk_btn", state, crop)):
-            result = generate_fertilizer_recommendation(
-                state=state, crop=crop, season=season,
-                soil=soil, organic_type=org_type, organic_qty_kg=org_qty,
-                target_yield=None, mode="NPK", master=MASTER
-            )
-
-            if "error" in result:
-                st.error(f"{tr('error_prefix')}: {result['error']}")
-            else:
-                st.success(tr("success_generated"))
-
-                raw = result["nutrients_required_kg_ha"]
-                fert_raw = convert_to_fertilizers(raw)
-                fert_final = apply_rounding(fert_raw, round_mode)
-
-                L, R = st.columns(2)
-
-                # LEFT
-                with L:
-                    st.markdown("### " + tr("final_nutrients"))
-                    st.write(f"{tr('n_val')}: {raw['N']} kg")
-                    st.write(f"{tr('p_val')}: {raw['P2O5']} kg")
-                    st.write(f"{tr('k_val')}: {raw['K2O']} kg")
-
-                    st.markdown("### " + tr("organic_credit"))
-                    oc = result["organic_credit_kg"]
-                    if oc["N"] > 0:
-                        st.info(
-                            f"{tr('manure_saved')} "
-                            f"N {oc['N']:.1f}, P {oc['P2O5']:.1f}, K {oc['K2O']:.1f}"
-                        )
-                    else:
-                        st.write(tr("no_organic_credit"))
-
-                # RIGHT
-                with R:
-                    st.markdown("### " + tr("fert_recommend"))
-                    st.dataframe(fert_final, use_container_width=True)
-
-                    st.markdown("### " + tr("micronutrients"))
-                    if result["micronutrients"]:
-                        for k, v in result["micronutrients"].items():
-                            st.warning(
-                                f"{k}: {', '.join([f'{x}: {y}kg' for x,y in v.items()])}"
-                            )
-                    else:
-                        st.write(tr("no_micro_detected"))
-
-                # Advisories
-                st.markdown("---")
-                st.markdown("### " + tr("expert_advisories"))
-                advs = generate_advisories(
-                    soil, result.get("micronutrients", {}),
-                    "NPK", MASTER, tr
-                )
-                for a in advs:
-                    st.write("• " + a)
-
-# =====================================================================
-# ============================ STCR MODE ===============================
-# =====================================================================
-with tab_stcr:
-
-    st.subheader(tr("stcr_header"))
-    if not STCR_STATES:
-        st.error(tr("stcr_no_states"))
+    available_states = engine.get_available_states("npk")
+    
+    if not available_states:
+        st.error(tr("npk_no_states", "No NPK Data Available."))
     else:
         c1, c2 = st.columns(2)
-        state = c1.selectbox(tr("select_state"), STCR_STATES, key="stcr_state")
-        crop  = c2.selectbox(tr("select_crop"),
-                             sorted(STCR_STATE_CROPS[state]),
-                             key=make_key("stcr_crop", state))
+        state = c1.selectbox(tr("select_state", "Select State"), available_states, format_func=format_name, key="npk_state")
+        
+        available_crops = engine.get_available_crops(state, "npk")
+        crop = c2.selectbox(tr("select_crop", "Select Crop"), available_crops, format_func=format_name, key=make_key("npk_crop", state))
 
-        soil_types = get_soil_types(state, crop)
-        soil_type = st.selectbox(tr("select_soil_type"),
-                                 soil_types,
-                                 key=make_key("stcr_soiltype", state, crop))
+        config = engine.get_valid_seasons_and_soils(state, crop, "npk")
+        c3, c4 = st.columns(2)
+        season = c3.selectbox(tr("select_season", "Select Season"), config.get("seasons", ["Any"]), key=make_key("npk_season", state, crop))
+        soil_type_input = c4.selectbox(tr("select_soil_type", "Soil Type"), config.get("soils", ["Standard"]), key=make_key("npk_soil", state, crop))
 
-        # Target Yield
-        TY1, TY2 = st.columns([1, 2])
-        Tyield = TY1.number_input(
-            tr("target_yield"), 0.0, step=1.0, value=40.0,
-            key=make_key("stcr_ty", state, crop))
-        TY2.caption(tr("target_yield_note"))
+        st.info(tr("npk_note", " Soil Test is **optional** for NPK mode."))
+        
+        soil_payload = {}
+        with st.expander(tr("add_soil_test", "➕ Add Soil Test Report (Optional)"), expanded=False):
+            sc1, sc2, sc3 = st.columns(3)
+            sn = render_optional_input(sc1, tr("soil_sn", "Nitrogen (N)"), make_key("npk_n", state, crop))
+            sp = render_optional_input(sc2, tr("soil_sp", "Phosphorus (P)"), make_key("npk_p", state, crop))
+            sk = render_optional_input(sc3, tr("soil_sk", "Potassium (K)"), make_key("npk_k", state, crop))
+            
+            ph = sc1.number_input(tr("soil_ph", "pH"), 0.0, 14.0, 7.0, 0.1, key=make_key("npk_ph", state, crop))
+            if ph != 7.0: soil_payload["pH"] = ph
+            
+            ec = render_optional_input(sc2, tr("soil_ec", "EC (dS/m)"), make_key("npk_ec", state, crop), 0.0, 0.1)
+            if ec: soil_payload["EC"] = ec
+            
+            oc = render_optional_input(sc3, tr("soil_oc", "Org Carbon (%)"), make_key("npk_oc", state, crop), 0.0, 0.01)
+            if oc: soil_payload["OC"] = oc
 
-        st.info(tr("stcr_mandatory"))
+            if sn: soil_payload["SN"] = sn
+            if sp: soil_payload["SP"] = sp
+            if sk: soil_payload["SK"] = sk
 
-        with st.expander(tr("soil_test_values"), True):
-            c1, c2, c3 = st.columns(3)
+        st.markdown(f"#### {tr('organic_title', ' Organic Fertilizers (Optional)')}")
+        organic_applied = {}
+        with st.expander(tr("select_organic", "Select Manures / Compost"), expanded=False):
+            oc1, oc2 = st.columns(2)
+            manures = engine.data_organic.get("organic_inputs", {}).get("manure", [])
+            cakes = engine.data_organic.get("organic_inputs", {}).get("oilseed_cakes", [])
+            with oc1:
+                for m in manures:
+                    val = st.number_input(f"{m['name']} (kg/ha)", 0.0, step=100.0, key=make_key("npk_org", m['name']))
+                    if val > 0: organic_applied[m['name']] = val
+            with oc2:
+                for c in cakes:
+                    val = st.number_input(f"{c['name']} (kg/ha)", 0.0, step=50.0, key=make_key("npk_cake", c['name']))
+                    if val > 0: organic_applied[c['name']] = val
 
-            SN = c1.number_input(tr("soil_sn"), 0.0,
-                                 key=make_key("stcr", state, crop, "SN"))
-            SP = c2.number_input(tr("soil_sp"), 0.0,
-                                 key=make_key("stcr", state, crop, "SP"))
-            SK = c3.number_input(tr("soil_sk"), 0.0,
-                                 key=make_key("stcr", state, crop, "SK"))
+        if st.button(tr("btn_npk", " Generate NPK Recommendation"), type="primary", use_container_width=True, key="npk_btn_main"):
+            payload = {
+                "state": state, "crop": crop, "mode": "npk",
+                "season": season, "soil_type": soil_type_input,
+                "soil_test": soil_payload, "organic_applied": organic_applied,
+                "irrigation_type": "Flood", "previous_crop": "None"
+            }
+            with st.spinner(tr("processing", "Analyzing...")):
+                result = engine.generate_final_recommendation(payload)
+            display_results(result)
 
-            pH = c1.number_input(tr("soil_ph_opt"), 0.0, 14.0, 7.0, 0.1,
-                                 key=make_key("stcr", state, crop, "pH"))
-            OC = c2.number_input(tr("soil_oc"), 0.0, step=0.01,
-                                 key=make_key("stcr", state, crop, "OC"))
+# =====================================================================
+# 7. TAB 2: STCR MODE UI
+# =====================================================================
+with tab_stcr:
+    st.subheader(tr("stcr_header", "STCR Recommendation (Target Yield)"))
+    st.caption(tr("adv_stcr_mode", "Calculates precise dose based on Soil Test + Target Yield."))
 
-            Zn = c1.number_input(tr("soil_zn"), 0.0,
-                                 key=make_key("stcr", state, crop, "Zn"))
-            Fe = c2.number_input(tr("soil_fe"), 0.0,
-                                 key=make_key("stcr", state, crop, "Fe"))
-            S  = c3.number_input(tr("soil_s"), 0.0,
-                                 key=make_key("stcr", state, crop, "S"))
+    available_states_stcr = engine.get_available_states("stcr")
+    
+    if not available_states_stcr:
+        st.error(tr("stcr_no_states", "No STCR Data Available."))
+    else:
+        sc1, sc2 = st.columns(2)
+        state_s = sc1.selectbox(tr("select_state", "Select State"), available_states_stcr, format_func=format_name, key="stcr_state")
+        available_crops_s = engine.get_available_crops(state_s, "stcr")
+        crop_s = sc2.selectbox(tr("select_crop", "Select Crop"), available_crops_s, format_func=format_name, key=make_key("stcr_crop", state_s))
 
-        soil = {"SN": SN, "SP": SP, "SK": SK,
-                "Soil_Type": soil_type, "pH": pH, "OC": OC,
-                "Zn": Zn, "Fe": Fe, "S": S}
+        config_s = engine.get_valid_seasons_and_soils(state_s, crop_s, "stcr")
+        sc3, sc4 = st.columns(2)
+        soil_type_s = sc3.selectbox(tr("select_soil_type", "Soil Type"), config_s.get("soils", ["Standard"]), key="stcr_soil")
+        target_yield = sc4.number_input(tr("target_yield", "Target Yield (q/ha)"), min_value=1.0, value=40.0, step=1.0, key="stcr_yield")
 
-        # Organic
-        st.markdown("#### " + tr("organic_inputs"))
-        o1, o2 = st.columns([2,1])
-        org_type = o1.selectbox(tr("organic_type"), ORG_OPTIONS,
-                                key=make_key("stcr_org", state, crop))
-        org_qty  = o2.number_input(tr("organic_qty"), 0.0,
-                                   key=make_key("stcr_org_qty", state, crop))
+        st.warning(tr("stcr_warn", " Soil Test Values (N, P, K) are **REQUIRED** for STCR."))
+        
+        soil_payload_stcr = {}
+        with st.expander(tr("soil_test_req", " Soil Test Data (Mandatory)"), expanded=True):
+            r1, r2, r3 = st.columns(3)
+            sn_s = r1.number_input(f"{tr('soil_sn', 'Available N')} *", 0.0, step=10.0, key="stcr_n")
+            sp_s = r2.number_input(f"{tr('soil_sp', 'Available P')} *", 0.0, step=1.0, key="stcr_p")
+            sk_s = r3.number_input(f"{tr('soil_sk', 'Available K')} *", 0.0, step=10.0, key="stcr_k")
 
-        # Rounding
-        round_label = st.selectbox(tr("rounding_mode"),
-                                   [x[1] for x in round_choices],
-                                   key=make_key("stcr_round", state, crop))
-        round_mode = [x[0] for x in round_choices if x[1] == round_label][0]
+            if sn_s > 0: soil_payload_stcr["SN"] = sn_s
+            if sp_s > 0: soil_payload_stcr["SP"] = sp_s
+            if sk_s > 0: soil_payload_stcr["SK"] = sk_s
 
-        # BUTTON
-        if st.button(tr("btn_stcr_calc"), key=make_key("stcr_btn", state, crop)):
+            st.markdown("**Optional Parameters**")
+            r4, r5, r6 = st.columns(3)
+            ph_s = r4.number_input(tr("soil_ph", "pH"), 0.0, 14.0, 7.0, 0.1, key="stcr_ph")
+            if ph_s != 7.0: soil_payload_stcr["pH"] = ph_s
+            
+            ec_s = render_optional_input(r5, tr("soil_ec", "EC (dS/m)"), "stcr_ec", 0.0, 0.1)
+            if ec_s: soil_payload_stcr["EC"] = ec_s
 
-            if Tyield <= 0:
-                st.error(tr("err_target_zero"))
-            elif SN == 0 and SP == 0 and SK == 0:
-                st.error(tr("err_stcr_empty"))
+            oc_s = render_optional_input(r6, tr("soil_oc", "Org Carbon (%)"), "stcr_oc", 0.0, 0.01)
+            if oc_s: soil_payload_stcr["OC"] = oc_s
+
+        st.markdown(f"#### {tr('organic_title', ' Organic Fertilizers (Optional)')}")
+        organic_applied_stcr = {}
+        with st.expander(tr("select_organic", "Select Organic Inputs"), expanded=False):
+            osc1, osc2 = st.columns(2)
+            manures_s = engine.data_organic.get("organic_inputs", {}).get("manure", [])
+            cakes_s = engine.data_organic.get("organic_inputs", {}).get("oilseed_cakes", [])
+            with osc1:
+                for m in manures_s:
+                    val = st.number_input(f"{m['name']} (kg/ha)", 0.0, step=100.0, key=make_key("stcr_org", m['name']))
+                    if val > 0: organic_applied_stcr[m['name']] = val
+            with osc2:
+                for c in cakes_s:
+                    val = st.number_input(f"{c['name']} (kg/ha)", 0.0, step=50.0, key=make_key("stcr_cake", c['name']))
+                    if val > 0: organic_applied_stcr[c['name']] = val
+
+        if st.button(tr("btn_stcr", " Calculate Precision Dose"), type="primary", use_container_width=True, key="stcr_btn_main"):
+            if "SN" not in soil_payload_stcr or "SP" not in soil_payload_stcr or "SK" not in soil_payload_stcr:
+                st.error(tr("err_stcr_empty", " Cannot Calculate: Missing Soil Values (N, P, K)."))
             else:
-                result = generate_fertilizer_recommendation(
-                    state=state, crop=crop, season="Any",
-                    soil=soil, organic_type=org_type, organic_qty_kg=org_qty,
-                    target_yield=Tyield, mode="STCR", master=MASTER
-                )
-
-                if "error" in result:
-                    st.error(result["error"])
-                else:
-                    st.success(tr("success_calculated"))
-
-                    raw = result["nutrients_required_kg_ha"]
-                    fert_raw = convert_to_fertilizers(raw)
-                    fert_final = apply_rounding(fert_raw, round_mode)
-
-                    L, R = st.columns(2)
-
-                    with L:
-                        st.markdown("### " + tr("target_dose"))
-                        st.write(f"{tr('n_val')}: {raw['N']} kg")
-                        st.write(f"{tr('p_val')}: {raw['P2O5']} kg")
-                        st.write(f"{tr('k_val')}: {raw['K2O']} kg")
-
-                        st.markdown("### " + tr("organic_credit"))
-                        oc = result["organic_credit_kg"]
-                        st.write(
-                            f"{tr('manure_supplied')} "
-                            f"N-{oc['N']:.1f}, P-{oc['P2O5']:.1f}, K-{oc['K2O']:.1f}"
-                        )
-
-                    with R:
-                        st.markdown("### " + tr("fert_recommend"))
-                        st.dataframe(fert_final, use_container_width=True)
-
-                        if result["micronutrients"]:
-                            st.markdown("### " + tr("micronutrients"))
-                            for k, v in result["micronutrients"].items():
-                                st.warning(
-                                    f"{k}: {', '.join([f'{x}: {y}kg' for x,y in v.items()])}"
-                                )
-
-                    # Advisories
-                    st.markdown("---")
-                    st.markdown("### " + tr("advisory_title"))
-                    advs = generate_advisories(
-                        soil, result.get("micronutrients", {}),
-                        "STCR", MASTER, tr
-                    )
-                    for a in advs:
-                        st.write("• " + a)
+                payload_stcr = {
+                    "state": state_s, "crop": crop_s, "mode": "stcr",
+                    "season": "Any", "soil_type": soil_type_s,
+                    "target_yield": target_yield, "soil_test": soil_payload_stcr,
+                    "organic_applied": organic_applied_stcr,
+                    "irrigation_type": "Flood", "previous_crop": "None"
+                }
+                with st.spinner(tr("processing", "Solving STCR Equations...")):
+                    result_stcr = engine.generate_final_recommendation(payload_stcr)
+                display_results(result_stcr)

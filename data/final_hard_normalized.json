@@ -1,0 +1,2120 @@
+{
+  "andhra_pradesh": {
+    "brinjal": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "alfisol",
+          "equations": {
+            "N": "0.69*T - 0.72*SN - 0.64*ON",
+            "P2O5": "0.41*T - 3.57*SP - 0.72*OP",
+            "K2O": "0.65*T - 0.34*SK - 0.52*OK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "cauliflower": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "chilli": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "red_soil",
+          "N_kg_ha": 150,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    },
+    "cotton": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    },
+    "groundnut": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "red_soil",
+          "equations": {
+            "N": "3.76*T - 0.22*SN",
+            "P2O5": "3.25*T - 1.30*SP",
+            "K2O": "2.35*T - 0.20*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 30,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    },
+    "maize": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 150,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 50
+        }
+      ]
+    },
+    "rice": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "red_soil",
+          "equations": {
+            "N": "2.86*T - 0.23*SN",
+            "P2O5": "1.65*T - 1.98*SP",
+            "K2O": "1.72*T - 0.26*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 130,
+          "P2O5_kg_ha": 55,
+          "K2O_kg_ha": 55
+        },
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 140,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    },
+    "sugarcane": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "perennial",
+          "soil_type": "alluvial",
+          "N_kg_ha": 250,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 110
+        }
+      ]
+    }
+  },
+  "assam": {
+    "cauliflower": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 90
+        }
+      ]
+    },
+    "rice": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 90,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 35
+        }
+      ]
+    },
+    "tomato": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    }
+  },
+  "bihar": {
+    "brinjal": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 100,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    },
+    "cauliflower": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "maize": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "calcareous",
+          "equations": {
+            "N": "3.76*T - 0.39*SN",
+            "P2O5": "0.79*T - 1.47*SP",
+            "K2O": "1.09*T - 0.23*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 45
+        }
+      ]
+    },
+    "wheat": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 50,
+          "K2O_kg_ha": 30
+        }
+      ]
+    }
+  },
+  "chhattisgarh": {
+    "cauliflower": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "rice": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "vertisol",
+          "equations": {
+            "N": "4.05*T - 0.57*SN",
+            "P2O5": "1.46*T - 3.09*SP",
+            "K2O": "1.61*T - 0.10*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 100,
+          "P2O5_kg_ha": 45,
+          "K2O_kg_ha": 40
+        }
+      ]
+    },
+    "soybean": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "red_soil",
+          "N_kg_ha": 30,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 30
+        }
+      ]
+    }
+  },
+  "gujarat": {
+    "cauliflower": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "black_soil",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "cotton": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "black_soil",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    },
+    "groundnut": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "calcareous",
+          "equations": {
+            "N": "3.66*T - 0.39*SN",
+            "P2O5": "2.50*T - 2.35*SP",
+            "K2O": "3.23*T - 0.31*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "black_soil",
+          "N_kg_ha": 25,
+          "P2O5_kg_ha": 50,
+          "K2O_kg_ha": 50
+        }
+      ]
+    },
+    "pearl_millet": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "sandy",
+          "equations": {
+            "N": "5.65*T - 0.45*SN",
+            "P2O5": "2.85*T - 1.95*SP",
+            "K2O": "3.10*T - 0.35*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "any",
+          "soil_type": "sandy",
+          "N_kg_ha": 60,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 30
+        }
+      ]
+    }
+  },
+  "haryana": {
+    "cauliflower": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "cotton": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "inceptisol",
+          "equations": {
+            "N": "13.76*T - 1.95*SN - 0.13*ON",
+            "P2O5": "4.47*T - 4.78*SP - 0.12*OP",
+            "K2O": "7.64*T - 0.77*SK - 0.10*OK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "maize": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 150,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 50
+        }
+      ]
+    },
+    "mustard": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "alluvial",
+          "equations": {
+            "N": "5.85*T - 0.48*SN",
+            "P2O5": "3.20*T - 2.80*SP",
+            "K2O": "2.50*T - 0.30*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 110,
+          "P2O5_kg_ha": 55,
+          "K2O_kg_ha": 35
+        }
+      ]
+    },
+    "potato": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 100
+        }
+      ]
+    }
+  },
+  "karnataka": {
+    "brinjal": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "red_soil",
+          "N_kg_ha": 125,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    },
+    "chilli": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "black_soil",
+          "equations": {
+            "N": "4.38*T - 0.28*SN",
+            "P2O5": "2.10*T - 0.70*SP",
+            "K2O": "1.80*T - 0.15*SK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "maize": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "vertisol",
+          "equations": {
+            "N": "4.44*T - 0.34*SN - 0.78*ON",
+            "P2O5": "1.81*T - 1.18*SP - 0.62*OP",
+            "K2O": "2.07*T - 0.15*SK - 0.51*OK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 130,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 45
+        }
+      ]
+    },
+    "pigeonpea": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "vertisol",
+          "equations": {
+            "N": "3.84*T - 0.49*SN",
+            "P2O5": "3.63*T - 2.42*SP",
+            "K2O": "2.50*T - 0.17*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "red_soil",
+          "N_kg_ha": 20,
+          "P2O5_kg_ha": 55,
+          "K2O_kg_ha": 30
+        }
+      ]
+    },
+    "soybean": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "black_soil",
+          "equations": {
+            "N": "4.73*T - 0.43*SN",
+            "P2O5": "4.96*T - 3.60*SP",
+            "K2O": "3.83*T - 0.28*SK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "sugarcane": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "perennial",
+          "soil_type": "red_soil",
+          "N_kg_ha": 220,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 110
+        }
+      ]
+    },
+    "sunflower": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "vertisol",
+          "equations": {
+            "N": "8.38*T - 0.57*SN",
+            "P2O5": "8.05*T - 6.00*SP",
+            "K2O": "9.87*T - 0.47*SK"
+          }
+        }
+      ],
+      "npk": []
+    }
+  },
+  "kerala": {
+    "cabbage": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "lateritic",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "rice": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "lateritic",
+          "equations": {
+            "N": "2.94*T - 0.27*SN",
+            "P2O5": "1.22*T - 1.30*SP",
+            "K2O": "1.62*T - 0.29*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "lateritic",
+          "N_kg_ha": 80,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 50
+        }
+      ]
+    }
+  },
+  "madhya_pradesh": {
+    "chickpea": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "vertisol",
+          "equations": {
+            "N": "3.74*T - 0.18*SN",
+            "P2O5": "5.00*T - 2.50*SP",
+            "K2O": "3.80*T - 0.17*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "black_soil",
+          "N_kg_ha": 20,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 35
+        }
+      ]
+    },
+    "garlic": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "black_soil",
+          "equations": {
+            "N": "5.15*T - 0.42*SN",
+            "P2O5": "4.10*T - 4.40*SP",
+            "K2O": "3.20*T - 0.29*SK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "soybean": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "vertisol",
+          "equations": {
+            "N": "5.19*T - 0.48*SN",
+            "P2O5": "5.20*T - 4.10*SP",
+            "K2O": "3.90*T - 0.22*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "black_soil",
+          "N_kg_ha": 30,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 30
+        }
+      ]
+    },
+    "wheat": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "black_soil",
+          "N_kg_ha": 130,
+          "P2O5_kg_ha": 55,
+          "K2O_kg_ha": 45
+        }
+      ]
+    }
+  },
+  "maharashtra": {
+    "cotton": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "vertisol",
+          "equations": {
+            "N": "9.67*T - 0.51*SN - 0.73*ON",
+            "P2O5": "6.83*T - 2.84*SP",
+            "K2O": "8.75*T - 0.18*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "black_soil",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    },
+    "onion": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "vertisol",
+          "equations": {
+            "N": "5.20*T - 0.56*SN",
+            "P2O5": "4.40*T - 5.73*SP",
+            "K2O": "3.40*T - 0.12*SK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "safflower": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "vertisol",
+          "equations": {
+            "N": "9.11*T - 0.45*SN",
+            "P2O5": "6.27*T - 2.19*SP",
+            "K2O": "9.27*T - 0.38*SK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "sorghum": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "vertisol",
+          "equations": {
+            "N": "3.84*T - 0.42*SN",
+            "P2O5": "1.57*T - 1.85*SP",
+            "K2O": "1.15*T - 0.11*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "black_soil",
+          "N_kg_ha": 80,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 40
+        }
+      ]
+    },
+    "sugarcane": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "perennial",
+          "soil_type": "black_soil",
+          "N_kg_ha": 250,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 110
+        }
+      ]
+    }
+  },
+  "punjab": {
+    "cotton": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 140,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    },
+    "maize": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 150,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 50
+        }
+      ]
+    },
+    "potato": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "alluvial",
+          "equations": {
+            "N": "1.56*T - 0.42*SN",
+            "P2O5": "1.30*T - 1.93*SP",
+            "K2O": "1.19*T - 0.33*SK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "rice": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 45,
+          "K2O_kg_ha": 40
+        }
+      ]
+    },
+    "sunflower": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "alluvial",
+          "equations": {
+            "N": "6.20*T - 0.55*SN",
+            "P2O5": "4.10*T - 3.20*SP",
+            "K2O": "3.80*T - 0.25*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 100,
+          "P2O5_kg_ha": 50,
+          "K2O_kg_ha": 40
+        }
+      ]
+    },
+    "wheat": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "alluvial",
+          "equations": {
+            "N": "4.40*T - 0.40*SN",
+            "P2O5": "3.35*T - 4.60*SP",
+            "K2O": "2.55*T - 0.22*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 150,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 40
+        }
+      ]
+    }
+  }
+  ,
+  "uttarakhand": {
+    "rice": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 100,
+          "P2O5_kg_ha": 45,
+          "K2O_kg_ha": 40
+        }
+      ]
+    },
+    "wheat": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "mollisol",
+          "equations": {
+            "N": "4.40*T - 0.40*SN",
+            "P2O5": "4.00*T - 4.30*SP",
+            "K2O": "2.50*T - 0.40*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 50,
+          "K2O_kg_ha": 30
+        }
+      ]
+    }
+  },
+  "jharkhand": {
+    "cauliflower": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "chickpea": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 20,
+          "P2O5_kg_ha": 50,
+          "K2O_kg_ha": 30
+        }
+      ]
+    },
+    "maize": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "red_soil",
+          "N_kg_ha": 100,
+          "P2O5_kg_ha": 50,
+          "K2O_kg_ha": 40
+        }
+      ]
+    },
+    "pigeonpea": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "red_soil",
+          "N_kg_ha": 20,
+          "P2O5_kg_ha": 50,
+          "K2O_kg_ha": 30
+        }
+      ]
+    },
+    "rice": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "red_soil",
+          "N_kg_ha": 80,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 30
+        }
+      ]
+    }
+  },
+  "odisha": {
+    "cauliflower": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "lateritic",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "cotton": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "lateritic",
+          "N_kg_ha": 100,
+          "P2O5_kg_ha": 50,
+          "K2O_kg_ha": 50
+        }
+      ]
+    },
+    "lentil": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "lateritic",
+          "N_kg_ha": 20,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 20
+        }
+      ]
+    },
+    "rice": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "inceptisol",
+          "equations": {
+            "N": "2.25*T - 0.42*SN",
+            "P2O5": "1.13*T - 1.62*SP",
+            "K2O": "1.92*T - 0.53*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "lateritic",
+          "N_kg_ha": 80,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 40
+        },
+        {
+          "season": "rabi",
+          "soil_type": "lateritic",
+          "N_kg_ha": 100,
+          "P2O5_kg_ha": 50,
+          "K2O_kg_ha": 50
+        }
+      ]
+    },
+    "tomato": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "ustochrept",
+          "equations": {
+            "N": "1.32*T - 0.45*SN",
+            "P2O5": "0.72*T - 1.72*SP",
+            "K2O": "0.92*T - 0.96*SK"
+          }
+        }
+      ],
+      "npk": []
+    }
+  },
+  "rajasthan": {
+    "barley": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "sandy",
+          "N_kg_ha": 60,
+          "P2O5_kg_ha": 30,
+          "K2O_kg_ha": 20
+        }
+      ]
+    },
+    "cauliflower": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "sandy",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "chilli": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "sandy",
+          "N_kg_ha": 100,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 50
+        }
+      ]
+    },
+    "groundnut": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "sandy",
+          "N_kg_ha": 20,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 30
+        }
+      ]
+    },
+    "mustard": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "sandy",
+          "N_kg_ha": 90,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 30
+        }
+      ]
+    },
+    "onion": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "sandy",
+          "N_kg_ha": 100,
+          "P2O5_kg_ha": 50,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "pearl_millet": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "sandy",
+          "N_kg_ha": 60,
+          "P2O5_kg_ha": 30,
+          "K2O_kg_ha": 20
+        }
+      ]
+    },
+    "wheat": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "sandy",
+          "N_kg_ha": 100,
+          "P2O5_kg_ha": 50,
+          "K2O_kg_ha": 30
+        }
+      ]
+    }
+  },
+  "delhi": {
+    "mustard": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "inceptisol",
+          "equations": {
+            "N": "5.60*T - 0.56*SN",
+            "P2O5": "2.80*T - 2.60*SP",
+            "K2O": "2.20*T - 0.18*SK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "wheat": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "alluvial",
+          "equations": {
+            "N": "4.98*T - 0.59*SN - 0.90*ON",
+            "P2O5": "3.80*T - 4.66*SP - 1.25*OP",
+            "K2O": "2.43*T - 0.33*SK - 0.60*OK"
+          }
+        }
+      ],
+      "npk": []
+    }
+  },
+  "west_bengal": {
+    "brinjal": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 150,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 100
+        }
+      ]
+    },
+    "carrot": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "inceptisol",
+          "equations": {
+            "N": "6.24*T - 0.60*SN - 0.38*ON",
+            "P2O5": "1.47*T - 0.61*SP - 0.07*OP",
+            "K2O": "6.43*T - 1.00*SK - 0.58*OK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "cauliflower": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 100
+        }
+      ]
+    },
+    "chilli": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 150,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "jute": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "alluvial",
+          "equations": {
+            "N": "2.65*T - 0.38*SN",
+            "P2O5": "0.43*T - 0.61*SP",
+            "K2O": "2.32*T - 0.66*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 80,
+          "P2O5_kg_ha": 30,
+          "K2O_kg_ha": 40
+        }
+      ]
+    },
+    "lentil": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 20,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 25
+        }
+      ]
+    },
+    "maize": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 130,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 45
+        }
+      ]
+    },
+    "mustard": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "alluvial",
+          "equations": {
+            "N": "6.80*T - 0.52*SN",
+            "P2O5": "3.40*T - 3.10*SP",
+            "K2O": "3.90*T - 0.45*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "any",
+          "soil_type": "alluvial",
+          "N_kg_ha": 60,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 30
+        }
+      ]
+    },
+    "potato": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 140,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 120
+        }
+      ]
+    },
+    "rice": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 80,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 40
+        },
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 110,
+          "P2O5_kg_ha": 50,
+          "K2O_kg_ha": 50
+        },
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 60,
+          "P2O5_kg_ha": 30,
+          "K2O_kg_ha": 30
+        }
+      ]
+    }
+  },
+  "telangana": {
+    "cauliflower": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 100
+        }
+      ]
+    },
+    "chilli": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "red_soil",
+          "N_kg_ha": 150,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 80
+        },
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 150,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "cotton": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "black_soil",
+          "N_kg_ha": 140,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 70
+        }
+      ]
+    },
+    "groundnut": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "black_soil",
+          "N_kg_ha": 30,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    },
+    "maize": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "red_soil",
+          "equations": {
+            "N": "4.00*T - 0.49*SN",
+            "P2O5": "2.15*T - 2.58*SP",
+            "K2O": "2.58*T - 0.30*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "black_soil",
+          "N_kg_ha": 140,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 50
+        }
+      ]
+    },
+    "pigeonpea": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "black_soil",
+          "N_kg_ha": 20,
+          "P2O5_kg_ha": 55,
+          "K2O_kg_ha": 30
+        }
+      ]
+    },
+    "rice": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "alfisol",
+          "equations": {
+            "N": "3.23*T - 0.46*SN",
+            "P2O5": "1.51*T - 1.80*SP",
+            "K2O": "1.65*T - 0.26*SK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "sunflower": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "red_soil",
+          "equations": {
+            "N": "6.80*T - 0.38*SN",
+            "P2O5": "4.70*T - 3.10*SP",
+            "K2O": "4.50*T - 0.18*SK"
+          }
+        }
+      ],
+      "npk": []
+    }
+  },
+  "uttar_pradesh": {
+    "barley": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "alluvial",
+          "equations": {
+            "N": "4.53*T - 0.40*SN - 0.19*ON",
+            "P2O5": "1.09*T - 0.19*SP - 0.06*OP",
+            "K2O": "3.25*T - 0.38*SK - 0.03*OK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "cauliflower": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 100
+        }
+      ]
+    },
+    "coriander": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "inceptisol",
+          "equations": {
+            "N": "8.53*T - 0.37*SN",
+            "P2O5": "2.04*T - 1.55*SP",
+            "K2O": "3.60*T - 0.22*SK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "lentil": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "any",
+          "soil_type": "alluvial",
+          "N_kg_ha": 30,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 30
+        }
+      ]
+    },
+    "linseed": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "inceptisol",
+          "equations": {
+            "N": "6.50*T - 0.18*SN",
+            "P2O5": "2.93*T - 1.34*SP",
+            "K2O": "3.33*T - 0.13*SK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "maize": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 150,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 50
+        }
+      ]
+    },
+    "mustard": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "inceptisol",
+          "equations": {
+            "N": "12.27*T - 0.56*SN",
+            "P2O5": "3.03*T - 1.34*SP",
+            "K2O": "3.94*T - 0.21*SK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "potato": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "alluvial",
+          "equations": {
+            "N": "1.56*T - 0.42*SN",
+            "P2O5": "1.30*T - 1.93*SP",
+            "K2O": "1.19*T - 0.33*SK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 160,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 120
+        }
+      ]
+    },
+    "rice": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 130,
+          "P2O5_kg_ha": 50,
+          "K2O_kg_ha": 40
+        }
+      ]
+    },
+    "sugarcane": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "perennial",
+          "soil_type": "alluvial",
+          "N_kg_ha": 280,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 120
+        }
+      ]
+    },
+    "tomato": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "kharif",
+          "soil_type": "alluvial",
+          "N_kg_ha": 150,
+          "P2O5_kg_ha": 70,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "wheat": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "inceptisol",
+          "equations": {
+            "N": "5.27*T - 0.25*SN - 1.06*ON",
+            "P2O5": "4.13*T - 0.38*SP - 0.98*OP",
+            "K2O": "2.87*T - 0.15*SK - 0.55*OK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "alluvial",
+          "N_kg_ha": 150,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 40
+        }
+      ]
+    }
+  },
+  "tamil_nadu": {
+    "banana": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "red_soil",
+          "equations": {
+            "N": "1.35*T - 0.64*SN - 0.71*ON",
+            "P2O5": "0.55*T - 0.97*SP - 0.63*OP",
+            "K2O": "1.80*T - 0.53*SK - 0.59*OK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "blackgram": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "black_soil",
+          "equations": {
+            "N": "10.84*T - 0.39*SN",
+            "P2O5": "7.23*T - 1.00*SP",
+            "K2O": "5.20*T - 0.04*SK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "brinjal": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "alfisol",
+          "equations": {
+            "N": "0.69*T - 0.72*SN - 0.64*ON",
+            "P2O5": "0.41*T - 3.57*SP - 0.72*OP",
+            "K2O": "0.65*T - 0.34*SK - 0.52*OK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "cabbage": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "red_soil",
+          "equations": {
+            "N": "0.37*T - 0.46*SN - 0.63*ON",
+            "P2O5": "0.13*T - 1.37*SP - 0.59*OP",
+            "K2O": "0.36*T - 0.49*SK - 0.54*OK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "castor": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "red_soil",
+          "equations": {
+            "N": "6.13*T - 0.63*SN - 0.67*ON",
+            "P2O5": "2.30*T - 1.95*SP - 0.61*OP",
+            "K2O": "4.05*T - 0.44*SK - 0.52*OK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "cauliflower": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "red_soil",
+          "equations": {
+            "N": "0.93*T - 0.79*SN - 0.63*ON",
+            "P2O5": "0.44*T - 1.74*SP - 0.85*OP",
+            "K2O": "0.44*T - 0.18*SK - 0.46*OK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 100
+        }
+      ]
+    },
+    "cotton": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "vertisol",
+          "equations": {
+            "N": "5.35*T - 0.24*SN - 0.53*ON",
+            "P2O5": "3.67*T - 1.99*SP - 0.84*OP",
+            "K2O": "3.83*T - 0.13*SK - 0.55*OK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    },
+    "cowpea": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "red_soil",
+          "equations": {
+            "N": "6.95*T - 0.63*SN",
+            "P2O5": "4.68*T - 4.05*SP",
+            "K2O": "7.29*T - 0.57*SK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "finger_millet": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "red_soil",
+          "equations": {
+            "N": "4.94*T - 0.55*SN - 0.81*ON",
+            "P2O5": "2.36*T - 1.92*SP - 0.83*OP",
+            "K2O": "4.20*T - 0.37*SK - 0.62*OK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "groundnut": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "red_non_calcareous",
+          "equations": {
+            "N": "5.43*T - 0.62*SN - 0.76*ON",
+            "P2O5": "2.70*T - 2.42*SP - 0.79*OP",
+            "K2O": "4.03*T - 0.41*SK - 0.53*OK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 30,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    },
+    "maize": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "red_soil",
+          "equations": {
+            "N": "3.96*T - 0.60*SN - 0.77*ON",
+            "P2O5": "1.83*T - 1.29*SP - 0.77*OP",
+            "K2O": "1.63*T - 0.43*SK - 0.62*OK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 130,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 45
+        }
+      ]
+    },
+    "okra": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "red_soil",
+          "equations": {
+            "N": "4.47*T - 0.36*SN - 0.56*ON",
+            "P2O5": "2.69*T - 2.21*SP - 0.71*OP",
+            "K2O": "3.46*T - 0.34*SK - 0.56*OK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "onion": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "red_non_calcareous",
+          "equations": {
+            "N": "4.42*T - 0.53*SN - 0.98*ON",
+            "P2O5": "2.23*T - 1.96*SP - 0.79*OP",
+            "K2O": "2.80*T - 0.42*SK - 0.59*OK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 120,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 100
+        }
+      ]
+    },
+    "pearl_millet": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "any",
+          "soil_type": "red_soil",
+          "N_kg_ha": 60,
+          "P2O5_kg_ha": 40,
+          "K2O_kg_ha": 30
+        }
+      ]
+    },
+    "rice": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "alfisol",
+          "equations": {
+            "N": "4.88*T - 0.68*SN - 0.68*ON",
+            "P2O5": "2.06*T - 2.91*SP - 1.65*OP",
+            "K2O": "2.89*T - 0.47*SK - 0.59*OK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 140,
+          "P2O5_kg_ha": 60,
+          "K2O_kg_ha": 60
+        }
+      ]
+    },
+    "sesame": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "red_soil",
+          "equations": {
+            "N": "6.62*T - 0.52*SN - 0.70*ON",
+            "P2O5": "2.80*T - 1.82*SP - 0.72*OP",
+            "K2O": "5.66*T - 0.45*SK - 0.59*OK"
+          }
+        }
+      ],
+      "npk": []
+    },
+    "sugarcane": {
+      "stcr_available": true,
+      "npk_available": true,
+      "stcr": [
+        {
+          "Soil_Type": "tropical_soil",
+          "equations": {
+            "N": "3.42*T - 0.56*SN - 0.89*ON",
+            "P2O5": "1.13*T - 1.84*SP - 0.63*OP",
+            "K2O": "3.36*T - 0.41*SK - 0.53*OK"
+          }
+        }
+      ],
+      "npk": [
+        {
+          "season": "perennial",
+          "soil_type": "red_soil",
+          "N_kg_ha": 250,
+          "P2O5_kg_ha": 80,
+          "K2O_kg_ha": 110
+        }
+      ]
+    },
+    "tomato": {
+      "stcr_available": false,
+      "npk_available": true,
+      "stcr": [],
+      "npk": [
+        {
+          "season": "rabi",
+          "soil_type": "red_soil",
+          "N_kg_ha": 150,
+          "P2O5_kg_ha": 70,
+          "K2O_kg_ha": 80
+        }
+      ]
+    },
+    "turmeric": {
+      "stcr_available": true,
+      "npk_available": false,
+      "stcr": [
+        {
+          "Soil_Type": "black_soil",
+          "equations": {
+            "N": "2.73*T - 0.36*SN - 0.73*ON",
+            "P2O5": "1.30*T - 1.36*SP - 0.77*OP",
+            "K2O": "1.70*T - 0.32*SK - 0.59*OK"
+          }
+        }
+      ],
+      "npk": []
+    }
+  },
+  "regions": {
+    "bundelkhand": {
+      "chickpea": {
+        "stcr_available": false,
+        "npk_available": true,
+        "stcr": [],
+        "npk": [
+          {
+            "season": "rabi",
+            "soil_type": "mixed_red_black",
+            "N_kg_ha": 20,
+            "P2O5_kg_ha": 40,
+            "K2O_kg_ha": 20
+          }
+        ]
+      }
+    },
+    "central_plains": {
+      "potato": {
+        "stcr_available": false,
+        "npk_available": true,
+        "stcr": [],
+        "npk": [
+          {
+            "season": "rabi",
+            "soil_type": "alluvial",
+            "N_kg_ha": 150,
+            "P2O5_kg_ha": 80,
+            "K2O_kg_ha": 100
+          }
+        ]
+      }
+    }
+  }
+}
+ 

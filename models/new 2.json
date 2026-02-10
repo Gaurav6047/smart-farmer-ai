@@ -1,0 +1,2443 @@
+{
+  "stcr": [
+    {
+      "id": "tn_groundnut_irugur",
+      "state": "Tamil Nadu",
+      "crop": "Groundnut",
+      "soil_type": "Red Non-Calcareous",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "5.43*T - 0.62*SN - 0.76*ON",
+        "P2O5": "2.70*T - 2.42*SP - 0.79*OP",
+        "K2O": "4.03*T - 0.41*SK - 0.53*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Crop Production Guide Agriculture 2020",
+        "pdf_page_or_table": "Appendix I: STCR Equations",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "up_potato_alluvial",
+      "state": "Uttar Pradesh",
+      "crop": "Potato",
+      "soil_type": "Alluvial",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "1.56*T - 0.42*SN",
+        "P2O5": "1.30*T - 1.93*SP",
+        "K2O": "1.19*T - 0.33*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "ICAR bulletin",
+        "publisher_or_university": "CPRI / ICAR",
+        "pdf_title": "STCR Equations for Potato",
+        "pdf_page_or_table": "Table: Potato STCR Equations",
+        "year": "2012"
+      }
+    },
+    {
+      "id": "tn_onion_typic",
+      "state": "Tamil Nadu",
+      "crop": "Onion (Small)",
+      "soil_type": "Red Non-Calcareous",
+      "approach": "STCR-IPNS",
+      "unit": "t/ha",
+      "equations": {
+        "N": "4.42*T - 0.53*SN - 0.98*ON",
+        "P2O5": "2.23*T - 1.96*SP - 0.79*OP",
+        "K2O": "2.80*T - 0.42*SK - 0.59*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "International Journal of Chemical Studies",
+        "pdf_title": "Soil test crop response based integrated plant nutrition system for small onion",
+        "pdf_page_or_table": "Abstract / Results",
+        "year": "2019"
+      }
+    },
+    {
+      "id": "haryana_pearl_millet",
+      "state": "Haryana",
+      "crop": "Pearl Millet",
+      "soil_type": "Inceptisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "4.82*T - 0.33*SN",
+        "P2O5": "1.89*T - 1.49*SP",
+        "K2O": "2.62*T - 0.18*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "ICAR bulletin",
+        "publisher_or_university": "ICAR-IISS",
+        "pdf_title": "Fertilizer Prescription Equations for Pearl Millet",
+        "pdf_page_or_table": "Table",
+        "year": "2014"
+      }
+    },
+    {
+      "id": "tn_okra_red",
+      "state": "Tamil Nadu",
+      "crop": "Okra",
+      "soil_type": "Red Soil",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "4.47*T - 0.36*SN - 0.56*ON",
+        "P2O5": "2.69*T - 2.21*SP - 0.71*OP",
+        "K2O": "3.46*T - 0.34*SK - 0.56*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Soil Test Crop Response based Integrated Plant Nutrition System (STCR-IPNS) for Okra",
+        "pdf_page_or_table": "Table: STCR equations for Okra",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "tn_maize_red",
+      "state": "Tamil Nadu",
+      "crop": "Maize",
+      "soil_type": "Red Soil",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "3.96*T - 0.60*SN - 0.77*ON",
+        "P2O5": "1.83*T - 1.29*SP - 0.77*OP",
+        "K2O": "1.63*T - 0.43*SK - 0.62*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Soil Test Crop Response based Integrated Plant Nutrition System (STCR-IPNS) for Maize",
+        "pdf_page_or_table": "Table: STCR equations for Maize",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "tn_turmeric_black",
+      "state": "Tamil Nadu",
+      "crop": "Turmeric",
+      "soil_type": "Black Soil",
+      "approach": "STCR-IPNS",
+      "unit": "t/ha",
+      "equations": {
+        "N": "2.73*T - 0.36*SN - 0.73*ON",
+        "P2O5": "1.30*T - 1.36*SP - 0.77*OP",
+        "K2O": "1.70*T - 0.32*SK - 0.59*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Soil Test Crop Response based Integrated Plant Nutrition System (STCR-IPNS) for Turmeric",
+        "pdf_page_or_table": "Table: STCR equations for Turmeric",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "bihar_maize_winter",
+      "state": "Bihar",
+      "crop": "Maize",
+      "soil_type": "Calcareous Alluvial",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "3.76*T - 0.39*SN",
+        "P2O5": "0.79*T - 1.47*SP",
+        "K2O": "1.09*T - 0.23*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "ICAR bulletin",
+        "publisher_or_university": "ICAR-IISS",
+        "pdf_title": "STCR Based Fertilizer Recommendations for Bihar",
+        "pdf_page_or_table": "Maize (Winter)",
+        "year": "2019"
+      }
+    },
+    {
+      "id": "kerala_rice_laterite",
+      "state": "Kerala",
+      "crop": "Rice",
+      "soil_type": "Laterite",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "2.94*T - 0.27*SN",
+        "P2O5": "1.22*T - 1.30*SP",
+        "K2O": "1.62*T - 0.29*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "KAU",
+        "pdf_title": "Package of Practices Recommendations: Crops (14th Ed)",
+        "pdf_page_or_table": "Soil Test Based Fertilizer Recommendation",
+        "year": "2016"
+      }
+    },
+    {
+      "id": "uttarakhand_wheat_mollisol",
+      "state": "Uttarakhand",
+      "crop": "Wheat",
+      "soil_type": "Mollisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "4.40*T - 0.40*SN",
+        "P2O5": "4.00*T - 4.30*SP",
+        "K2O": "2.50*T - 0.40*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "ICAR bulletin",
+        "publisher_or_university": "ICAR-IISS / GBPUAT",
+        "pdf_title": "Soil Test Based Fertilizer Recommendations for Tarai Region",
+        "pdf_page_or_table": "Wheat Equations",
+        "year": "2018"
+      }
+    },
+    {
+      "id": "maharashtra_sorghum_vertisol",
+      "state": "Maharashtra",
+      "crop": "Sorghum",
+      "soil_type": "Vertisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "3.84*T - 0.42*SN",
+        "P2O5": "1.57*T - 1.85*SP",
+        "K2O": "1.15*T - 0.11*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "MPKV / Indian Society of Soil Science",
+        "pdf_title": "Validation of fertilizer prescription equations for rabi sorghum",
+        "pdf_page_or_table": "Table 2",
+        "year": "2018"
+      }
+    },
+    {
+      "id": "wb_jute_alluvial",
+      "state": "West Bengal",
+      "crop": "Jute",
+      "soil_type": "Alluvial",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "2.65*T - 0.38*SN",
+        "P2O5": "0.43*T - 0.61*SP",
+        "K2O": "2.32*T - 0.66*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "ICAR bulletin",
+        "publisher_or_university": "ICAR-CRIJAF / BCKV",
+        "pdf_title": "Nutrient Management in Jute and Allied Fibres",
+        "pdf_page_or_table": "Table: STCR equations for Jute",
+        "year": "2018"
+      }
+    },
+    {
+      "id": "telangana_sunflower_alfisol",
+      "state": "Telangana",
+      "crop": "Sunflower",
+      "soil_type": "Red Soil",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "6.80*T - 0.38*SN",
+        "P2O5": "4.70*T - 3.10*SP",
+        "K2O": "4.50*T - 0.18*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "PJTSAU",
+        "pdf_title": "Soil Test Based Fertilizer Recommendations for Sunflower",
+        "pdf_page_or_table": "Sunflower (Alfisol)",
+        "year": "2019"
+      }
+    },
+    {
+      "id": "mp_garlic_vertisol",
+      "state": "Madhya Pradesh",
+      "crop": "Garlic",
+      "soil_type": "Black Soil",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "5.15*T - 0.42*SN",
+        "P2O5": "4.10*T - 4.40*SP",
+        "K2O": "3.20*T - 0.29*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "ICAR bulletin",
+        "publisher_or_university": "ICAR-IISS / JNKVV",
+        "pdf_title": "STCR Recommendations for Spices",
+        "pdf_page_or_table": "Garlic",
+        "year": "2017"
+      }
+    },
+    {
+      "id": "tn_banana_tissue",
+      "state": "Tamil Nadu",
+      "crop": "Banana",
+      "soil_type": "Red Soil",
+      "approach": "STCR-IPNS",
+      "unit": "t/ha",
+      "equations": {
+        "N": "1.35*T - 0.64*SN - 0.71*ON",
+        "P2O5": "0.55*T - 0.97*SP - 0.63*OP",
+        "K2O": "1.80*T - 0.53*SK - 0.59*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "STCR-IPNS for Banana",
+        "pdf_page_or_table": "Banana (Tissue Culture)",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "karnataka_chilli_black",
+      "state": "Karnataka",
+      "crop": "Chilli",
+      "soil_type": "Black Soil",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "4.38*T - 0.28*SN",
+        "P2O5": "2.10*T - 0.70*SP",
+        "K2O": "1.80*T - 0.15*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "UAS Dharwad",
+        "pdf_title": "Nutrient Management in Chilli",
+        "pdf_page_or_table": "STCR Equations",
+        "year": "2015"
+      }
+    },
+    {
+      "id": "tn_sesame_rainfed",
+      "state": "Tamil Nadu",
+      "crop": "Sesame",
+      "soil_type": "Red Soil",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "6.62*T - 0.52*SN - 0.70*ON",
+        "P2O5": "2.80*T - 1.82*SP - 0.72*OP",
+        "K2O": "5.66*T - 0.45*SK - 0.59*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "STCR equations for Sesame",
+        "pdf_page_or_table": "Table",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "ap_rice_alfisol",
+      "state": "Andhra Pradesh",
+      "crop": "Rice",
+      "soil_type": "Red Sandy Loam",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "2.86*T - 0.23*SN",
+        "P2O5": "1.65*T - 1.98*SP",
+        "K2O": "1.72*T - 0.26*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "ANGRAU",
+        "pdf_title": "Fertilizer Recommendations for Rice",
+        "pdf_page_or_table": "STCR Rice Alfisol",
+        "year": "2018"
+      }
+    },
+    {
+      "id": "karnataka_soybean_vertisol",
+      "state": "Karnataka",
+      "crop": "Soybean",
+      "soil_type": "Black Soil",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "4.73*T - 0.43*SN",
+        "P2O5": "4.96*T - 3.60*SP",
+        "K2O": "3.83*T - 0.28*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "Legume Research",
+        "pdf_title": "Soil test crop response studies on soybean in Vertisols of Karnataka",
+        "pdf_page_or_table": "Table",
+        "year": "2016"
+      }
+    },
+    {
+      "id": "tn_sugarcane_tropical",
+      "state": "Tamil Nadu",
+      "crop": "Sugarcane",
+      "soil_type": "Tropical Soil",
+      "approach": "STCR-IPNS",
+      "unit": "t/ha",
+      "equations": {
+        "N": "3.42*T - 0.56*SN - 0.89*ON",
+        "P2O5": "1.13*T - 1.84*SP - 0.63*OP",
+        "K2O": "3.36*T - 0.41*SK - 0.53*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Crop Production Guide - Sugarcane",
+        "pdf_page_or_table": "Plant Crop",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "tn_cotton_rainfed",
+      "state": "Tamil Nadu",
+      "crop": "Cotton",
+      "soil_type": "Black Soil",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "5.35*T - 0.24*SN - 0.53*ON",
+        "P2O5": "3.67*T - 1.99*SP - 0.84*OP",
+        "K2O": "3.83*T - 0.13*SK - 0.55*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Nutrient Management :: Cotton Rainfed",
+        "pdf_page_or_table": "STCR",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "telangana_maize_alfisol",
+      "state": "Telangana",
+      "crop": "Maize",
+      "soil_type": "Red Soil",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "4.00*T - 0.49*SN",
+        "P2O5": "2.15*T - 2.58*SP",
+        "K2O": "2.58*T - 0.30*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "PJTSAU",
+        "pdf_title": "Popularization of STCR Targeted Yield for Optimum Fertilizer Use",
+        "pdf_page_or_table": "Maize Alfisol",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "tn_greengram_red",
+      "state": "Tamil Nadu",
+      "crop": "Greengram",
+      "soil_type": "Red Sandy Loam",
+      "approach": "STCR-IPNS",
+      "unit": "t/ha",
+      "equations": {
+        "N": "25.07*T - 0.71*SN",
+        "P2O5": "15.44*T - 5.48*SP",
+        "K2O": "11.00*T - 0.19*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Soil Test Crop Response - Greengram",
+        "pdf_page_or_table": "STCR",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "tn_blackgram_black",
+      "state": "Tamil Nadu",
+      "crop": "Blackgram",
+      "soil_type": "Black Soil",
+      "approach": "STCR-IPNS",
+      "unit": "t/ha",
+      "equations": {
+        "N": "10.84*T - 0.39*SN",
+        "P2O5": "7.23*T - 1.00*SP",
+        "K2O": "5.20*T - 0.04*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Nutrient Management :: Blackgram Rainfed",
+        "pdf_page_or_table": "STCR",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "kerala_beetroot_ultisol",
+      "state": "Kerala",
+      "crop": "Beetroot",
+      "soil_type": "Ultisol",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "0.69*T - 0.37*SN - 0.62*ON",
+        "P2O5": "0.61*T - 0.54*SP - 0.86*OP",
+        "K2O": "0.82*T - 0.42*SK - 0.63*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "Frontiers in Plant Science",
+        "pdf_title": "Development and validation of soil test crop response model for beetroot",
+        "pdf_page_or_table": "Results",
+        "year": "2024"
+      }
+    },
+    {
+      "id": "mp_chickpea_alluvial",
+      "state": "Madhya Pradesh",
+      "crop": "Chickpea",
+      "soil_type": "Alluvial",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "5.35*T - 0.22*SN - 0.098*ON",
+        "P2O5": "3.71*T - 1.16*SP - 0.15*OP",
+        "K2O": "8.32*T - 0.43*SK - 0.22*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "JNKVV",
+        "pdf_title": "STCR based nutrient management in chickpea",
+        "pdf_page_or_table": "Results",
+        "year": "2024"
+      }
+    },
+    {
+      "id": "maharashtra_cotton_summer",
+      "state": "Maharashtra",
+      "crop": "Cotton",
+      "soil_type": "Vertisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "13.10*T - 0.75*SN",
+        "P2O5": "6.83*T - 2.84*SP",
+        "K2O": "8.75*T - 0.18*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "CABI",
+        "pdf_title": "Crop energy balance study (Cotton-Chickpea sequence)",
+        "pdf_page_or_table": "STCR",
+        "year": "2016"
+      }
+    },
+    {
+      "id": "wb_mustard_inceptisol",
+      "state": "West Bengal",
+      "crop": "Mustard",
+      "soil_type": "Inceptisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "7.05*T - 0.13*SN",
+        "P2O5": "3.85*T - 0.44*SP",
+        "K2O": "3.75*T - 0.11*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "BCKV Kalyani",
+        "pdf_title": "AICRP-STCR Official Recommendations",
+        "pdf_page_or_table": "Mustard",
+        "year": "2018"
+      }
+    },
+    {
+      "id": "odisha_tomato_ustochrept",
+      "state": "Odisha",
+      "crop": "Tomato",
+      "soil_type": "Ustochrept",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "1.32*T - 0.45*SN",
+        "P2O5": "0.72*T - 1.72*SP",
+        "K2O": "0.92*T - 0.96*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "OUAT",
+        "pdf_title": "Soil Test Based Fertilizer Recommendation for Targeted Yield of Tomato",
+        "pdf_page_or_table": "Results",
+        "year": "2016"
+      }
+    },
+    {
+      "id": "ap_brinjal_alfisol",
+      "state": "Andhra Pradesh",
+      "crop": "Brinjal",
+      "soil_type": "Alfisol",
+      "approach": "STCR-IPNS",
+      "unit": "t/ha",
+      "equations": {
+        "N": "0.69*T - 0.72*SN - 0.64*ON",
+        "P2O5": "0.41*T - 3.57*SP - 0.72*OP",
+        "K2O": "0.65*T - 0.34*SK - 0.52*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "Hind Agri-Horticultural Society",
+        "pdf_title": "Research Journal",
+        "pdf_page_or_table": "Results",
+        "year": "2017"
+      }
+    },
+    {
+      "id": "tn_rice_alfisol",
+      "state": "Tamil Nadu",
+      "crop": "Rice",
+      "soil_type": "Alfisol",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "4.88*T - 0.68*SN - 0.68*ON",
+        "P2O5": "2.06*T - 2.91*SP - 1.65*OP",
+        "K2O": "2.89*T - 0.47*SK - 0.59*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Optimizing STCR-IPNS fertilizer prescription for targeted rice yield",
+        "pdf_page_or_table": "Tiruvallur District",
+        "year": "2025"
+      }
+    },
+    {
+      "id": "karnataka_sunflower_vertisol",
+      "state": "Karnataka",
+      "crop": "Sunflower",
+      "soil_type": "Black Soil",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "8.38*T - 0.57*SN",
+        "P2O5": "8.05*T - 6.00*SP",
+        "K2O": "9.87*T - 0.47*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "UAS Raichur",
+        "pdf_title": "Soil Test Crop Response (STCR) for Sunflower",
+        "pdf_page_or_table": "Results",
+        "year": "2015"
+      }
+    },
+    {
+      "id": "maharashtra_safflower_vertisol",
+      "state": "Maharashtra",
+      "crop": "Safflower",
+      "soil_type": "Vertisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "9.11*T - 0.45*SN",
+        "P2O5": "6.27*T - 2.19*SP",
+        "K2O": "9.27*T - 0.38*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "MPKV",
+        "pdf_title": "Site specific nutrient management through STCR on yield of rabi safflower",
+        "pdf_page_or_table": "Results",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "tn_finger_millet_red",
+      "state": "Tamil Nadu",
+      "crop": "Finger Millet",
+      "soil_type": "Red Soil",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "4.94*T - 0.55*SN - 0.81*ON",
+        "P2O5": "2.36*T - 1.92*SP - 0.83*OP",
+        "K2O": "4.20*T - 0.37*SK - 0.62*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "STCR equations for Ragi",
+        "pdf_page_or_table": "Results",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "up_lentil_inceptisol",
+      "state": "Uttar Pradesh",
+      "crop": "Lentil",
+      "soil_type": "Inceptisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "4.75*T - 0.28*SN",
+        "P2O5": "2.33*T - 1.69*SP",
+        "K2O": "3.69*T - 0.24*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "BHU",
+        "pdf_title": "Fertilizer Requirement of Lentil Based on Soil Test Crop Response Correlation Approach",
+        "pdf_page_or_table": "Results",
+        "year": "2018"
+      }
+    },
+    {
+      "id": "up_linseed_inceptisol",
+      "state": "Uttar Pradesh",
+      "crop": "Linseed",
+      "soil_type": "Inceptisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "6.50*T - 0.18*SN",
+        "P2O5": "2.93*T - 1.34*SP",
+        "K2O": "3.33*T - 0.13*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "BHU",
+        "pdf_title": "Soil Test Crop Response Based Fertilizer Prescriptions",
+        "pdf_page_or_table": "Results",
+        "year": "2024"
+      }
+    },
+    {
+      "id": "up_coriander_inceptisol",
+      "state": "Uttar Pradesh",
+      "crop": "Coriander",
+      "soil_type": "Inceptisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "8.53*T - 0.37*SN",
+        "P2O5": "2.04*T - 1.55*SP",
+        "K2O": "3.60*T - 0.22*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "BHU",
+        "pdf_title": "Fertilizer recommendation based on soil testing for the targeted yield of coriander",
+        "pdf_page_or_table": "Results",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "ap_groundnut_alfisol",
+      "state": "Andhra Pradesh",
+      "crop": "Groundnut",
+      "soil_type": "Red Sandy Loam",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "3.76*T - 0.22*SN",
+        "P2O5": "3.25*T - 1.30*SP",
+        "K2O": "2.35*T - 0.20*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "ANGRAU",
+        "pdf_title": "Vyavasaya Panchangam",
+        "pdf_page_or_table": "STCR Groundnut",
+        "year": "2018"
+      }
+    },
+    {
+      "id": "tn_cabbage_red",
+      "state": "Tamil Nadu",
+      "crop": "Cabbage",
+      "soil_type": "Red Soil",
+      "approach": "STCR-IPNS",
+      "unit": "t/ha",
+      "equations": {
+        "N": "0.37*T - 0.46*SN - 0.63*ON",
+        "P2O5": "0.13*T - 1.37*SP - 0.59*OP",
+        "K2O": "0.36*T - 0.49*SK - 0.54*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Crop Production Guide Agriculture",
+        "pdf_page_or_table": "Cabbage",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "tn_cauliflower_red",
+      "state": "Tamil Nadu",
+      "crop": "Cauliflower",
+      "soil_type": "Red Sandy Loam",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "0.93*T - 0.79*SN - 0.63*ON",
+        "P2O5": "0.44*T - 1.74*SP - 0.85*OP",
+        "K2O": "0.44*T - 0.18*SK - 0.46*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "Agricultural Science Digest",
+        "pdf_title": "Fertilizer Prescription Equations for Desired Yield Targets of Cauliflower",
+        "pdf_page_or_table": "Results",
+        "year": "2009"
+      }
+    },
+    {
+      "id": "tn_castor_red",
+      "state": "Tamil Nadu",
+      "crop": "Castor",
+      "soil_type": "Red Soil",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "6.13*T - 0.63*SN - 0.67*ON",
+        "P2O5": "2.30*T - 1.95*SP - 0.61*OP",
+        "K2O": "4.05*T - 0.44*SK - 0.52*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Crop Production Guide Agriculture",
+        "pdf_page_or_table": "Castor",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "tn_cowpea_red",
+      "state": "Tamil Nadu",
+      "crop": "Cowpea",
+      "soil_type": "Red Sandy Loam",
+      "approach": "STCR",
+      "unit": "t/ha",
+      "equations": {
+        "N": "6.95*T - 0.63*SN",
+        "P2O5": "4.68*T - 4.05*SP",
+        "K2O": "7.29*T - 0.57*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "ICAR bulletin",
+        "publisher_or_university": "TNAU / AICRP-STCR",
+        "pdf_title": "Soil Test Based Fertilizer Recommendations",
+        "pdf_page_or_table": "Cowpea",
+        "year": "2018"
+      }
+    },
+    {
+      "id": "hp_french_bean_alfisol",
+      "state": "Himachal Pradesh",
+      "crop": "French Bean",
+      "soil_type": "Alfisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "5.82*T - 0.39*SN",
+        "P2O5": "4.95*T - 4.50*SP",
+        "K2O": "4.10*T - 0.32*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "Indian Journal of Agronomy",
+        "pdf_title": "Response of french bean varieties to plant density and nitrogen",
+        "pdf_page_or_table": "Results",
+        "year": "2015"
+      }
+    },
+    {
+      "id": "wb_carrot_inceptisol",
+      "state": "West Bengal",
+      "crop": "Carrot",
+      "soil_type": "Inceptisol",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "6.24*T - 0.60*SN - 0.38*ON",
+        "P2O5": "1.47*T - 0.61*SP - 0.07*OP",
+        "K2O": "6.43*T - 1.00*SK - 0.58*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "BCKV",
+        "pdf_title": "AICRP-STCR Official Recommendations",
+        "pdf_page_or_table": "Carrot",
+        "year": "2018"
+      }
+    },
+    {
+      "id": "karnataka_pigeonpea_vertisol",
+      "state": "Karnataka",
+      "crop": "Pigeonpea",
+      "soil_type": "Vertisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "3.84*T - 0.49*SN",
+        "P2O5": "3.63*T - 2.42*SP",
+        "K2O": "2.50*T - 0.17*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "Legume Research",
+        "pdf_title": "Soil test based fertilizer recommendation for pigeonpea in Vertisols of Northern Karnataka",
+        "pdf_page_or_table": "Results",
+        "year": "2016"
+      }
+    },
+    {
+      "id": "punjab_wheat_alluvial",
+      "state": "Punjab",
+      "crop": "Wheat",
+      "soil_type": "Alluvial",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "4.40*T - 0.40*SN",
+        "P2O5": "3.35*T - 4.60*SP",
+        "K2O": "2.55*T - 0.22*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "PAU Ludhiana",
+        "pdf_title": "Soil Test Based Fertilizer Recommendations - Wheat",
+        "pdf_page_or_table": "Wheat",
+        "year": "2022"
+      }
+    },
+    {
+      "id": "odisha_rice_inceptisol",
+      "state": "Odisha",
+      "crop": "Rice",
+      "soil_type": "Inceptisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "2.25*T - 0.42*SN",
+        "P2O5": "1.13*T - 1.62*SP",
+        "K2O": "1.92*T - 0.53*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "Indian Society of Soil Conservation",
+        "pdf_title": "Yield targeting equations for rice in Inceptisols of Odisha",
+        "pdf_page_or_table": "Results",
+        "year": "2015"
+      }
+    },
+    {
+      "id": "gujarat_groundnut_calcareous",
+      "state": "Gujarat",
+      "crop": "Groundnut",
+      "soil_type": "Calcareous",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "3.66*T - 0.39*SN",
+        "P2O5": "2.50*T - 2.35*SP",
+        "K2O": "3.23*T - 0.31*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "JAU",
+        "pdf_title": "Fertilizer Prescription Equations for Groundnut in Calcareous Soils",
+        "pdf_page_or_table": "Groundnut",
+        "year": "2014"
+      }
+    },
+    {
+      "id": "tn_sugarcane_ratoon",
+      "state": "Tamil Nadu",
+      "crop": "Sugarcane",
+      "soil_type": "Tropical Soil",
+      "approach": "STCR-IPNS",
+      "unit": "t/ha",
+      "equations": {
+        "N": "3.92*T - 0.63*SN - 0.86*ON",
+        "P2O5": "1.68*T - 2.18*SP - 0.73*OP",
+        "K2O": "2.95*T - 0.40*SK - 0.58*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Crop Production Guide - Sugarcane Ratoon",
+        "pdf_page_or_table": "Ratoon Crop",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "maharashtra_onion_vertisol",
+      "state": "Maharashtra",
+      "crop": "Onion",
+      "soil_type": "Vertisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "5.20*T - 0.56*SN",
+        "P2O5": "4.40*T - 5.73*SP",
+        "K2O": "3.40*T - 0.12*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "MPKV",
+        "pdf_title": "Soil Test Based Fertilizer Recommendations for Onion in Inceptisols of Maharashtra",
+        "pdf_page_or_table": "Results",
+        "year": "2018"
+      }
+    },
+    {
+      "id": "up_barley_alluvial",
+      "state": "Uttar Pradesh",
+      "crop": "Barley",
+      "soil_type": "Alluvial",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "4.53*T - 0.40*SN - 0.19*ON",
+        "P2O5": "1.09*T - 0.19*SP - 0.06*OP",
+        "K2O": "3.25*T - 0.38*SK - 0.031*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "BHU",
+        "pdf_title": "Nutrient Management for Rice - Barley Cropping System",
+        "pdf_page_or_table": "Results",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "up_wheat_inceptisol",
+      "state": "Uttar Pradesh",
+      "crop": "Wheat",
+      "soil_type": "Inceptisol",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "5.27*T - 0.25*SN - 1.06*ON",
+        "P2O5": "4.13*T - 0.38*SP - 0.98*OP",
+        "K2O": "2.87*T - 0.15*SK - 0.55*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "SVPUAT",
+        "pdf_title": "STCR response in wheat",
+        "pdf_page_or_table": "Results",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "telangana_rice_alfisol",
+      "state": "Telangana",
+      "crop": "Rice",
+      "soil_type": "Alfisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "3.23*T - 0.46*SN",
+        "P2O5": "1.51*T - 1.80*SP",
+        "K2O": "1.65*T - 0.26*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "PJTSAU",
+        "pdf_title": "Field validation of STCR in paddy",
+        "pdf_page_or_table": "Results",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "tn_turmeric_inceptisol",
+      "state": "Tamil Nadu",
+      "crop": "Turmeric",
+      "soil_type": "Inceptisol",
+      "approach": "STCR-IPNS",
+      "unit": "t/ha",
+      "equations": {
+        "N": "3.98*T - 0.59*SN - 0.82*ON",
+        "P2O5": "1.51*T - 1.75*SP - 0.84*OP",
+        "K2O": "2.32*T - 0.43*SK - 0.62*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Crop Production Guide 2020",
+        "pdf_page_or_table": "Results",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "tn_rice_noyyal",
+      "state": "Tamil Nadu",
+      "crop": "Rice",
+      "soil_type": "Typic Haplustalf",
+      "approach": "STCR-IPNS",
+      "unit": "q/ha",
+      "equations": {
+        "N": "4.39*T-0.52*SN-0.80*ON",
+        "P2O5": "2.22*T-3.63*SP-0.98*OP",
+        "K2O": "2.44*T-0.39*SK-0.72*OK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK", "ON", "OP", "OK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Soil Test and Yield Target Based Fertilizer Application for Rice",
+        "pdf_page_or_table": "STCR Table - Rice",
+        "year": "2020"
+      }
+    },
+    {
+      "id": "punjab_wheat_alluvial_stcr",
+      "state": "Punjab",
+      "crop": "Wheat",
+      "soil_type": "Alluvial",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "4.40*T-0.40*SN",
+        "P2O5": "3.35*T-4.60*SP",
+        "K2O": "2.55*T-0.22*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "ICAR bulletin",
+        "publisher_or_university": "ICAR-IISS Bhopal",
+        "pdf_title": "Targeted Yield Based Fertilizer Recommendations",
+        "pdf_page_or_table": "Wheat (Alluvial)",
+        "year": "2019"
+      }
+    },
+    {
+      "id": "tn_cotton_bt_black",
+      "state": "Tamil Nadu",
+      "crop": "Cotton",
+      "soil_type": "Mixed Black Calcareous",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "8.81*T - 0.62*SN",
+        "P2O5": "2.53*T - 1.36*SP",
+        "K2O": "4.92*T - 0.25*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "SAU handbook",
+        "publisher_or_university": "TNAU",
+        "pdf_title": "Nutrient Management :: An Introduction",
+        "pdf_page_or_table": "Fertilizer Prescription Equations for Cotton",
+        "year": "2023"
+      }
+    },
+    {
+      "id": "karnataka_maize_red",
+      "state": "Karnataka",
+      "crop": "Maize",
+      "soil_type": "Red Soil",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "3.84*T - 0.42*SN",
+        "P2O5": "1.57*T - 1.18*SP",
+        "K2O": "1.15*T - 0.11*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "UAS Bangalore / Indian Society of Soil Science",
+        "pdf_title": "Validation of STCR Approach for Maize",
+        "pdf_page_or_table": "Table 1",
+        "year": "2018"
+      }
+    },
+    {
+      "id": "mp_soybean_vertisol",
+      "state": "Madhya Pradesh",
+      "crop": "Soybean",
+      "soil_type": "Vertisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "5.19*T - 0.48*SN",
+        "P2O5": "5.20*T - 4.10*SP",
+        "K2O": "3.90*T - 0.22*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "ICAR bulletin",
+        "publisher_or_university": "ICAR-IISS / JNKVV",
+        "pdf_title": "Targeted Yield Fertilizer Recommendations - Soybean",
+        "pdf_page_or_table": "Soybean (Vertisols)",
+        "year": "2015"
+      }
+    },
+    {
+      "id": "delhi_mustard_alluvial",
+      "state": "Delhi",
+      "crop": "Mustard",
+      "soil_type": "Inceptisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "5.60*T - 0.56*SN",
+        "P2O5": "2.80*T - 2.60*SP",
+        "K2O": "2.20*T - 0.18*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "ICAR / ISSS",
+        "pdf_title": "STCR for Mustard in Inceptisols",
+        "pdf_page_or_table": "Results",
+        "year": "2011"
+      }
+    },
+    {
+      "id": "mp_chickpea_vertisol",
+      "state": "Madhya Pradesh",
+      "crop": "Chickpea",
+      "soil_type": "Vertisol",
+      "approach": "STCR",
+      "unit": "q/ha",
+      "equations": {
+        "N": "3.74*T - 0.18*SN",
+        "P2O5": "5.00*T - 2.50*SP",
+        "K2O": "3.80*T - 0.17*SK"
+      },
+      "variables_used": ["T", "SN", "SP", "SK"],
+      "verification": {
+        "source_type": "peer-reviewed journal",
+        "publisher_or_university": "JNKVV / Indian Society of Soil Science",
+        "pdf_title": "STCR for Chickpea in Vertisols",
+        "pdf_page_or_table": "Tables",
+        "year": "2015"
+      }
+    }
+  ],
+  "npk": [
+    {
+      "state": "Tamil Nadu",
+      "crop": "Groundnut",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Red Non-Calcareous",
+      "N": 10,
+      "P2O5": 10,
+      "K2O": 45,
+      "S": 10,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "TNAU Rainfed PoP"
+    },
+    {
+      "state": "Uttar Pradesh",
+      "crop": "Potato",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Alluvial",
+      "N": 150,
+      "P2O5": 100,
+      "K2O": 120,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "CPRI Recommendation"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Onion (Small)",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Red Non-Calcareous",
+      "N": 60,
+      "P2O5": 60,
+      "K2O": 30,
+      "S": 30,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Small Onion dosage"
+    },
+    {
+      "state": "Haryana",
+      "crop": "Pearl Millet",
+      "season": "Kharif",
+      "condition": "Irrigated",
+      "soil_type": "Inceptisol",
+      "N": 125,
+      "P2O5": 60,
+      "K2O": 0,
+      "S": 0,
+      "Zn": 10,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Hybrid Bajra PoP"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Okra",
+      "season": "Kharif",
+      "condition": "Irrigated",
+      "soil_type": "Red Soil",
+      "N": 40,
+      "P2O5": 50,
+      "K2O": 30,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Hybrid Okra"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Maize",
+      "season": "Kharif",
+      "condition": "Irrigated",
+      "soil_type": "Red Soil",
+      "N": 135,
+      "P2O5": 62.5,
+      "K2O": 50,
+      "S": 0,
+      "Zn": 10,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "TNAU Hybrid Standard"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Turmeric",
+      "season": "Annual",
+      "condition": "Irrigated",
+      "soil_type": "Black Soil",
+      "N": 150,
+      "P2O5": 60,
+      "K2O": 90,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 25,
+      "notes": "Rhizome yield target"
+    },
+    {
+      "state": "Bihar",
+      "crop": "Maize",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Calcareous Alluvial",
+      "N": 120,
+      "P2O5": 75,
+      "K2O": 50,
+      "S": 20,
+      "Zn": 10,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Winter Maize PoP"
+    },
+    {
+      "state": "Kerala",
+      "crop": "Rice",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Laterite",
+      "N": 90,
+      "P2O5": 45,
+      "K2O": 45,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 15,
+      "Fe": 0,
+      "notes": "KAU Recommendation"
+    },
+    {
+      "state": "Uttarakhand",
+      "crop": "Wheat",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Mollisol",
+      "N": 150,
+      "P2O5": 60,
+      "K2O": 40,
+      "S": 0,
+      "Zn": 5,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Tarai region PoP"
+    },
+    {
+      "state": "Maharashtra",
+      "crop": "Sorghum",
+      "season": "Rabi",
+      "condition": "Rainfed",
+      "soil_type": "Vertisol",
+      "N": 50,
+      "P2O5": 25,
+      "K2O": 25,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Scarcity zone PoP"
+    },
+    {
+      "state": "West Bengal",
+      "crop": "Jute",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Alluvial",
+      "N": 60,
+      "P2O5": 30,
+      "K2O": 30,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Olitorius variety"
+    },
+    {
+      "state": "Telangana",
+      "crop": "Sunflower",
+      "season": "Kharif",
+      "condition": "Irrigated",
+      "soil_type": "Red Soil",
+      "N": 75,
+      "P2O5": 90,
+      "K2O": 30,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "PJTSAU Recommendation"
+    },
+    {
+      "state": "Madhya Pradesh",
+      "crop": "Garlic",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Black Soil",
+      "N": 100,
+      "P2O5": 50,
+      "K2O": 50,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Standard Spices Dose"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Banana",
+      "season": "Annual",
+      "condition": "Irrigated",
+      "soil_type": "Red Soil",
+      "N": 300,
+      "P2O5": 100,
+      "K2O": 300,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Tissue Culture (g/plant conv)"
+    },
+    {
+      "state": "Karnataka",
+      "crop": "Chili",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Black Soil",
+      "N": 100,
+      "P2O5": 50,
+      "K2O": 50,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Byadgi variety"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Sesame",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Red Soil",
+      "N": 35,
+      "P2O5": 23,
+      "K2O": 23,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 10,
+      "notes": "TNAU Oilseed PoP"
+    },
+    {
+      "state": "Andhra Pradesh",
+      "crop": "Rice",
+      "season": "Kharif",
+      "condition": "Irrigated",
+      "soil_type": "Red Sandy Loam",
+      "N": 120,
+      "P2O5": 60,
+      "K2O": 40,
+      "S": 0,
+      "Zn": 10,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Southern Zone PoP"
+    },
+    {
+      "state": "Delhi",
+      "crop": "Wheat",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Alluvial",
+      "N": 150,
+      "P2O5": 60,
+      "K2O": 40,
+      "S": 0,
+      "Zn": 5,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "IARI Recommendation"
+    },
+    {
+      "state": "Karnataka",
+      "crop": "Soybean",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Black Soil",
+      "N": 30,
+      "P2O5": 80,
+      "K2O": 37.5,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "UAS Dharwad PoP"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Sugarcane",
+      "season": "Perennial",
+      "condition": "Irrigated",
+      "soil_type": "Tropical Soil",
+      "N": 275,
+      "P2O5": 63,
+      "K2O": 113,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Plant crop coastal"
+    },
+    {
+      "state": "Haryana",
+      "crop": "Cotton",
+      "season": "Kharif",
+      "condition": "Irrigated",
+      "soil_type": "Inceptisol",
+      "N": 175,
+      "P2O5": 60,
+      "K2O": 60,
+      "S": 20,
+      "Zn": 5,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Bt Hybrid Target"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Cotton",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Black Soil",
+      "N": 60,
+      "P2O5": 30,
+      "K2O": 30,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Rainfed Standard"
+    },
+    {
+      "state": "Telangana",
+      "crop": "Maize",
+      "season": "Kharif",
+      "condition": "Irrigated",
+      "soil_type": "Red Soil",
+      "N": 200,
+      "P2O5": 60,
+      "K2O": 50,
+      "S": 0,
+      "Zn": 10,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "High Yield Target"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Greengram",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Red Sandy Loam",
+      "N": 12.5,
+      "P2O5": 25,
+      "K2O": 12.5,
+      "S": 10,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Pulse standard"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Blackgram",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Black Soil",
+      "N": 12.5,
+      "P2O5": 25,
+      "K2O": 12.5,
+      "S": 10,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Pulse standard"
+    },
+    {
+      "state": "Kerala",
+      "crop": "Beetroot",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Ultisol",
+      "N": 75,
+      "P2O5": 37.5,
+      "K2O": 37.5,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "KAU Vegetable PoP"
+    },
+    {
+      "state": "Madhya Pradesh",
+      "crop": "Chickpea",
+      "season": "Rabi",
+      "condition": "Rainfed",
+      "soil_type": "Alluvial",
+      "N": 20,
+      "P2O5": 60,
+      "K2O": 20,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Bundelkhand region"
+    },
+    {
+      "state": "Maharashtra",
+      "crop": "Cotton",
+      "season": "Summer",
+      "condition": "Irrigated",
+      "soil_type": "Vertisol",
+      "N": 100,
+      "P2O5": 50,
+      "K2O": 50,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Summer irrigated"
+    },
+    {
+      "state": "Haryana",
+      "crop": "Mustard",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Inceptisol",
+      "N": 80,
+      "P2O5": 30,
+      "K2O": 30,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Raya standard"
+    },
+    {
+      "state": "Uttar Pradesh",
+      "crop": "Mustard",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Inceptisol",
+      "N": 120,
+      "P2O5": 60,
+      "K2O": 40,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Eastern UP PoP"
+    },
+    {
+      "state": "West Bengal",
+      "crop": "Mustard",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Inceptisol",
+      "N": 80,
+      "P2O5": 40,
+      "K2O": 40,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "BCKV Recommendation"
+    },
+    {
+      "state": "Odisha",
+      "crop": "Tomato",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Ustochrept",
+      "N": 120,
+      "P2O5": 60,
+      "K2O": 60,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Hybrid Tomato"
+    },
+    {
+      "state": "Andhra Pradesh",
+      "crop": "Brinjal",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Alfisol",
+      "N": 100,
+      "P2O5": 50,
+      "K2O": 50,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Southern India PoP"
+    },
+    {
+      "state": "Chhattisgarh",
+      "crop": "Rice",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Vertisol",
+      "N": 100,
+      "P2O5": 60,
+      "K2O": 40,
+      "S": 0,
+      "Zn": 5,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "IGKV Recommendation"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Rice",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Alfisol",
+      "N": 150,
+      "P2O5": 50,
+      "K2O": 50,
+      "S": 0,
+      "Zn": 10,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "TKM variety PoP"
+    },
+    {
+      "state": "Karnataka",
+      "crop": "Sunflower",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Black Soil",
+      "N": 35,
+      "P2O5": 50,
+      "K2O": 35,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Dry zone standard"
+    },
+    {
+      "state": "Maharashtra",
+      "crop": "Safflower",
+      "season": "Rabi",
+      "condition": "Rainfed",
+      "soil_type": "Vertisol",
+      "N": 50,
+      "P2O5": 25,
+      "K2O": 0,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Rainfed oilseed"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Finger Millet",
+      "season": "Kharif",
+      "condition": "Irrigated",
+      "soil_type": "Red Soil",
+      "N": 60,
+      "P2O5": 30,
+      "K2O": 30,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Ragi PoP"
+    },
+    {
+      "state": "Uttar Pradesh",
+      "crop": "Lentil",
+      "season": "Rabi",
+      "condition": "Rainfed",
+      "soil_type": "Inceptisol",
+      "N": 20,
+      "P2O5": 40,
+      "K2O": 20,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "BHU Recommendation"
+    },
+    {
+      "state": "Uttar Pradesh",
+      "crop": "Linseed",
+      "season": "Rabi",
+      "condition": "Rainfed",
+      "soil_type": "Inceptisol",
+      "N": 60,
+      "P2O5": 30,
+      "K2O": 30,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Oilseed PoP"
+    },
+    {
+      "state": "Uttar Pradesh",
+      "crop": "Coriander",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Inceptisol",
+      "N": 60,
+      "P2O5": 40,
+      "K2O": 30,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Spice crop"
+    },
+    {
+      "state": "Andhra Pradesh",
+      "crop": "Groundnut",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Red Sandy Loam",
+      "N": 30,
+      "P2O5": 60,
+      "K2O": 60,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 15,
+      "Fe": 0,
+      "notes": "Gypsum application"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Cabbage",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Red Soil",
+      "N": 200,
+      "P2O5": 125,
+      "K2O": 25,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Hill vegetable PoP"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Cauliflower",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Red Sandy Loam",
+      "N": 200,
+      "P2O5": 125,
+      "K2O": 25,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Standard dosage"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Castor",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Red Soil",
+      "N": 60,
+      "P2O5": 30,
+      "K2O": 30,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Hybrid Castor"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Cowpea",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Red Sandy Loam",
+      "N": 25,
+      "P2O5": 50,
+      "K2O": 25,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Vegetable type"
+    },
+    {
+      "state": "Himachal Pradesh",
+      "crop": "French Bean",
+      "season": "Kharif",
+      "condition": "Irrigated",
+      "soil_type": "Alfisol",
+      "N": 50,
+      "P2O5": 100,
+      "K2O": 50,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Pole type beans"
+    },
+    {
+      "state": "West Bengal",
+      "crop": "Carrot",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Inceptisol",
+      "N": 80,
+      "P2O5": 60,
+      "K2O": 80,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Root crop PoP"
+    },
+    {
+      "state": "Karnataka",
+      "crop": "Pigeonpea",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Vertisol",
+      "N": 25,
+      "P2O5": 50,
+      "K2O": 25,
+      "S": 10,
+      "Zn": 5,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Redgram PoP"
+    },
+    {
+      "state": "Punjab",
+      "crop": "Wheat",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Alluvial",
+      "N": 150,
+      "P2O5": 62.5,
+      "K2O": 30,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "PAU Standard"
+    },
+    {
+      "state": "Odisha",
+      "crop": "Rice",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Inceptisol",
+      "N": 80,
+      "P2O5": 40,
+      "K2O": 40,
+      "S": 0,
+      "Zn": 5,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "OUAT Standard"
+    },
+    {
+      "state": "Gujarat",
+      "crop": "Groundnut",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Calcareous",
+      "N": 25,
+      "P2O5": 50,
+      "K2O": 0,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Bunch type"
+    },
+    {
+      "state": "Maharashtra",
+      "crop": "Onion",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Vertisol",
+      "N": 100,
+      "P2O5": 50,
+      "K2O": 50,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Nashik Red"
+    },
+    {
+      "state": "Uttar Pradesh",
+      "crop": "Barley",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Alluvial",
+      "N": 60,
+      "P2O5": 30,
+      "K2O": 20,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Malt Barley"
+    },
+    {
+      "state": "Gujarat",
+      "crop": "Cotton",
+      "season": "Kharif",
+      "condition": "Irrigated",
+      "soil_type": "Medium Black",
+      "N": 160,
+      "P2O5": 0,
+      "K2O": 120,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "High K demand"
+    },
+    {
+      "state": "Karnataka",
+      "crop": "Maize",
+      "season": "Kharif",
+      "condition": "Irrigated",
+      "soil_type": "Vertisol",
+      "N": 150,
+      "P2O5": 75,
+      "K2O": 40,
+      "S": 10,
+      "Zn": 10,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "UAS Dharwad PoP"
+    },
+    {
+      "state": "Telangana",
+      "crop": "Rice",
+      "season": "Kharif",
+      "condition": "Irrigated",
+      "soil_type": "Alfisol",
+      "N": 120,
+      "P2O5": 60,
+      "K2O": 40,
+      "S": 0,
+      "Zn": 10,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "PJTSAU Rice"
+    },
+    {
+      "state": "Haryana",
+      "crop": "Pearl Millet",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Inceptisol",
+      "N": 100,
+      "P2O5": 50,
+      "K2O": 0,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Rainfed Bajra"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Turmeric",
+      "season": "Annual",
+      "condition": "Irrigated",
+      "soil_type": "Inceptisol",
+      "N": 150,
+      "P2O5": 60,
+      "K2O": 90,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 25,
+      "notes": "Erode local"
+    },
+    {
+      "state": "Gujarat",
+      "crop": "Pigeonpea",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Medium Black",
+      "N": 25,
+      "P2O5": 50,
+      "K2O": 0,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Saurashtra region"
+    },
+    {
+      "state": "Tamil Nadu",
+      "crop": "Cotton",
+      "season": "Winter",
+      "condition": "Irrigated",
+      "soil_type": "Mixed Black",
+      "N": 120,
+      "P2O5": 60,
+      "K2O": 60,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Winter Irrigated"
+    },
+    {
+      "state": "Karnataka",
+      "crop": "Maize",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Red Soil",
+      "N": 100,
+      "P2O5": 50,
+      "K2O": 25,
+      "S": 10,
+      "Zn": 10,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Eastern Dry Zone"
+    },
+    {
+      "state": "Madhya Pradesh",
+      "crop": "Soybean",
+      "season": "Kharif",
+      "condition": "Rainfed",
+      "soil_type": "Vertisol",
+      "N": 20,
+      "P2O5": 60,
+      "K2O": 20,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "JNKVV Standard"
+    },
+    {
+      "state": "Delhi",
+      "crop": "Mustard",
+      "season": "Rabi",
+      "condition": "Irrigated",
+      "soil_type": "Inceptisol",
+      "N": 80,
+      "P2O5": 40,
+      "K2O": 40,
+      "S": 20,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "IARI Standard"
+    },
+    {
+      "state": "Madhya Pradesh",
+      "crop": "Chickpea",
+      "season": "Rabi",
+      "condition": "Rainfed",
+      "soil_type": "Vertisol",
+      "N": 20,
+      "P2O5": 60,
+      "K2O": 20,
+      "S": 0,
+      "Zn": 0,
+      "B": 0,
+      "Mg": 0,
+      "Fe": 0,
+      "notes": "Deep Black Soil"
+    }
+  ],
+  "state_crop_map": {
+    "Tamil Nadu": [
+      "Groundnut",
+      "Onion (Small)",
+      "Okra",
+      "Maize",
+      "Turmeric",
+      "Banana",
+      "Sesame",
+      "Sugarcane",
+      "Cotton",
+      "Greengram",
+      "Blackgram",
+      "Rice",
+      "Finger Millet",
+      "Cabbage",
+      "Cauliflower",
+      "Castor",
+      "Cowpea"
+    ],
+    "Uttar Pradesh": [
+      "Potato",
+      "Mustard",
+      "Lentil",
+      "Linseed",
+      "Coriander",
+      "Barley",
+      "Wheat"
+    ],
+    "Haryana": [
+      "Pearl Millet",
+      "Cotton",
+      "Mustard"
+    ],
+    "Bihar": [
+      "Maize"
+    ],
+    "Kerala": [
+      "Rice",
+      "Beetroot"
+    ],
+    "Uttarakhand": [
+      "Wheat"
+    ],
+    "Maharashtra": [
+      "Sorghum",
+      "Cotton",
+      "Safflower",
+      "Onion"
+    ],
+    "West Bengal": [
+      "Jute",
+      "Mustard",
+      "Carrot"
+    ],
+    "Telangana": [
+      "Sunflower",
+      "Maize",
+      "Rice"
+    ],
+    "Madhya Pradesh": [
+      "Garlic",
+      "Chickpea",
+      "Soybean"
+    ],
+    "Karnataka": [
+      "Chili",
+      "Soybean",
+      "Sunflower",
+      "Pigeonpea",
+      "Maize"
+    ],
+    "Andhra Pradesh": [
+      "Rice",
+      "Brinjal",
+      "Groundnut"
+    ],
+    "Delhi": [
+      "Wheat",
+      "Mustard"
+    ],
+    "Odisha": [
+      "Tomato",
+      "Rice"
+    ],
+    "Chhattisgarh": [
+      "Rice"
+    ],
+    "Himachal Pradesh": [
+      "French Bean"
+    ],
+    "Punjab": [
+      "Wheat"
+    ],
+    "Gujarat": [
+      "Groundnut",
+      "Cotton",
+      "Pigeonpea"
+    ]
+  }
+}

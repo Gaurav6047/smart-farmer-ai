@@ -1,0 +1,652 @@
+{
+  "states": {
+    "Andhra Pradesh": {
+      "crops": {
+        "Rice": [
+          {
+            "condition": "Irrigated",
+            "season": "Kharif",
+            "recommended": {
+              "N": 120,
+              "P2O5": 60,
+              "K2O": 40,
+              "ZnSO4": 50,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.33, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.33, "timing": "Topdress", "days_after_sowing": 30 },
+                { "fraction": 0.34, "timing": "Topdress", "days_after_sowing": 60 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "Apply ZnSO4 if soil is deficient", "ANGRAU Recommendation for High Yielding Varieties" ]
+          }
+        ],
+        "Groundnut": [
+          {
+            "condition": "Rainfed",
+            "season": "Kharif",
+            "recommended": {
+              "N": 20,
+              "P2O5": 40,
+              "K2O": 50,
+              "ZnSO4": 0,
+              "S": 20
+            },
+            "split": {
+              "N": [
+                { "fraction": 1.0, "timing": "Basal", "days_after_sowing": 0 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "Gypsum application recommended at pegging stage (500 kg/ha)" ]
+          }
+        ]
+      }
+    },
+    "Telangana": {
+      "crops": {
+        "Cotton": [
+          {
+            "condition": "Irrigated",
+            "season": "Kharif",
+            "recommended": {
+              "N": 120,
+              "P2O5": 60,
+              "K2O": 60,
+              "ZnSO4": 0,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.25, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 30 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 60 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 90 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [
+                { "fraction": 0.5, "timing": "Basal" },
+                { "fraction": 0.5, "timing": "Topdress" }
+              ]
+            },
+            "notes": [ "PJTSAU Recommendation" ]
+          }
+        ],
+        "Maize": [
+          {
+            "condition": "Hybrid",
+            "season": "Rabi",
+            "recommended": {
+              "N": 200,
+              "P2O5": 80,
+              "K2O": 80,
+              "ZnSO4": 50,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.25, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.30, "timing": "Topdress", "days_after_sowing": 30 },
+                { "fraction": 0.30, "timing": "Topdress", "days_after_sowing": 60 },
+                { "fraction": 0.15, "timing": "Topdress", "days_after_sowing": 80 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "Apply ZnSO4 once in 3 crop seasons" ]
+          }
+        ]
+      }
+    },
+    "Maharashtra": {
+      "crops": {
+        "Soybean": [
+          {
+            "condition": "Rainfed",
+            "season": "Kharif",
+            "recommended": {
+              "N": 30,
+              "P2O5": 75,
+              "K2O": 0,
+              "ZnSO4": 0,
+              "S": 20
+            },
+            "split": {
+              "N": [{ "fraction": 1.0, "timing": "Basal", "days_after_sowing": 0 }],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 0.0, "timing": "Basal" }]
+            },
+            "notes": [ "MPKV Recommendation for medium black soils", "K2O only if soil test shows deficiency" ]
+          }
+        ],
+        "Sugarcane": [
+          {
+            "condition": "Irrigated",
+            "season": "Adsali",
+            "recommended": {
+              "N": 400,
+              "P2O5": 170,
+              "K2O": 170,
+              "ZnSO4": 25,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.10, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.40, "timing": "Topdress", "days_after_sowing": 60 },
+                { "fraction": 0.10, "timing": "Topdress", "days_after_sowing": 120 },
+                { "fraction": 0.40, "timing": "Topdress", "days_after_sowing": 180 }
+              ],
+              "P2O5": [
+                { "fraction": 0.5, "timing": "Basal" },
+                { "fraction": 0.5, "timing": "Topdress" }
+              ],
+              "K2O": [
+                { "fraction": 0.5, "timing": "Basal" },
+                { "fraction": 0.5, "timing": "Topdress" }
+              ]
+            },
+            "notes": [ "Adsali crop (16-18 months duration)" ]
+          }
+        ]
+      }
+    },
+    "Uttar Pradesh": {
+      "crops": {
+        "Wheat": [
+          {
+            "condition": "Irrigated",
+            "season": "Rabi",
+            "recommended": {
+              "N": 150,
+              "P2O5": 60,
+              "K2O": 40,
+              "ZnSO4": 25,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.5, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.5, "timing": "Topdress", "days_after_sowing": 21 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "Apply topdress N after first irrigation (CRI stage)" ]
+          }
+        ],
+        "Mustard": [
+          {
+            "condition": "Irrigated",
+            "season": "Rabi",
+            "recommended": {
+              "N": 120,
+              "P2O5": 60,
+              "K2O": 40,
+              "ZnSO4": 0,
+              "S": 40
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.5, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.5, "timing": "Topdress", "days_after_sowing": 35 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "Sulphur is critical for oil content" ]
+          }
+        ]
+      }
+    },
+    "Tamil Nadu": {
+      "crops": {
+        "Rice": [
+          {
+            "condition": "Irrigated",
+            "season": "Kharif",
+            "recommended": {
+              "N": 150,
+              "P2O5": 50,
+              "K2O": 50,
+              "ZnSO4": 25,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.25, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 20 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 40 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 60 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [
+                { "fraction": 0.5, "timing": "Basal" },
+                { "fraction": 0.5, "timing": "Topdress" }
+              ]
+            },
+            "notes": [ "TNAU Recommendation for Short Duration Varieties" ]
+          }
+        ],
+        "Groundnut": [
+          {
+            "condition": "Irrigated",
+            "season": "Rabi",
+            "recommended": {
+              "N": 25,
+              "P2O5": 50,
+              "K2O": 75,
+              "ZnSO4": 0,
+              "S": 40
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.5, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.5, "timing": "Topdress", "days_after_sowing": 25 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "Sulphur applied as Gypsum (400 kg/ha)" ]
+          }
+        ]
+      }
+    },
+    "Karnataka": {
+      "crops": {
+        "Finger Millet": [
+          {
+            "condition": "Irrigated",
+            "season": "Kharif",
+            "recommended": {
+              "N": 100,
+              "P2O5": 50,
+              "K2O": 50,
+              "ZnSO4": 0,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.5, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.5, "timing": "Topdress", "days_after_sowing": 30 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "UAS Bangalore Recommendation" ]
+          }
+        ],
+        "Sunflower": [
+          {
+            "condition": "Hybrid",
+            "season": "Kharif",
+            "recommended": {
+              "N": 90,
+              "P2O5": 90,
+              "K2O": 60,
+              "ZnSO4": 0,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.5, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.5, "timing": "Topdress", "days_after_sowing": 30 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "Irrigated conditions" ]
+          }
+        ]
+      }
+    },
+    "Gujarat": {
+      "crops": {
+        "Groundnut": [
+          {
+            "condition": "Rainfed",
+            "season": "Kharif",
+            "recommended": {
+              "N": 12.5,
+              "P2O5": 25,
+              "K2O": 0,
+              "ZnSO4": 0,
+              "S": 0
+            },
+            "split": {
+              "N": [{ "fraction": 1.0, "timing": "Basal", "days_after_sowing": 0 }],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 0.0, "timing": "Basal" }]
+            },
+            "notes": [ "AAU/JAU Recommendation for Bunch type" ]
+          }
+        ],
+        "Cotton": [
+          {
+            "condition": "Hybrid",
+            "season": "Kharif",
+            "recommended": {
+              "N": 240,
+              "P2O5": 0,
+              "K2O": 0,
+              "ZnSO4": 0,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.25, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 30 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 60 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 90 }
+              ],
+              "P2O5": [{ "fraction": 0.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 0.0, "timing": "Basal" }]
+            },
+            "notes": [ "Apply P and K only based on soil test limits" ]
+          }
+        ]
+      }
+    },
+    "Madhya Pradesh": {
+      "crops": {
+        "Soybean": [
+          {
+            "condition": "Rainfed",
+            "season": "Kharif",
+            "recommended": {
+              "N": 20,
+              "P2O5": 60,
+              "K2O": 20,
+              "ZnSO4": 0,
+              "S": 20
+            },
+            "split": {
+              "N": [{ "fraction": 1.0, "timing": "Basal", "days_after_sowing": 0 }],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "JNKVV Recommendation" ]
+          }
+        ],
+        "Chickpea": [
+          {
+            "condition": "Rainfed",
+            "season": "Rabi",
+            "recommended": {
+              "N": 20,
+              "P2O5": 60,
+              "K2O": 20,
+              "ZnSO4": 0,
+              "S": 20
+            },
+            "split": {
+              "N": [{ "fraction": 1.0, "timing": "Basal", "days_after_sowing": 0 }],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "Use Rhizobium culture" ]
+          }
+        ]
+      }
+    },
+    "Bihar": {
+      "crops": {
+        "Rice": [
+          {
+            "condition": "Rainfed",
+            "season": "Kharif",
+            "recommended": {
+              "N": 80,
+              "P2O5": 40,
+              "K2O": 20,
+              "ZnSO4": 25,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.5, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 30 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 60 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "RAU Recommendation" ]
+          }
+        ],
+        "Maize": [
+          {
+            "condition": "Hybrid",
+            "season": "Rabi",
+            "recommended": {
+              "N": 120,
+              "P2O5": 75,
+              "K2O": 50,
+              "ZnSO4": 25,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.33, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.33, "timing": "Topdress", "days_after_sowing": 30 },
+                { "fraction": 0.34, "timing": "Topdress", "days_after_sowing": 60 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "Winter Maize requires high inputs" ]
+          }
+        ]
+      }
+    },
+    "West Bengal": {
+      "crops": {
+        "Rice": [
+          {
+            "condition": "Irrigated",
+            "season": "Boro",
+            "recommended": {
+              "N": 120,
+              "P2O5": 60,
+              "K2O": 60,
+              "ZnSO4": 25,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.25, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.50, "timing": "Topdress", "days_after_sowing": 21 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 45 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "BCKV Recommendation for Boro (Summer) Rice" ]
+          }
+        ],
+        "Potato": [
+          {
+            "condition": "Irrigated",
+            "season": "Rabi",
+            "recommended": {
+              "N": 180,
+              "P2O5": 150,
+              "K2O": 150,
+              "ZnSO4": 0,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.5, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.5, "timing": "Topdress", "days_after_sowing": 30 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "Earthing up done at time of topdressing" ]
+          }
+        ]
+      }
+    },
+    "Odisha": {
+      "crops": {
+        "Rice": [
+          {
+            "condition": "Rainfed",
+            "season": "Kharif",
+            "recommended": {
+              "N": 80,
+              "P2O5": 40,
+              "K2O": 40,
+              "ZnSO4": 0,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.25, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.50, "timing": "Topdress", "days_after_sowing": 21 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 55 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "OUAT Recommendation for Medium duration varieties" ]
+          }
+        ]
+      }
+    },
+    "Assam": {
+      "crops": {
+        "Rice": [
+          {
+            "condition": "Rainfed",
+            "season": "Kharif",
+            "recommended": {
+              "N": 60,
+              "P2O5": 20,
+              "K2O": 40,
+              "ZnSO4": 0,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.5, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.5, "timing": "Topdress", "days_after_sowing": 30 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "AAU Recommendation for Sali Rice (HYV)" ]
+          }
+        ]
+      }
+    },
+    "Himachal Pradesh": {
+      "crops": {
+        "Maize": [
+          {
+            "condition": "Rainfed",
+            "season": "Kharif",
+            "recommended": {
+              "N": 120,
+              "P2O5": 60,
+              "K2O": 40,
+              "ZnSO4": 10,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.33, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.33, "timing": "Topdress", "days_after_sowing": 30 },
+                { "fraction": 0.34, "timing": "Topdress", "days_after_sowing": 50 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "CSKHPKV Recommendation" ]
+          }
+        ]
+      }
+    },
+    "Kerala": {
+      "crops": {
+        "Rice": [
+          {
+            "condition": "Irrigated",
+            "season": "Kharif",
+            "recommended": {
+              "N": 90,
+              "P2O5": 45,
+              "K2O": 45,
+              "ZnSO4": 0,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.5, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 20 },
+                { "fraction": 0.25, "timing": "Topdress", "days_after_sowing": 45 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 1.0, "timing": "Basal" }]
+            },
+            "notes": [ "KAU Recommendation for Medium Duration Varieties" ]
+          }
+        ]
+      }
+    },
+    "Rajasthan": {
+      "crops": {
+        "Mustard": [
+          {
+            "condition": "Irrigated",
+            "season": "Rabi",
+            "recommended": {
+              "N": 80,
+              "P2O5": 40,
+              "K2O": 0,
+              "ZnSO4": 0,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.5, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.5, "timing": "Topdress", "days_after_sowing": 35 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 0.0, "timing": "Basal" }]
+            },
+            "notes": [ "RAU Bikaner Recommendation. K applied only if deficient." ]
+          }
+        ],
+        "Pearl Millet": [
+          {
+            "condition": "Rainfed",
+            "season": "Kharif",
+            "recommended": {
+              "N": 60,
+              "P2O5": 30,
+              "K2O": 0,
+              "ZnSO4": 0,
+              "S": 0
+            },
+            "split": {
+              "N": [
+                { "fraction": 0.5, "timing": "Basal", "days_after_sowing": 0 },
+                { "fraction": 0.5, "timing": "Topdress", "days_after_sowing": 30 }
+              ],
+              "P2O5": [{ "fraction": 1.0, "timing": "Basal" }],
+              "K2O": [{ "fraction": 0.0, "timing": "Basal" }]
+            },
+            "notes": [ "Hybrid Bajra" ]
+          }
+        ]
+      }
+    }
+  }
+}

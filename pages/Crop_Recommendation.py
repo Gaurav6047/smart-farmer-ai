@@ -34,14 +34,11 @@ st.markdown(f"""
 # ----------------------------------------------------
 # LOAD MODEL + SCALER + LABEL ENCODER
 # ----------------------------------------------------
-with open("models/crop_rf_final.pkl", "rb") as f:
-    model = pickle.load(f)
+import joblib
 
-with open("models/scaler.pkl", "rb") as f:
-    scaler = pickle.load(f)
-
-with open("models/label_encoder.pkl", "rb") as f:
-    le = pickle.load(f)
+model = joblib.load("models/crop_rf_final.pkl")
+scaler = joblib.load("models/scaler.pkl")
+le = joblib.load("models/label_encoder.pkl")
 
 # ----------------------------------------------------
 # INPUT SECTION
@@ -75,6 +72,9 @@ if st.button(tr("recommend_btn"), use_container_width=True):
     crop_eng = le.inverse_transform([pred])[0].lower()
 
     # Hindi translation if available
-    crop_final = T.get("crop_classes", {}).get(crop_eng, crop_eng)
+# SIMPLE SAFE VERSION
+    crop_final = crop_eng
+
+
 
     st.success(f"{tr('recommended_crop')}: **{crop_final.upper()}**")
