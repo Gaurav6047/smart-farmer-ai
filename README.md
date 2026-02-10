@@ -1,252 +1,132 @@
----
-title: "Smart Farmer AI"
-emoji: "🚜"
-colorFrom: "green"
-colorTo: "yellow"
-sdk: "gradio"
-sdk_version: "4.31.4"
-app_file: "main.py"
-pinned: false
----
-
 # Smart Farmer AI
 
+Smart Farmer AI is an integrated, modular agricultural decision-support system that combines image-based diagnostics (disease, pest, and produce classification) with data-driven crop recommendation and scientifically grounded agronomy engines for fertilizer and irrigation planning. The system is designed for CPU execution and is exposed through a unified Streamlit interface to support complete end-to-end operation.
 
-# 🌱 **Smart Farmer AI**
-
-### AI-Powered Crop Recommendation, Plant Disease Detection, Pest Detection, Fruit Classification & Scientific Fertilizer Engine
-
-<p align="center">
-  <img src="assets/banner.png" width="90%" />
-</p>
-
-<p align="center">
-  <b>Streamlit • TFLite • YOLOv8 • RandomForest • Scientific STCR Engine</b>
-</p>
+This document describes the project purpose, architectural design, core components, execution workflow, known limitations, and the minimum requirements for academic evaluation.
 
 ---
 
-# ⭐ **Badges**
+## Purpose and Scope
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Streamlit-App-brightgreen?style=for-the-badge">
-  <img src="https://img.shields.io/badge/TFLite-Models-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/YOLOv8-Pest Detection-orange?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Fertilizer-STCR Engine-red?style=for-the-badge">
-  <img src="https://img.shields.io/badge/ML-RandomForest-yellow?style=for-the-badge">
-</p>
+Smart Farmer AI is intended as a **decision-assistance system**, not an automated control platform. It generates explainable advisories based on multiple data sources and machine learning models so that users can understand the reasoning behind each recommendation.
 
----
+The project demonstrates:
 
-# 📌 **Overview**
+- Practical integration of multiple ML and deep learning models into a single application  
+- Transparent agronomic calculations using scientific formulations (STCR, soil fertility thresholds, organic credits)  
+- Irrigation scheduling based on FAO-56 principles with a short-term machine learning forecast  
 
-**Smart Farmer AI** is a full-stack agricultural intelligence system designed for real-world farmers.
-It integrates **multiple AI models**, scientific agriculture datasets, and a rule-based fertilizer engine — all inside one beautiful, mobile-optimized Streamlit UI.
-
-✔ Photo → Disease/Pest/Fruit detection
-✔ Soil data → Best Crop → Full Fertilizer Plan
-✔ Works offline
-✔ Lightweight + Fast
-✔ Multilingual (English + Hindi)
+It is suitable for:
+- Final year engineering / MCA / BCA projects  
+- Precision agriculture research demonstrations  
+- Applied AI and computer vision integration studies  
 
 ---
 
-# 🧠 **Features**
+## High-Level System Architecture (Conceptual)
+
+User interaction is divided into three main processing pipelines:
+
+### 1. Image Analysis Pipeline  
+User images are automatically routed to the correct vision model. Depending on image type, the system performs:
+- Plant disease classification  
+- Pest detection using object detection  
+- Fruit and vegetable classification  
+
+Outputs include the predicted label, confidence score, and visual overlays for detected objects.
+
+### 2. Crop Recommendation Pipeline  
+Numerical soil and environmental inputs are scaled and passed to a trained Random Forest model. The system predicts the most suitable crop along with a confidence score. This module runs completely offline once the trained model files are available.
+
+### 3. Agronomy Engines  
+Two independent but coordinated engines operate:
+
+- **Fertilizer engine**: Uses STCR equations, organic nutrient adjustments, micronutrient rules, soil correction logic, and fertilizer bag conversion. It outputs a complete nutrient prescription and agronomic advisory.  
+- **Irrigation engine**: Implements FAO-56 ET₀ and ETc computation, soil water balance, pump-based irrigation duration, and a 3-day XGBoost-based irrigation forecast.
 
 ---
 
-## 🌿 **Plant Disease Detection**
+## Major Software Components
 
-* 38-class **PlantVillage TFLite** model
-* CPU-optimized (5–20 ms inference)
-* High accuracy + mobile-friendly
-* Full confidence score + alerts
+### Application Entry and Interface
+- `app.py` serves as the main Streamlit entry point and controls global UI, routing, and language handling.
 
----
+### Vision Modules
+- Automatic image router for model selection  
+- TFLite-based plant disease classifier  
+- YOLO-based pest detection module  
+- TFLite-based fruit and vegetable classifier  
 
-## 🐛 **Pest Detection (YOLOv8)**
+### Crop Recommendation Module
+- Soil parameter input form  
+- Feature scaling and Random Forest inference  
+- Multilingual output of predicted crop  
 
-* Custom-trained YOLOv8 model
-* Real-time detection
-* Bounding boxes + confidence
-* Works for Indian farm pests
+### Fertilizer Recommendation Engine
+- STCR-based nutrient computation  
+- Organic nutrient credit adjustments  
+- Micronutrient deficiency detection  
+- Soil correction warnings (pH, EC)  
+- Commercial fertilizer bag conversion  
+- Structured final advisory generation  
 
----
-
-## 🍎 **Fruit & Vegetable Classification**
-
-* 36-class TFLite classifier
-* Preprocessed for low-power devices
-* High accuracy on common fruits/vegetables
-
----
-
-## 🔀 **Auto Image Router**
-
-Automatically routes image to:
-
-* Plant Disease Page
-* Pest Detection Page
-* Fruit Classification Page
-* Or Background Warning
-
-Powered by **64×64 tiny CNN** — fast and lightweight.
+### Irrigation Engine
+- FAO-56 ET₀ and ETc computation  
+- Daily soil water balance  
+- Rainfall correction  
+- Pump horsepower-based irrigation duration  
+- Short-term ML-based irrigation forecasting  
 
 ---
 
-## 🌾 **Crop Recommendation System (ML Model)**
+## Inputs and Outputs (Summary)
 
-A machine learning system trained using:
+### Crop Recommendation
+- **Input:** N, P, K, pH, temperature, humidity, rainfall  
+- **Output:** Recommended crop with confidence score  
 
-* N, P, K
-* pH
-* Rainfall
-* Temperature
-* Soil Type
-* Region Data
+### Fertilizer Engine
+- **Input:** Location, crop, season, soil values, organic input, target yield (optional)  
+- **Output:** Nutrient gaps, fertilizer bags (urea, DAP, MOP), micronutrient alerts, and advisory notes  
 
-Model Used: **RandomForestClassifier**
+### Irrigation Engine
+- **Input:** Geographic location, crop stage, soil type, pump horsepower, field area  
+- **Output:** Daily ETc, water requirement, irrigation duration, and short-term irrigation forecast  
 
-✔ Predicts best crop
-✔ Provides confidence score
-✔ Uses scaler for normalization
-✔ Works offline
-✔ Hindi + English support
-
-Files:
-
-```
-models/crop_rf_final.pkl
-models/scaler.pkl
-```
+### Vision Modules
+- **Input:** Uploaded image or camera frame  
+- **Output:** Class label, confidence score, and visualization  
 
 ---
 
-## 🧪 **Scientific Fertilizer Recommendation Engine**
+## Reproducibility and Local Execution
 
-A professional-grade fertilizer engine built using:
-
-* **STCR equations**
-* **Indian soil fertility thresholds**
-* **Micronutrient critical levels**
-* **Organic nutrient substitution logic**
-* **Legume rotation credits**
-* **pH + EC correction rules**
-* **Commercial NPK-to-bags conversion**
-
-Outputs include:
-
-✔ N, P₂O₅, K₂O (kg/ha)
-✔ Organic credits deduction
-✔ Urea, DAP, MOP bags
-✔ Micronutrient recommendations
-✔ Soil correction alerts
-✔ Agronomic notes
-✔ Full calculation breakdown
-
-Uses the following datasets:
-
-```
-models/soil_fertility.json
-models/standard_npk.csv
-models/stcr_equations.json
-models/organic_rules.json
-```
-
----
-# 📁 **Project Structure**
-
-```
-smart-farmer/
-│── main.py
-│── router.py
-│── requirements.txt
-│
-│── pages/
-│   ├── 🌿_Plant_Disease.py
-│   ├── 🐛_Pest_Detection.py
-│   ├── 🍎_Fruit_Classification.py
-│   ├── 🔀_Auto_Routing.py
-│   ├── 📊_Crop_Recommendation.py
-│   ├── 🧪_Fertilizer_Recommendation.py
-│   └── 📘_Fertilizer_Engine_Info.py
-│
-│── engine/
-│   ├── recommender.py
-│   ├── stcr.py
-│   ├── organic_rules.py
-│   ├── brand_converter.py
-│   ├── thresholds.py
-│   ├── loader.py
-│   └── auto_crop.py
-│
-│── models/
-│   ├── plant_disease.tflite
-│   ├── fruit_model.tflite
-│   ├── pest_model.pt
-│   ├── router_model.tflite
-│   ├── soil_fertility.json
-│   ├── standard_npk.csv
-│   ├── stcr_equations.json
-│   ├── organic_rules.json
-│   ├── crop_rf_final.pkl
-│   └── scaler.pkl
-│
-│── utils/
-│   ├── theme.py
-│   ├── language.py
-│   ├── result_box.py
-│   ├── preprocess.py
-│   ├── postprocess.py
-│   └── model_loader.py
-│
-└── assets/
-```
-
----
-
-# ⚙️ Installation
+A virtual environment is recommended.
 
 ```bash
+python -m venv venv
+venv\Scripts\activate
 pip install -r requirements.txt
-streamlit run main.py
-```
+streamlit run app.py
+If large model files are tracked using Git LFS, Git LFS must be installed and initialized before cloning.
 
----
+Practical Limitations
+Camera-based live inference works only in local environments
 
-# ☁️ Deploy on Streamlit Cloud
+Vision model accuracy depends on lighting conditions and image quality
 
-1. Upload to GitHub
-2. Go to [https://share.streamlit.io](https://share.streamlit.io)
-3. Select `main.py`
-4. Deploy → Done 🎉
+Soil health values are assumed to be laboratory-tested inputs
 
----
+The system provides decision support, not guaranteed yield predictions
 
-# 📱 Mobile-Optimized
+These limitations are acknowledged as part of responsible deployment.
 
-✔ Touch-friendly
-✔ Responsive grid
-✔ Camera input
-✔ Smooth animations
-✔ Dark/Light friendly
+Author
+Gaurav
+Machine Learning Engineer (India)
 
----
+This project is developed to demonstrate how artificial intelligence can be applied at multiple levels of agricultural decision-making.
 
-# 🔮 Future Enhancements
-
-* AI Voice Assistant (Hindi + English)
-* Offline Android App
-* Weather-aware crop planning
-* Yield prediction model
-* Auto fertilizer schedule based on NDVI
-
----
-
-# ✨ Author
-
-**Gaurav — Machine Learning Engineer**
-Building practical & intelligent AI for agriculture 🌱
-
----
-
+License
+MIT License
+Free for educational and research use.
